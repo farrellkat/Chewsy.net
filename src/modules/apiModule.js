@@ -1,4 +1,4 @@
-import settings from "../components/settings"
+import settings from "./settings"
 
 export default {
     getAllCategories() {

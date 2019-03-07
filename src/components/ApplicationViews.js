@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import SearchForm from "./searchForm";
 import Login from "./authentication/Login"
 import apiModule from "../modules/apiModule";
@@ -32,10 +32,15 @@ export default class ApplicationViews extends Component {
                     return <Login {...props}/>
                 }} />
                 <Route exact path="/registration" render={(props) => {
-                    return <Registration {...props}/>
-                }} />
+                    return <Registration {...props} />
+                }}
+                />
                 <Route exact path="/" render={(props) => {
-                        return <SearchForm categories={this.state.categories} />
+                        if (this.isAuthenticated()) {
+                            return <SearchForm categories={this.state.categories} />
+                         } else {
+                                return <Redirect to="/login" />
+                              }
                     }
                 } />
             </React.Fragment>

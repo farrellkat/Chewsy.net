@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "jamesfarrellmusic@gmail.com",
+      "password": "1234",
+      "address": "939 Seymour Ave.",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206"
+    },
+    {
+      "email": "testkitchenstudios615@gmail.com",
+      "password": "1234",
+      "address": "939 Seymour Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "id": 2
+    },
+    {
+      "email": "jamesfarrell@gmail.com",
+      "password": "1234",
+      "address": "939 Seymour Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "id": 3
+    }
+  ]
+}

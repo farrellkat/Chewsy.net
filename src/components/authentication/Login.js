@@ -1,6 +1,13 @@
 import React, { Component } from "react"
 
 
+function validate(email, password) {
+    // true means invalid, so our conditions got reversed
+    return {
+      email: email.length === 0,
+      password: password.length === 0
+    };
+  }
 export default class Login extends Component {
 
     // Set initial state
@@ -9,6 +16,11 @@ export default class Login extends Component {
         password: "",
         rememberMe: false
     }
+
+    errors = {
+        name: false,
+        email: true,
+      }
 
     // Update state whenever an input field is edited
     handleFieldChange = (evt) => {
@@ -47,23 +59,21 @@ export default class Login extends Component {
             )
         }
     }
+
     //Build login form
     render() {
-        const { email, password } = this.state;
-        const isEnabled = email.length > 0 && password.length > 0;
+        const errors = validate(this.state.email, this.state.password);
+        const isEnabled = !Object.keys(errors).some(x => errors[x]);
+
         return (
             <form onSubmit={this.handleLogin} className="px-5 mt-5">
-            <header className="text-center mb-5">
-            <h1 className="text-info">TENDER</h1>
-            <h4>feast your eyes / go with your gut</h4>
-            </header>
                 <h1 className="h3 mb-3 font-weight-bold">Please sign in</h1>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="inputEmail">
                             Email address:
                 </label>
-                        <input onChange={this.handleFieldChange} className="form-control" type="email"
+                        <input onChange={this.handleFieldChange} className={errors.email ? "error form-control" : "form-control"} type="email"
                             id="email"
                             placeholder="Email address"
                             required="" autoFocus="" />
