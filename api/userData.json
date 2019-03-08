@@ -1,31 +1,48 @@
 {
   "users": [
     {
-      "id": 1,
       "email": "jamesfarrellmusic@gmail.com",
       "password": "1234",
-      "address": "939 Seymour Ave.",
+      "firstName": "James",
+      "lastName": "Farrell",
+      "address": "939 Seymour Ave",
       "city": "Nashville",
       "state": "TN",
-      "zipCode": "37206"
+      "zipCode": "37206",
+      "id": 1
     },
     {
       "email": "testkitchenstudios615@gmail.com",
       "password": "1234",
-      "address": "939 Seymour Ave",
-      "city": "Nashville",
-      "state": "TN",
-      "zipCode": "37206",
+      "firstName": "William",
+      "lastName": "James",
+      "address": "334 N Kenilworth Ave",
+      "city": "Oak Park",
+      "state": "IL",
+      "zipCode": "60302",
       "id": 2
     },
     {
-      "email": "jamesfarrell@gmail.com",
+      "email": "james@james.com",
       "password": "1234",
-      "address": "939 Seymour Ave",
+      "firstName": "James",
+      "lastName": "Jamerson",
+      "address": "334 N Kenilworth Ave",
+      "city": "Oak Park",
+      "state": "IL",
+      "zipCode": "60302",
+      "id": 3
+    },
+    {
+      "email": "steve@steve.com",
+      "password": "1234",
+      "firstName": "Steve",
+      "lastName": "Stevenson",
+      "address": "123 Main St",
       "city": "Nashville",
       "state": "TN",
       "zipCode": "37206",
-      "id": 3
+      "id": 4
     }
   ]
 }

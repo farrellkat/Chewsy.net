@@ -8,7 +8,7 @@ import Registration from "./authentication/Registration";
 
 export default class ApplicationViews extends Component {
 
-    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
 
     state = {
         categories: [],
@@ -25,6 +25,8 @@ export default class ApplicationViews extends Component {
             .then(() => this.setState(newState))
     }
 
+
+
     render() {
         return (
             <React.Fragment>
@@ -35,9 +37,10 @@ export default class ApplicationViews extends Component {
                     return <Registration {...props} />
                 }}
                 />
-                <Route exact path="/" render={(props) => {
+                <Route exact path="/search" render={(props) => {
                         if (this.isAuthenticated()) {
-                            return <SearchForm categories={this.state.categories} />
+                            return <SearchForm categories={this.state.categories}
+                            activeUser={this.props.activeUser}/>
                          } else {
                                 return <Redirect to="/login" />
                               }

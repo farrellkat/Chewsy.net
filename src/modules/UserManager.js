@@ -4,6 +4,9 @@ export default {
   get(id) {
     return fetch(`${settings.usersURL}/users/${id}`).then(e => e.json())
   },
+  matchLoginEmail(email) {
+    return fetch(`${settings.usersURL}/users/?email=${email}`).then(e => e.json())
+  },
   delete(id) {
     return fetch(`${settings.usersURL}/users/${id}`, {
       method: "DELETE"

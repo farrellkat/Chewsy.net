@@ -1,9 +1,15 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
+import apiModule from "../modules/apiModule";
 
 export default class SearchForm extends Component {
 
+    submitRestaurantQuery = () => {
+        apiModule.getRestaurants()
+    }
+
     render() {
+        console.log(sessionStorage.getItem("credentials"))
         return (
             <React.Fragment>
                     {
