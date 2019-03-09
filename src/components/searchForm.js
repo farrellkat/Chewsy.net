@@ -8,6 +8,18 @@ export default class SearchForm extends Component {
         apiModule.getRestaurants()
     }
 
+    state = {
+        category1: "",
+        category2: "",
+        category3: ""
+    }
+
+    handleFieldChange = evt => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+      };
+
     render() {
         console.log(sessionStorage.getItem("credentials"))
         return (
@@ -21,7 +33,8 @@ export default class SearchForm extends Component {
                                 <select className="custom-select"
                                     defaultValue=""
                                     name="categoryContainer"
-                                    id="categoryContainer"
+                                    id="category1"
+                                    onChange={this.handleFieldChange}
                                 >
                                     <option>Select a Category</option>
                                     {this.props.categories.map(c => (
@@ -37,7 +50,8 @@ export default class SearchForm extends Component {
                                 <select className="custom-select"
                                     defaultValue=""
                                     name="categoryContainer"
-                                    id="categoryContainer"
+                                    id="category2"
+                                    onChange={this.handleFieldChange}
                                 >
                                     <option>Select a Category</option>
                                     {this.props.categories.map(c => (
@@ -53,7 +67,8 @@ export default class SearchForm extends Component {
                                 <select className="custom-select"
                                     defaultValue=""
                                     name="categoryContainer"
-                                    id="categoryContainer"
+                                    id="category3"
+                                    onChange={this.handleFieldChange}
                                 >
                                     <option>Select a Category</option>
                                     {this.props.categories.map(c => (
