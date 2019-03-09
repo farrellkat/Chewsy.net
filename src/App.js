@@ -5,10 +5,14 @@ import NavBar from "./components/NavBar";
 import Header from "./components/Header";
 
 class App extends Component {
+
+  isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+
   render() {
+    let navHeader = this.isAuthenticated() ? <NavBar /> : '';
     return (
       <React.Fragment>
-        <NavBar />
+        {navHeader}
         <Header />
         <ApplicationViews />
       </React.Fragment>

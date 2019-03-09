@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
+import { Link } from "react-router-dom"
 
 function validate(email, password, firstName, lastName, address, city, state, zipCode) {
     // true means invalid, so our conditions got reversed
@@ -193,6 +194,7 @@ export default class Registration extends Component {
                             onClick={this.handleRegister}>
                             Register
                 </button>
+                <Link className="ml-5" to="/login">Login</Link>
                 </div>
             </form>
         )
