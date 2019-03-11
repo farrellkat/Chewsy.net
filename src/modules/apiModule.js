@@ -11,7 +11,7 @@ export default {
     getAllRadii() {
         return fetch(`${settings.appDataURL}/radius`).then(e => e.json())
     },
-    getRestaurantSeachTotal(city, state, radius, category1, category2, category3) {
+    getRestaurantSearchTotal(city, state, radius, category1, category2, category3) {
         return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
         &limit=1&categories=${category1}${category2}${category3}
         &radius=${radius}&term=restaurants`, {

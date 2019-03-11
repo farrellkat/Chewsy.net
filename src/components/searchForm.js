@@ -29,45 +29,45 @@ export default class SearchForm extends Component {
 
 
 
-    initialFoodSearch = () => {
-        this.props.getRandomOffset(
-            this.state.cityInput,
-            this.state.stateInput,
-            this.state.radiiInput,
-            this.state.category1,
-            this.state.category2,
-            this.state.category3).then(randomNumber => {
-                this.setState({
-                    randomNumber: randomNumber
-                })
-            }).then(()=>
-                apiModule.getRandomRestaurant(
-                    this.state.cityInput,
-                    this.state.stateInput,
-                    this.state.radiiInput,
-                    this.state.category1,
-                    this.state.category2,
-                    this.state.category3,
-                    this.state.randomNumber
-                )).then((res) => console.log(res))
-    }
+    // initialFoodSearch = () => {
+    //     this.props.getRandomOffset(
+    //         this.state.cityInput,
+    //         this.state.stateInput,
+    //         this.state.radiiInput,
+    //         this.state.category1,
+    //         this.state.category2,
+    //         this.state.category3).then(randomNumber => {
+    //             this.setState({
+    //                 randomNumber: randomNumber
+    //             })
+    //         }).then(()=>
+    //             apiModule.getRandomRestaurant(
+    //                 this.state.cityInput,
+    //                 this.state.stateInput,
+    //                 this.state.radiiInput,
+    //                 this.state.category1,
+    //                 this.state.category2,
+    //                 this.state.category3,
+    //                 this.state.randomNumber
+    //             )).then((res) => console.log(res))
+    // }
 
-    initialSurpriseSearch = () => {
-        this.props.getAllRandomOffset(
-            this.state.cityInput,
-            this.state.stateInput,
-            this.state.radiiInput).then(randomNumber => {
-                this.setState({
-                    randomNumber: randomNumber
-                })
-            }).then(()=>
-                apiModule.getRandomSurpriseRestaurant(
-                    this.state.cityInput,
-                    this.state.stateInput,
-                    this.state.radiiInput,
-                    this.state.randomNumber
-                )).then((res) => console.log(res, this.state.randomNumber))
-    }
+    // initialSurpriseSearch = () => {
+    //     this.props.getAllRandomOffset(
+    //         this.state.cityInput,
+    //         this.state.stateInput,
+    //         this.state.radiiInput).then(randomNumber => {
+    //             this.setState({
+    //                 randomNumber: randomNumber
+    //             })
+    //         }).then(()=>
+    //             apiModule.getRandomSurpriseRestaurant(
+    //                 this.state.cityInput,
+    //                 this.state.stateInput,
+    //                 this.state.radiiInput,
+    //                 this.state.randomNumber
+    //             )).then((res) => console.log(res, this.state.randomNumber))
+    // }
 
     render() {
         return (
@@ -177,6 +177,7 @@ export default class SearchForm extends Component {
                                             this.state.cityInput,
                                             this.state.stateInput,
                                             this.state.radiiInput)
+                                            this.props.initialFoodSearch()
                                     }}
                                     type="button">
                                     <strong>Let's eat!</strong>

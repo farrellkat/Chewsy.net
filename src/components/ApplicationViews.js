@@ -58,7 +58,7 @@ export default class ApplicationViews extends Component {
     getRandomNumber = (businesses) => Math.floor(Math.random() * businesses.total + 1)
 
     getRandomOffset = (city, state, radius, category1, category2, category3) =>
-        apiModule.getRestaurantSeachTotal(city, state, radius, category1, category2, category3)
+        apiModule.getRestaurantSearchTotal(city, state, radius, category1, category2, category3)
             .then((b) => {
                 const businessArray = b
                 const randomNumber = this.getRandomNumber(businessArray)
@@ -73,45 +73,45 @@ export default class ApplicationViews extends Component {
                 return randomNumber
             })
 
-    // initialFoodSearch = () => {
-    //     this.getRandomOffset(
-    //         this.state.cityInput,
-    //         this.state.stateInput,
-    //         this.state.radiiInput,
-    //         this.state.category1,
-    //         this.state.category2,
-    //         this.state.category3).then(randomNumber => {
-    //             this.setState({
-    //                 randomNumber: randomNumber
-    //             })
-    //         }).then(() =>
-    //             apiModule.getRandomRestaurant(
-    //                 this.state.cityInput,
-    //                 this.state.stateInput,
-    //                 this.state.radiiInput,
-    //                 this.state.category1,
-    //                 this.state.category2,
-    //                 this.state.category3,
-    //                 this.state.randomNumber
-    //             )).then((res) => console.log(res))
-    // }
+    initialFoodSearch = () => {
+        this.getRandomOffset(
+            this.state.cityInput,
+            this.state.stateInput,
+            this.state.radiiInput,
+            this.state.category1,
+            this.state.category2,
+            this.state.category3).then(randomNumber => {
+                this.setState({
+                    randomNumber: randomNumber
+                })
+            }).then(() =>
+                apiModule.getRandomRestaurant(
+                    this.state.cityInput,
+                    this.state.stateInput,
+                    this.state.radiiInput,
+                    this.state.category1,
+                    this.state.category2,
+                    this.state.category3,
+                    this.state.randomNumber
+                )).then((res) => console.log(res))
+    }
 
-    // initialSurpriseSearch = () => {
-    //     this.props.getAllRandomOffset(
-    //         this.state.cityInput,
-    //         this.state.stateInput,
-    //         this.state.radiiInput).then(randomNumber => {
-    //             this.setState({
-    //                 randomNumber: randomNumber
-    //             })
-    //         }).then(() =>
-    //             apiModule.getRandomSurpriseRestaurant(
-    //                 this.state.cityInput,
-    //                 this.state.stateInput,
-    //                 this.state.radiiInput,
-    //                 this.state.randomNumber
-    //             )).then((res) => console.log(res, this.state.randomNumber))
-    // }
+    initialSurpriseSearch = () => {
+        this.props.getAllRandomOffset(
+            this.state.cityInput,
+            this.state.stateInput,
+            this.state.radiiInput).then(randomNumber => {
+                this.setState({
+                    randomNumber: randomNumber
+                })
+            }).then(() =>
+                apiModule.getRandomSurpriseRestaurant(
+                    this.state.cityInput,
+                    this.state.stateInput,
+                    this.state.radiiInput,
+                    this.state.randomNumber
+                )).then((res) => console.log(res, this.state.randomNumber))
+    }
 
     render() {
         return (
@@ -132,6 +132,7 @@ export default class ApplicationViews extends Component {
                             getRandomOffset={this.getRandomOffset}
                             getAllRandomOffset={this.getAllRandomOffset}
                             updateUserState={this.updateUserState}
+                            initialFoodSearch={this.initialFoodSearch}
                             category1={this.state.category1}
                             category2={this.state.category2}
                             category3={this.state.category3}
