@@ -10,17 +10,19 @@ function validate(email, password) {
         password: password.length === 0
     };
 }
+
+
+
 export default class Login extends Component {
+
+    activeUserId = () => parseInt(sessionStorage.getItem("credentials"))
 
     // Set initial state
     state = {
         email: "",
         password: "",
         rememberMe: false,
-        userId: [],
-        city: "",
-        state: "",
-        zipCode: "",
+        activeUser: {}
     }
     errors = {
         name: false,
@@ -48,31 +50,31 @@ export default class Login extends Component {
             UserManager.matchLoginEmail(this.state.email)
                 .then((user) =>
                     sessionStorage.setItem(
-                        "credentials",
-                        JSON.stringify({
-                            userId: parseInt(user[0].id),
-                            address: user[0].address,
-                            city: user[0].city,
-                            state: user[0].state,
-                            zipCode: user[0].zipCode
-                        })
+                        "credentials", parseInt(user[0].id)
+                        // JSON.stringify({
+                        //     userId: parseInt(user[0].id),
+                        //     address: user[0].address,
+                        //     city: user[0].city,
+                        //     state: user[0].state,
+                        //     zipCode: user[0].zipCode
+                        // })
                     )
-                ).then(() => this.props.history.push("/search"))
+                ).then(this.props.getActiveUser)
+                .then(() => this.props.history.push("/search"))
         } else {
             //If checked set credentials to local storage
             UserManager.matchLoginEmail(this.state.email)
                 .then((user) => {
                     localStorage.setItem(
-                        "credentials",
-                        JSON.stringify({
-                            userId: parseInt(user[0].id),
-                            address: user[0].address,
-                            city: user[0].city,
-                            state: user[0].state,
-                            zipCode: user[0].zipCode
-                        })
+                        "credentials", parseInt(user[0].id)
+                        // JSON.stringify({
+                        //     userId: parseInt(user[0].id),
+                        //     address: user[0].address,
+                        //     city: user[0].city,
+                        //     state: user[0].state,
+                        //     zipCode: user[0].zipCode
+                        // })
                     )
-                    debugger
                     this.props.history.push("/search")
                 }
                 )
