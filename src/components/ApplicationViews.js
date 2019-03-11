@@ -13,7 +13,14 @@ export default class ApplicationViews extends Component {
         categories: [],
         activeUser: {},
         states: [],
-        radii: []
+        radii: [],
+        randomNumber: "",
+        category1: "",
+        category2: "",
+        category3: "",
+        cityInput: "",
+        stateInput: "",
+        radiiInput: "",
     }
 
     componentDidMount() {
@@ -37,9 +44,16 @@ export default class ApplicationViews extends Component {
             })
     }
 
-    // getRandomRestaurant() {
-    //     apiModule.getTotalRestaurants().then((b) => this.getRandomNumber(b.total)).then((getRandomNumber) => console.log(getRandomNumber))
-    // }
+    updateUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
+        this.setState({
+            category1: category1,
+            category2: category2,
+            category3: category3,
+            cityInput: cityInput,
+            stateInput: stateInput,
+            radiiInput: radiiInput
+        });
+    };
 
     getRandomNumber = (businesses) => Math.floor(Math.random() * businesses.total + 1)
 
@@ -59,6 +73,46 @@ export default class ApplicationViews extends Component {
                 return randomNumber
             })
 
+    // initialFoodSearch = () => {
+    //     this.getRandomOffset(
+    //         this.state.cityInput,
+    //         this.state.stateInput,
+    //         this.state.radiiInput,
+    //         this.state.category1,
+    //         this.state.category2,
+    //         this.state.category3).then(randomNumber => {
+    //             this.setState({
+    //                 randomNumber: randomNumber
+    //             })
+    //         }).then(() =>
+    //             apiModule.getRandomRestaurant(
+    //                 this.state.cityInput,
+    //                 this.state.stateInput,
+    //                 this.state.radiiInput,
+    //                 this.state.category1,
+    //                 this.state.category2,
+    //                 this.state.category3,
+    //                 this.state.randomNumber
+    //             )).then((res) => console.log(res))
+    // }
+
+    // initialSurpriseSearch = () => {
+    //     this.props.getAllRandomOffset(
+    //         this.state.cityInput,
+    //         this.state.stateInput,
+    //         this.state.radiiInput).then(randomNumber => {
+    //             this.setState({
+    //                 randomNumber: randomNumber
+    //             })
+    //         }).then(() =>
+    //             apiModule.getRandomSurpriseRestaurant(
+    //                 this.state.cityInput,
+    //                 this.state.stateInput,
+    //                 this.state.radiiInput,
+    //                 this.state.randomNumber
+    //             )).then((res) => console.log(res, this.state.randomNumber))
+    // }
+
     render() {
         return (
             <React.Fragment>
@@ -76,7 +130,14 @@ export default class ApplicationViews extends Component {
                             radii={this.state.radii}
                             activeUser={this.props.activeUser}
                             getRandomOffset={this.getRandomOffset}
-                            getAllRandomOffset={this.getAllRandomOffset}/>
+                            getAllRandomOffset={this.getAllRandomOffset}
+                            updateUserState={this.updateUserState}
+                            category1={this.state.category1}
+                            category2={this.state.category2}
+                            category3={this.state.category3}
+                            cityInput={this.state.cityInput}
+                            stateInput={this.state.stateInput}
+                            radiiInput={this.state.radiiInput}/>
                     } else {
                         return <Redirect to="/login" />
                     }

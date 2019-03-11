@@ -28,6 +28,7 @@ export default class SearchForm extends Component {
     };
 
 
+
     initialFoodSearch = () => {
         this.props.getRandomOffset(
             this.state.cityInput,
@@ -65,7 +66,7 @@ export default class SearchForm extends Component {
                     this.state.stateInput,
                     this.state.radiiInput,
                     this.state.randomNumber
-                )).then((res) => console.log(res))
+                )).then((res) => console.log(res, this.state.randomNumber))
     }
 
     render() {
@@ -168,7 +169,15 @@ export default class SearchForm extends Component {
                             <div className="input-group-append">
                                 <button
                                     className="btn btn-info"
-                                    onClick={this.initialFoodSearch}
+                                    onClick={()=>{
+                                        this.props.updateUserState(
+                                            this.state.category1,
+                                            this.state.category2,
+                                            this.state.category3,
+                                            this.state.cityInput,
+                                            this.state.stateInput,
+                                            this.state.radiiInput)
+                                    }}
                                     type="button">
                                     <strong>Let's eat!</strong>
                                 </button>
