@@ -48,36 +48,23 @@ export default class Login extends Component {
         // If remember me isn't checked set credentials to session storage
         if (this.state.rememberMe === false) {
             UserManager.matchLoginEmail(this.state.email)
-                .then((user) =>
-                    sessionStorage.setItem(
+                .then((user) => {
+                    localStorage.setItem(
                         "credentials", parseInt(user[0].id)
-                        // JSON.stringify({
-                        //     userId: parseInt(user[0].id),
-                        //     address: user[0].address,
-                        //     city: user[0].city,
-                        //     state: user[0].state,
-                        //     zipCode: user[0].zipCode
-                        // })
                     )
-                ).then(this.props.getActiveUser)
-                .then(() => this.props.history.push("/search"))
+                    this.props.history.push("/search")
+                })
+                .then(() =>
+                this.props.setActiveUser(localStorage.getItem("credentials")))
         } else {
             //If checked set credentials to local storage
             UserManager.matchLoginEmail(this.state.email)
                 .then((user) => {
                     localStorage.setItem(
                         "credentials", parseInt(user[0].id)
-                        // JSON.stringify({
-                        //     userId: parseInt(user[0].id),
-                        //     address: user[0].address,
-                        //     city: user[0].city,
-                        //     state: user[0].state,
-                        //     zipCode: user[0].zipCode
-                        // })
                     )
                     this.props.history.push("/search")
-                }
-                )
+                }).then(() => this.props.setActiveUser(localStorage.getItem("credentials")))
         }
     }
 

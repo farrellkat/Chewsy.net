@@ -1,3 +1,51 @@
 .error {
   border: 1px solid red;
 }
+
+.cardHolder {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.imgContainer {
+  display: flex;
+  background-color: peach;
+  margin: auto;
+}
+
+.buttonContainer {
+  width: inherit;
+  justify-content: space-between;
+}
+
+.cardImage{
+  width: inherit;
+}
+
+.restaurantInfoCardContainer{
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  box-shadow: 1px 20px 10px #AAA9B2;
+  padding: 5px;
+}
+.restaurantInfoImageContainer {
+  display: flex;
+  margin-right: 100px;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.restaurantInfoContainer {
+  color: black;
+}
+
+.restaurantInfoImage {
+  width:inherit;
+}
