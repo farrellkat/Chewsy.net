@@ -1,9 +1,6 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
-import apiModule from "../modules/apiModule";
-
-
-
+// import apiModule from "../modules/apiModule";
 
 export default class SearchForm extends Component {
     userId = sessionStorage.getItem("credentials")
@@ -26,47 +23,6 @@ export default class SearchForm extends Component {
         if (evt.target.value === "Select a Category") stateToChange[evt.target.id] = ""
         this.setState(stateToChange);
     };
-
-
-    initialFoodSearch = () => {
-        this.props.getRandomOffset(
-            this.state.cityInput,
-            this.state.stateInput,
-            this.state.radiiInput,
-            this.state.category1,
-            this.state.category2,
-            this.state.category3).then(randomNumber => {
-                this.setState({
-                    randomNumber: randomNumber
-                })
-            }).then(()=>
-                apiModule.getRandomRestaurant(
-                    this.state.cityInput,
-                    this.state.stateInput,
-                    this.state.radiiInput,
-                    this.state.category1,
-                    this.state.category2,
-                    this.state.category3,
-                    this.state.randomNumber
-                )).then((res) => console.log(res))
-    }
-
-    initialSurpriseSearch = () => {
-        this.props.getAllRandomOffset(
-            this.state.cityInput,
-            this.state.stateInput,
-            this.state.radiiInput).then(randomNumber => {
-                this.setState({
-                    randomNumber: randomNumber
-                })
-            }).then(()=>
-                apiModule.getRandomSurpriseRestaurant(
-                    this.state.cityInput,
-                    this.state.stateInput,
-                    this.state.radiiInput,
-                    this.state.randomNumber
-                )).then((res) => console.log(res))
-    }
 
     render() {
         return (
@@ -168,16 +124,35 @@ export default class SearchForm extends Component {
                             <div className="input-group-append">
                                 <button
                                     className="btn btn-info"
-                                    onClick={this.initialFoodSearch}
+                                    onClick={() => {
+                                        this.props.updateUserState(
+                                            this.state.category1,
+                                            this.state.category2,
+                                            this.state.category3,
+                                            this.state.cityInput,
+                                            this.state.stateInput,
+                                            this.state.radiiInput)
+                                            this.props.history.push("/cardviewer")
+                                    }}
                                     type="button">
                                     <strong>Let's eat!</strong>
                                 </button>
                             </div>
                             <div className="input-group-append ml-1">
                                 <button
-                                className="btn btn-danger"
-                                type="button"
-                                onClick={this.initialSurpriseSearch}><i>Surprise me</i></button>
+                                    className="btn btn-danger"
+                                    type="button"
+                                    onClick={() => {
+                                        this.setState({category1: "", category2: "", category3: ""})
+                                        this.props.updateSurpriseUserState(
+                                            this.state.category1,
+                                            this.state.category2,
+                                            this.state.category3,
+                                            this.state.cityInput,
+                                            this.state.stateInput,
+                                            this.state.radiiInput)
+                                            this.props.history.push("/cardviewer")
+                                    }}><i>Surprise me</i></button>
                             </div>
                         </section>
                     </form>

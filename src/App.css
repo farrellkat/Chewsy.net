@@ -1,3 +1,75 @@
 .error {
   border: 1px solid red;
 }
+
+.cardHolder {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.imgContainer {
+  display: flex;
+  background-color: peach;
+  margin: auto;
+}
+
+.buttonContainer {
+  width: inherit;
+  justify-content: space-between;
+}
+
+.cardImage{
+  width: inherit;
+}
+
+.restaurantInfoCardContainer{
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  box-shadow: 1px 1px 20px #AAA9B2;
+  padding: 25px;
+  background-color: rgb(5, 66, 109);
+  border: 20px solid white;
+  color: white;
+}
+.restaurantInfoImageContainer {
+  display: flex;
+  margin-right: 100px;
+  justify-content: left;
+  width: 300px;
+  border-radius: 2%;
+  overflow: hidden;
+  align-items: center;
+}
+
+.restaurantInfoContainer {
+  color: black;
+}
+
+.restaurantInfoImage {
+  width:inherit;
+  border-radius: 5px;
+}
+
+.mainCardHeader {
+  margin-bottom: 20px;
+}
+
+.mainCardRestaurantName {
+  margin-bottom: 0px;
+}
+
+.MainCardAddressContainer {
+  margin-bottom: 15px;
+}
+
+.additionalInfo {
+  margin-bottom: 15px;
+}
+
+.ratingAndPrice {
+  margin-bottom: 15px;
+}
