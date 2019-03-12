@@ -6,6 +6,7 @@ import apiModule from "../modules/apiModule";
 import Registration from "./authentication/Registration";
 import CardViewer from "./CardViewer";
 import MainRestaurantCard from "./MainRestaurantCard";
+import ErrorBoundary from "./ErrorBoundary";
 // import UserManager from "../modules/UserManager"
 export default class ApplicationViews extends Component {
 
@@ -27,11 +28,11 @@ export default class ApplicationViews extends Component {
         businessImage: "",
     }
 
-setActiveUser = (userId) => {
-    this.setState({
-        activeUser: userId
-    })
-}
+    setActiveUser = (userId) => {
+        this.setState({
+            activeUser: userId
+        })
+    }
 
     componentDidMount() {
         const newState = {}
@@ -96,17 +97,17 @@ setActiveUser = (userId) => {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                res.businesses[0].image_url !== "undefined" ? (
-                    this.setState({
-                        businessInfo: res.businesses,
-                        businessImage: res.businesses[0].image_url
-                    })
-                ) : (
+                    res.businesses[0].image_url !== "undefined" ? (
                         this.setState({
                             businessInfo: res.businesses,
-                            businessImage: "Picture Unavailable"
+                            businessImage: res.businesses[0].image_url
                         })
-                    )
+                    ) : (
+                            this.setState({
+                                businessInfo: res.businesses,
+                                businessImage: "Picture Unavailable"
+                            })
+                        )
                 })
     }
 
@@ -115,6 +116,7 @@ setActiveUser = (userId) => {
             this.state.cityInput,
             this.state.stateInput,
             this.state.radiiInput).then(randomNumber => {
+                console.log(randomNumber)
                 this.setState({
                     randomNumber: randomNumber
                 })
@@ -125,21 +127,28 @@ setActiveUser = (userId) => {
                     this.state.radiiInput,
                     this.state.randomNumber
                 )).then((res) => {
-                res.businesses[0].image_url !== "undefined" ? (
-                    this.setState({
-                        businessInfo: res.businesses,
-                        businessImage: res.businesses[0].image_url
-                    })
-                ) : (
+                    res.businesses[0].image_url !== "undefined" ? (
                         this.setState({
                             businessInfo: res.businesses,
-                            businessImage: "Picture Unavailable"
+                            businessImage: res.businesses[0].image_url
                         })
-                    )
+                    ) : (
+                            this.setState({
+                                businessInfo: res.businesses,
+                                businessImage: "Picture Unavailable"
+                            })
+                        )
                 })
     }
 
-    getRandomNumber = (businesses) => Math.floor(Math.random() * businesses.total + 1)
+    getRandomNumber = (businesses) => {
+        if(businesses.total < 1000) {
+           return Math.floor(Math.random() * businesses.total + 1)
+        } else {
+            const total = 1000
+           return Math.floor(Math.random() * total + 1)
+        }
+    }
 
     getRandomOffset = (city, state, radius, category1, category2, category3) =>
         apiModule.getRestaurantSearchTotal(city, state, radius, category1, category2, category3)
@@ -200,9 +209,9 @@ setActiveUser = (userId) => {
                 <Route exact path="/restaurantinfo" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <MainRestaurantCard
-                            {...props}
-                            businessInfo={this.state.businessInfo}
-                        />
+                                {...props}
+                                businessInfo={this.state.businessInfo}
+                            />
                     } else {
                         return <Redirect to="/login" />
                     }

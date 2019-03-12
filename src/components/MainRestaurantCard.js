@@ -14,8 +14,13 @@ export default class MainRestaurantCard extends Component {
                             className="restaurantInfoImage"></img>
                     </div>
                     <div className="restaurantInfoContainer">
-                        <h1>{this.props.businessInfo[0].name}</h1>
-                        <div className="MainCardAddressContainer">
+                        <div className="mainCardHeader">
+                            <h1 className="mainCardRestaurantName display-4 text-light">{this.props.businessInfo[0].name}</h1>
+                            {this.props.businessInfo[0].categories.map(category =>
+                                <small className="text-muted"><i>{category.title}&nbsp;</i></small>
+                                )}
+                        </div>
+                        <div className="MainCardAddressContainer text-light">
                             <div>Address:</div>
                             <div>
                                 {this.props.businessInfo[0].location.address1}
@@ -26,11 +31,11 @@ export default class MainRestaurantCard extends Component {
                                 {this.props.businessInfo[0].location.zip_code}
                             </div>
                         </div>
-                        <div className="additionalInfo">
+                        <div className="additionalInfo text-light">
                             <div>Phone Number: {this.props.businessInfo[0].display_phone}</div>
                             <div>Business Website: <a href={this.props.businessInfo[0].url} target="_blank">{this.props.businessInfo[0].name}</a></div>
                         </div>
-                        <div className="ratingAndPrice">
+                        <div className="ratingAndPrice text-light">
                             <div>Rating: {this.props.businessInfo[0].rating}/5</div>
                             <div>Price: {this.props.businessInfo[0].price}</div>
                         </div>
