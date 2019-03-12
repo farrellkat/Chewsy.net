@@ -29,8 +29,10 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 80%;
-  box-shadow: 1px 20px 10px #AAA9B2;
-  padding: 5px;
+  box-shadow: 1px 1px 20px #AAA9B2;
+  padding: 25px;
+  background-color: rgb(207, 241, 233);
+  border: 20px solid white;
 }
 .restaurantInfoImageContainer {
   display: flex;
@@ -48,4 +50,16 @@
 
 .restaurantInfoImage {
   width:inherit;
+}
+
+.MainCardAddressContainer {
+  margin-bottom: 15px;
+}
+
+.additionalInfo {
+  margin-bottom: 15px;
+}
+
+.ratingAndPrice {
+  margin-bottom: 15px;
 }
