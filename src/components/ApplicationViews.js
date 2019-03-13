@@ -7,14 +7,17 @@ import Registration from "./authentication/Registration";
 import CardViewer from "./CardViewer";
 import MainRestaurantCard from "./MainRestaurantCard";
 import ErrorBoundary from "./ErrorBoundary";
-// import UserManager from "../modules/UserManager"
+import UserManager from "../modules/UserManager"
+import Favorites from "./Favorites";
 export default class ApplicationViews extends Component {
 
     isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
 
     state = {
         categories: [],
-        activeUser: {},
+        activeUser: "",
+        userCity: "",
+        userState: "",
         states: [],
         radii: [],
         randomNumber: "",
@@ -28,31 +31,55 @@ export default class ApplicationViews extends Component {
         businessImage: "",
     }
 
-    setActiveUser = (userId) => {
+    setLocation = () => UserManager.get(this.state.activeUser).then((r) =>
         this.setState({
-            activeUser: userId
-        })
+            userCity: r.city,
+            userState: r.state,
+            cityInput: r.city,
+            stateInput: r.state
+        }))
+
+    postFavoriteRestaurant = (favoriteRestaurant) => {
+        UserManager.addUserFavorite(favoriteRestaurant)
     }
 
+    saveFavoriteRestaurant = (userId, id, name, image, location, phone, rating) => {
+        const favoriteRestaurant = {
+            userId: userId,
+            id: id,
+            name: name,
+            image: image,
+            location: location,
+            phone: phone,
+            rating: rating
+        }
+        this.postFavoriteRestaurant(favoriteRestaurant)
+    }
     componentDidMount() {
         const newState = {}
-
         apiModule.getAllCategories().then(allCategories => {
             this.setState({
                 categories: allCategories
             })
         })
-            .then(() => this.setState(newState))
-            .then(() => apiModule.getAllStates()).then(allStates => {
-                this.setState({
-                    states: allStates
+            .then(() =>
+                this.setState(newState))
+            .then(() =>
+                apiModule.getAllStates()).then(allStates => {
+                    this.setState({
+                        states: allStates
+                    })
                 })
-            })
-            .then(() => apiModule.getAllRadii()).then(allRadii => {
-                this.setState({
-                    radii: allRadii
+            .then(() =>
+                apiModule.getAllRadii()).then(allRadii => {
+                    this.setState({
+                        radii: allRadii
+                    })
                 })
-            })
+            .then(() =>
+                this.setState({
+                    businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
+                }))
     }
 
     updateUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
@@ -62,7 +89,8 @@ export default class ApplicationViews extends Component {
             category3: category3,
             cityInput: cityInput,
             stateInput: stateInput,
-            radiiInput: radiiInput
+            radiiInput: radiiInput,
+            businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.FoodSearch());
     };
     updateSurpriseUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
@@ -72,7 +100,8 @@ export default class ApplicationViews extends Component {
             category3: category3,
             cityInput: cityInput,
             stateInput: stateInput,
-            radiiInput: radiiInput
+            radiiInput: radiiInput,
+            businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.SurpriseSearch());
     };
 
@@ -85,7 +114,8 @@ export default class ApplicationViews extends Component {
             this.state.category2,
             this.state.category3).then(randomNumber => {
                 this.setState({
-                    randomNumber: randomNumber
+                    randomNumber: randomNumber,
+                    businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
                 apiModule.getRandomRestaurant(
@@ -118,7 +148,8 @@ export default class ApplicationViews extends Component {
             this.state.radiiInput).then(randomNumber => {
                 console.log(randomNumber)
                 this.setState({
-                    randomNumber: randomNumber
+                    randomNumber: randomNumber,
+                    businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
                 apiModule.getRandomSurpriseRestaurant(
@@ -142,11 +173,11 @@ export default class ApplicationViews extends Component {
     }
 
     getRandomNumber = (businesses) => {
-        if(businesses.total < 1000) {
-           return Math.floor(Math.random() * businesses.total + 1)
+        if (businesses.total < 1000) {
+            return Math.floor(Math.random() * businesses.total + 1)
         } else {
-            const total = 1000
-           return Math.floor(Math.random() * total + 1)
+            const total = 999
+            return Math.floor(Math.random() * total + 1)
         }
     }
 
@@ -170,7 +201,10 @@ export default class ApplicationViews extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/login" render={(props) => {
-                    return <Login {...props} setActiveUser={this.setActiveUser} />
+                    return <Login {...props}
+                        setActiveUser={this.setActiveUser}
+                        setLocation={this.setLocation}
+                        activeUser={this.state.activeUser} />
                 }} />
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props} />
@@ -179,29 +213,34 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <SearchForm
                             {...props}
+                            userCity={this.state.userCity}
+                            userState={this.state.userState}
                             categories={this.state.categories}
                             states={this.state.states}
                             radii={this.state.radii}
-                            activeUser={this.props.activeUser}
+                            activeUser={this.state.activeUser}
                             getRandomOffset={this.getRandomOffset}
                             getAllRandomOffset={this.getAllRandomOffset}
                             updateUserState={this.updateUserState}
                             updateSurpriseUserState={this.updateSurpriseUserState}
                         />
+
                     } else {
                         return <Redirect to="/login" />
                     }
                 }} />
                 <Route exact path="/cardviewer" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <CardViewer
-                            {...props}
-                            businessInfo={this.state.businessInfo}
-                            businessImage={this.state.businessImage}
-                            activeUser={this.props.activeUser}
-                            FoodSearch={this.FoodSearch}
-                            SurpriseSearch={this.SurpriseSearch}
-                        />
+                        return <ErrorBoundary>
+                            <CardViewer
+                                {...props}
+                                businessInfo={this.state.businessInfo}
+                                businessImage={this.state.businessImage}
+                                activeUser={this.props.activeUser}
+                                FoodSearch={this.FoodSearch}
+                                SurpriseSearch={this.SurpriseSearch}
+                            />
+                        </ErrorBoundary>
                     } else {
                         return <Redirect to="/login" />
                     }
@@ -209,9 +248,22 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/restaurantinfo" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <MainRestaurantCard
-                                {...props}
-                                businessInfo={this.state.businessInfo}
-                            />
+                            {...props}
+                            businessInfo={this.state.businessInfo}
+                            businessId={this.businessId}
+                            saveFavoriteRestaurant={this.saveFavoriteRestaurant}
+                            activeUser={this.state.activeUser}
+                        />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/favorites" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <Favorites
+                            {...props}
+                        >
+                        </Favorites>
                     } else {
                         return <Redirect to="/login" />
                     }

@@ -24,6 +24,15 @@ export default {
       body: JSON.stringify(obj)
     }).then(data => data.json())
   },
+  addUserFavorite(obj) {
+    return fetch(`${settings.appDataURL}/favorites`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(data => data.json())
+  },
   searchUP(email, password) {
     return fetch(
       `${settings.appDataURL}/users?email=${email}&password=${password}`

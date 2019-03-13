@@ -1,8 +1,9 @@
 import React, { Component } from "react"
+import {Button} from "reactstrap"
 
 export default class MainRestaurantCard extends Component {
     render() {
-        console.log(this.props.businessInfo)
+        const activeUser = sessionStorage.getItem("credentials")
         return (
             <React.Fragment>
                 <section className="restaurantInfoCardContainer">
@@ -39,6 +40,21 @@ export default class MainRestaurantCard extends Component {
                             <div>Rating: {this.props.businessInfo[0].rating}/5</div>
                             <div>Price: {this.props.businessInfo[0].price}</div>
                         </div>
+                    </div>
+                    <div className="mainCardButtonContainer">
+                    <Button color="warning"
+                    onClick={()=>
+                    this.props.saveFavoriteRestaurant(
+                        activeUser,
+                        this.props.businessInfo[0].id,
+                        this.props.businessInfo[0].name,
+                        this.props.businessInfo[0].image_url,
+                        this.props.businessInfo[0].location,
+                        this.props.businessInfo[0].display_phone,
+                        this.props.businessInfo[0].rating,
+                        this.props.businessInfo[0].url,
+                        this.props.businessInfo[0].price)
+                    }>Save to Favorites</Button>
                     </div>
                 </section>
             </React.Fragment >

@@ -15,7 +15,16 @@ export default class SearchForm extends Component {
         randomNumber: "",
     }
 
+    // getDefaultStateValue = () => {return this.props.states.find(state => state.abbreviation === this.props.userState)}
 
+    // console.log(getDefaultStateValue)
+
+    componentDidMount() {
+        this.setState({
+            cityInput: this.props.userCity,
+            stateInput: this.props.userState
+        })
+    }
 
     handleFieldChange = evt => {
         const stateToChange = {};
@@ -34,15 +43,16 @@ export default class SearchForm extends Component {
                             <input
                                 id="cityInput"
                                 type="text"
+                                // defaultValue={this.props.userCity}
                                 required
                                 className="form-control col-md-2 mr-1"
                                 placeholder="City"
                                 onChange={this.handleFieldChange}
                             />
                             <select className="custom-select col-md-1 mr-1"
-                                defaultValue=""
                                 name="stateOption"
                                 id="stateInput"
+                                // defaultValue={this.state.stateInput}
                                 onChange={this.handleFieldChange}
                             >
                                 <option>State</option>
@@ -157,6 +167,7 @@ export default class SearchForm extends Component {
                         </section>
                     </form>
                 }
+                <div className="bigText">{this.state.cityInput} {this.state.stateInput}</div>
             </React.Fragment>
         );
     }
