@@ -54,8 +54,8 @@ export default class Login extends Component {
                     )
                     this.props.history.push("/search")
                 })
-                // .then(() =>
-                //     this.props.setActiveUser(sessionStorage.getItem("credentials")))
+                .then(() =>
+                    this.props.setActiveUser(parseInt(sessionStorage.getItem("credentials"))))
             .then(()=> this.props.setLocation())
         } else {
             //If checked set credentials to local storage
@@ -66,7 +66,7 @@ export default class Login extends Component {
                     )
                     this.props.history.push("/search")
                 })
-                // .then(() => this.props.setActiveUser(localStorage.getItem("credentials")))
+                .then(() => this.props.setActiveUser(parseInt(localStorage.getItem("credentials"))))
                 .then(()=> this.props.setLocation())
         }
     }

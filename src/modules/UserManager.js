@@ -15,6 +15,10 @@ export default {
   getAll() {
     return fetch(`${settings.appDataURL}/users`).then(e => e.json())
   },
+  getUserFavorites(id) {
+    console.log("hi")
+    return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
+  },
   addUser(obj) {
     return fetch(`${settings.appDataURL}/users`, {
       method: "POST",

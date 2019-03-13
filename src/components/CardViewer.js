@@ -5,10 +5,6 @@ import "../App.css"
 
 export default class CardViewer extends Component {
 
-    addDefaultSrc(ev){
-        ev.target.src = '../../img/time.png'
-      }
-
     render() {
         return (
             <section className="cardHolder">

@@ -15,7 +15,7 @@ export default class ApplicationViews extends Component {
 
     state = {
         categories: [],
-        activeUser: "",
+        activeUser: parseInt(""),
         userCity: "",
         userState: "",
         states: [],
@@ -29,6 +29,7 @@ export default class ApplicationViews extends Component {
         radiiInput: "",
         businessInfo: "",
         businessImage: "",
+        userFavorites: []
     }
 
     setLocation = () => UserManager.get(this.state.activeUser).then((r) =>
@@ -38,6 +39,20 @@ export default class ApplicationViews extends Component {
             cityInput: r.city,
             stateInput: r.state
         }))
+
+    setActiveUser = (id) => {
+        this.setState({
+            activeUser: parseInt(id)
+        })
+    }
+
+    checkUserId = () => {
+            if (sessionStorage.getItem("credentials") !== "") {
+                this.setState({ activeUser: parseInt(sessionStorage.getItem("credentials")) })
+            } else {
+                this.setState({activeUser: parseInt(localStorage.getItem("credentials")) })
+            }
+    }
 
     postFavoriteRestaurant = (favoriteRestaurant) => {
         UserManager.addUserFavorite(favoriteRestaurant)
@@ -251,8 +266,9 @@ export default class ApplicationViews extends Component {
                             {...props}
                             businessInfo={this.state.businessInfo}
                             businessId={this.businessId}
-                            saveFavoriteRestaurant={this.saveFavoriteRestaurant}
+                            postFavoriteRestaurant={this.postFavoriteRestaurant}
                             activeUser={this.state.activeUser}
+                            checkUserId={this.checkUserId}
                         />
                     } else {
                         return <Redirect to="/login" />
@@ -262,6 +278,9 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <Favorites
                             {...props}
+                            activeUser={this.state.activeUser}
+                            userFavorites={this.state.userFavorites}
+                            checkUserId={this.checkUserId}
                         >
                         </Favorites>
                     } else {

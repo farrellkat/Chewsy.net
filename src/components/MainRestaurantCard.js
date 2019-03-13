@@ -2,8 +2,32 @@ import React, { Component } from "react"
 import {Button} from "reactstrap"
 
 export default class MainRestaurantCard extends Component {
+
+    saveFavoriteRestaurant = (userId, id, name, image, location, phone, rating) => {
+        const favoriteRestaurant = {
+            userId: userId,
+            id: id,
+            name: name,
+            image: image,
+            location: location,
+            phone: phone,
+            rating: rating
+        }
+        this.props.postFavoriteRestaurant(favoriteRestaurant)
+        this.props.history.push("/favorites")
+    }
+
+    state = {
+        favorites: [],
+        activeUser: parseInt("")
+    }
+
+    componentDidMount() {
+            this.props.checkUserId()
+    }
+
     render() {
-        const activeUser = sessionStorage.getItem("credentials")
+        // const activeUser = sessionStorage.getItem("credentials")
         return (
             <React.Fragment>
                 <section className="restaurantInfoCardContainer">
@@ -42,10 +66,11 @@ export default class MainRestaurantCard extends Component {
                         </div>
                     </div>
                     <div className="mainCardButtonContainer">
-                    <Button color="warning"
+                    <Button
+                    color="warning"
                     onClick={()=>
-                    this.props.saveFavoriteRestaurant(
-                        activeUser,
+                    this.saveFavoriteRestaurant(
+                        this.props.activeUser,
                         this.props.businessInfo[0].id,
                         this.props.businessInfo[0].name,
                         this.props.businessInfo[0].image_url,

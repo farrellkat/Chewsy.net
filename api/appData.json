@@ -58,12 +58,54 @@
   ],
   "favorites": [
     {
-      "userId": "1",
-      "id": "8FE4V7Y5HliQ2bP-szn_sA",
-      "name": "Pour House Burgers Bourbon & Brews",
-      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/DfsA-4QBcX7ddsQnNQecOg/o.jpg",
+      "userId": 1,
+      "id": "Oo9jD4_U2lXJR7J98ixwUw",
+      "name": "Deacon's New South",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/k3CtG37ijpiMYQM1PjrWTg/o.jpg",
       "location": {
-        "address1": "730 8th Ave S",
+        "address1": "401 Church St",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37219",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "401 Church St",
+          "Nashville, TN 37219"
+        ]
+      },
+      "phone": "(615) 994-1994",
+      "rating": 3.5
+    },
+    {
+      "userId": 1,
+      "id": "1xBNndHICRMXyZ-5itRq5g",
+      "name": "Hugh Baby's",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/5H9RYURE4xQmtgu1xIIUkQ/o.jpg",
+      "location": {
+        "address1": "3001 West End Ave",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "3001 West End Ave",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 610-3382",
+      "rating": 4.5
+    },
+    {
+      "userId": "1",
+      "id": "DuB7JAFDaR6RUJRLU1Avbw",
+      "name": "Chipotle Mexican Grill",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/YWeVxxVJK7n4BkOk2Ka23g/o.jpg",
+      "location": {
+        "address1": "400 21st Ave S",
         "address2": "",
         "address3": "",
         "city": "Nashville",
@@ -71,54 +113,55 @@
         "country": "US",
         "state": "TN",
         "display_address": [
-          "730 8th Ave S",
+          "400 21st Ave S",
           "Nashville, TN 37203"
         ]
       },
-      "phone": "(615) 736-5727",
-      "rating": 3
+      "phone": "(615) 777-0890",
+      "rating": 2.5
     },
     {
-      "userId": "1",
-      "id": "P1Oxdcr6lZtzg2onGYXAww",
-      "name": "SILO Germantown",
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/GlnN4x2tW-0m61tWdXDLAQ/o.jpg",
+      "userId": 1,
+      "id": "zmYpN67Tw2gixqkaO67sLQ",
+      "name": "Tom + Chee - Nashville",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/OUCtPki4WoNxMV3HhFmXBg/o.jpg",
       "location": {
-        "address1": "1121 5th Ave N",
-        "address2": "",
+        "address1": "6702 Charlotte Pike",
+        "address2": "Ste 105",
         "address3": "",
         "city": "Nashville",
-        "zip_code": "37208",
+        "zip_code": "37209",
         "country": "US",
         "state": "TN",
         "display_address": [
-          "1121 5th Ave N",
-          "Nashville, TN 37208"
+          "6702 Charlotte Pike",
+          "Ste 105",
+          "Nashville, TN 37209"
         ]
       },
-      "phone": "(615) 750-2912",
+      "phone": "(615) 490-6127",
       "rating": 4
     },
     {
-      "userId": "3",
-      "id": "hRoAl3MoV3_D9W9Vi7x3ZA",
-      "name": "Josephine",
-      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/gzsB7lqSDG9kdGL0VLOY2g/o.jpg",
+      "userId": 1,
+      "id": "G8pVaj3yS503ah8fxncDVA",
+      "name": "Dozen Bakery",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/kVyqCkeqhDoT8ZXBAZB4kQ/o.jpg",
       "location": {
-        "address1": "2316 12th Ave S",
+        "address1": "516 Hagan St",
         "address2": "",
         "address3": "",
         "city": "Nashville",
-        "zip_code": "37204",
+        "zip_code": "37203",
         "country": "US",
         "state": "TN",
         "display_address": [
-          "2316 12th Ave S",
-          "Nashville, TN 37204"
+          "516 Hagan St",
+          "Nashville, TN 37203"
         ]
       },
-      "phone": "(615) 292-7766",
-      "rating": 4
+      "phone": "(615) 712-8150",
+      "rating": 4.5
     }
   ],
   "states": [
