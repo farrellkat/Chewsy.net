@@ -12,13 +12,6 @@ export default {
       method: "DELETE"
     }).then(e => e.json())
   },
-  getAll() {
-    return fetch(`${settings.appDataURL}/users`).then(e => e.json())
-  },
-  getUserFavorites(id) {
-    console.log("hi")
-    return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
-  },
   addUser(obj) {
     return fetch(`${settings.appDataURL}/users`, {
       method: "POST",
@@ -27,6 +20,17 @@ export default {
       },
       body: JSON.stringify(obj)
     }).then(data => data.json())
+  },
+  getAll() {
+    return fetch(`${settings.appDataURL}/users`).then(e => e.json())
+  },
+        deleteFavorite(id) {
+          return fetch(`${settings.appDataURL}/favorites/${id}`, {
+            method: "DELETE"
+          }).then(e => e.json())
+        },
+  getUserFavorites(id) {
+    return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
   },
   addUserFavorite(obj) {
     return fetch(`${settings.appDataURL}/favorites`, {

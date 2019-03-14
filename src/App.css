@@ -28,7 +28,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 80%;
   box-shadow: 1px 1px 20px #AAA9B2;
   padding: 25px;
   background-color: rgb(5, 66, 109);

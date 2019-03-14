@@ -280,7 +280,6 @@ export default class ApplicationViews extends Component {
                             {...props}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
-                            checkUserId={this.checkUserId}
                         >
                         </Favorites>
                     } else {
