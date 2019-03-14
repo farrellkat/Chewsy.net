@@ -9,6 +9,7 @@ import MainRestaurantCard from "./MainRestaurantCard";
 import ErrorBoundary from "./ErrorBoundary";
 import UserManager from "../modules/UserManager"
 import Favorites from "./Favorites";
+import FavoriteEditForm from "./FavoriteEditForm";
 export default class ApplicationViews extends Component {
 
     isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
@@ -286,6 +287,12 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/login" />
                     }
                 }} />
+                 <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {
+                        return <FavoriteEditForm
+                                    {...props}
+                                    />
+                    }}
+                    />
             </React.Fragment>
         );
     }

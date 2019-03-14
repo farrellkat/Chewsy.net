@@ -98,7 +98,8 @@
       },
       "phone": "(615) 988-1020",
       "rating": 3,
-      "id": 4
+      "id": 4,
+      "notes": "Could have been better..."
     },
     {
       "userId": 3,
@@ -164,7 +165,8 @@
       },
       "phone": "(615) 320-8580",
       "rating": 4,
-      "id": 7
+      "id": 7,
+      "notes": "Loved!"
     },
     {
       "userId": 1,
@@ -517,6 +519,29 @@
       "phone": "(615) 750-3490",
       "rating": 4.5,
       "id": 23
+    },
+    {
+      "userId": 1,
+      "restaurantId": "5quqExjLtFNhykec_na8pg",
+      "name": "Bombay Palace Restaurant",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/tfUmkmEv1F-GyD85VMXUBA/o.jpg",
+      "location": {
+        "address1": "2912 W End Ave",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2912 W End Ave",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 321-6140",
+      "rating": 4,
+      "notes": "",
+      "id": 24
     }
   ],
   "states": [

@@ -24,13 +24,25 @@ export default {
   getAll() {
     return fetch(`${settings.appDataURL}/users`).then(e => e.json())
   },
-        deleteFavorite(id) {
-          return fetch(`${settings.appDataURL}/favorites/${id}`, {
-            method: "DELETE"
-          }).then(e => e.json())
-        },
+  updateFavorite(id, obj) {
+    return fetch(`${settings.appDataURL}/favorites/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(data => data.json())
+  },
+  deleteFavorite(id) {
+    return fetch(`${settings.appDataURL}/favorites/${id}`, {
+      method: "DELETE"
+    }).then(e => e.json())
+  },
   getUserFavorites(id) {
     return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
+  },
+  getOneUserFavorite(id) {
+    return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
   },
   addUserFavorite(obj) {
     return fetch(`${settings.appDataURL}/favorites`, {
