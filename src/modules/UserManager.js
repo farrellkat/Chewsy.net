@@ -12,11 +12,40 @@ export default {
       method: "DELETE"
     }).then(e => e.json())
   },
+  addUser(obj) {
+    return fetch(`${settings.appDataURL}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(data => data.json())
+  },
   getAll() {
     return fetch(`${settings.appDataURL}/users`).then(e => e.json())
   },
-  addUser(obj) {
-    return fetch(`${settings.appDataURL}/users`, {
+  updateFavorite(id, obj) {
+    return fetch(`${settings.appDataURL}/favorites/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(data => data.json())
+  },
+  deleteFavorite(id) {
+    return fetch(`${settings.appDataURL}/favorites/${id}`, {
+      method: "DELETE"
+    }).then(e => e.json())
+  },
+  getUserFavorites(id) {
+    return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
+  },
+  getOneUserFavorite(id) {
+    return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
+  },
+  addUserFavorite(obj) {
+    return fetch(`${settings.appDataURL}/favorites`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

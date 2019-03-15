@@ -1,10 +1,73 @@
 import React, { Component } from "react"
+import { Button, Alert } from "reactstrap"
+import UserManager from "../modules/UserManager"
 
 export default class MainRestaurantCard extends Component {
+
+        state = {
+            favorites: [],
+            visible: false,
+            saveButton: "",
+            favButtonValue: false
+        }
+
+        checkIfFavorite = (restaurantId) => {
+            this.state.favorites.find((favorite) => {
+                // console.log(favorite)
+                if(favorite.restaurantId === restaurantId) {
+                    this.setState({
+                        saveButton: "Favorited",
+                        favButtonValue: true
+                    })
+                }
+            })
+        }
+
+        saveFavoriteRestaurant = (userId, id, name, image, location, phone, rating) => {
+
+            const favoriteRestaurant = {
+                userId: userId,
+                restaurantId: id,
+                name: name,
+                image: image,
+                location: location,
+                phone: phone,
+                rating: rating,
+                notes: ""
+            }
+            this.props.postFavoriteRestaurant(favoriteRestaurant)
+            this.setState({
+                visible: true,
+                saveButton: "Favorited",
+                favButtonValue: true
+            })
+        }
+
+        onDismiss = () => {
+            this.setState({ visible: false });
+        }
+
+        componentDidMount() {
+            UserManager.getUserFavorites(this.props.activeUser).then((favorites) => {
+                this.setState({
+                    favorites: favorites,
+                    favButtonValue: false,
+                    saveButton: "Save to your favorites",
+                })
+                    this.checkIfFavorite(this.props.businessInfo[0].id)
+            })
+}
+
     render() {
-        console.log(this.props.businessInfo)
+        // const activeUser = sessionStorage.getItem("credentials")
         return (
             <React.Fragment>
+                <div style={{marginLeft: 200, marginRight: 200, marginTop: 20}}>
+                <Alert color="success" isOpen={this.state.visible} toggle={this.onDismiss}>
+        Saved to your favorites!
+      </Alert>
+
+                <Button style={{marginBottom:10}}color="info" onClick={()=> this.props.history.push("/cardviewer")}>Still Hungry?</Button>
                 <section className="restaurantInfoCardContainer">
                     <div className="restaurantInfoImageContainer">
                         <img
@@ -13,12 +76,12 @@ export default class MainRestaurantCard extends Component {
                             rel="noopener noreferrer"
                             className="restaurantInfoImage"></img>
                     </div>
-                    <div className="restaurantInfoContainer">
+                    <div style={{maxWidth:500}}className="restaurantInfoContainer">
                         <div className="mainCardHeader">
                             <h1 className="mainCardRestaurantName display-4 text-light">{this.props.businessInfo[0].name}</h1>
                             {this.props.businessInfo[0].categories.map(category =>
                                 <small className="text-muted"><i>{category.title}&nbsp;</i></small>
-                                )}
+                            )}
                         </div>
                         <div className="MainCardAddressContainer text-light">
                             <div>Address:</div>
@@ -39,8 +102,26 @@ export default class MainRestaurantCard extends Component {
                             <div>Rating: {this.props.businessInfo[0].rating}/5</div>
                             <div>Price: {this.props.businessInfo[0].price}</div>
                         </div>
+                    <div className="mainCardButtonContainer">
+                        <Button
+                            disabled={this.state.favButtonValue}
+                            color="warning"
+                            onClick={() =>
+                                this.saveFavoriteRestaurant(
+                                    this.props.activeUser,
+                                    this.props.businessInfo[0].id,
+                                    this.props.businessInfo[0].name,
+                                    this.props.businessInfo[0].image_url,
+                                    this.props.businessInfo[0].location,
+                                    this.props.businessInfo[0].display_phone,
+                                    this.props.businessInfo[0].rating,
+                                    this.props.businessInfo[0].url,
+                                    this.props.businessInfo[0].price)
+                            }>{this.state.saveButton}</Button>
+                    </div>
                     </div>
                 </section>
+                </div>
             </React.Fragment >
         )
     }

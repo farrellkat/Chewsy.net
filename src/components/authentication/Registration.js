@@ -61,7 +61,7 @@ export default class Registration extends Component {
                             zipCode: user.zipCode
 
                         }))
-                        this.props.history.push("/search")
+                        this.props.history.push("/")
                         this.props.setAuth()
                     })
                 }

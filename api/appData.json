@@ -43,277 +43,849 @@
       "state": "TN",
       "zipCode": "37206",
       "id": 4
+    },
+    {
+      "email": "allegrafarrell@gmail.com",
+      "password": "1234",
+      "firstName": "Allegra",
+      "lastName": "Farrell",
+      "address": "123 main street",
+      "city": "Nashville",
+      "state": "tn",
+      "zipCode": "37206",
+      "id": 5
     }
   ],
-  "states":
-    [
-      {
+  "favorites": [
+    {
+      "userId": 1,
+      "restaurantId": "VaPj2Mpu0IpsUoisyTCAUg",
+      "name": "That Awesome Taco Truck",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/FLNZdiwRRog0mLRiGpDuzA/o.jpg",
+      "location": {
+        "address1": "",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 243-3736",
+      "rating": 3.5,
+      "id": 2,
+      "userRating": 3
+    },
+    {
+      "userId": 1,
+      "restaurantId": "Q4cn2oFL-AKiYr14devS8Q",
+      "name": "Grabbagreen Nashville",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/JlslSvoOfoRSF3Z2D9707A/o.jpg",
+      "location": {
+        "address1": "111 17th Ave S",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "111 17th Ave S",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 988-1020",
+      "rating": 3,
+      "id": 4,
+      "notes": "Love!",
+      "userRating": 4
+    },
+    {
+      "userId": 3,
+      "restaurantId": "DpbHQG4QKnWJQ81kLsEosQ",
+      "name": "Tex's World Famous Bar-B-Q",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/2SnUE_sfcnionUuReiAUKg/o.jpg",
+      "location": {
+        "address1": "1013 Foster Ave",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37210",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1013 Foster Ave",
+          "Nashville, TN 37210"
+        ]
+      },
+      "phone": "(615) 254-8715",
+      "rating": 4,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "restaurantId": "Ejeicx8j1gvBDyI1w9lZlg",
+      "name": "Jefferson Street Cafe",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/6lIwCQKgpwYcjmjtMxxsvg/o.jpg",
+      "location": {
+        "address1": "1821 Jefferson St",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1821 Jefferson St",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(615) 750-3973",
+      "rating": 4.5,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "restaurantId": "ltBBYdNzkeKdCNPDAsxwAA",
+      "name": "Tavern",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/MkSYX-V3iS1tl1VIobDPvw/o.jpg",
+      "location": {
+        "address1": "1904 Broadway",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1904 Broadway",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 320-8580",
+      "rating": 4,
+      "id": 7,
+      "notes": "Loved!"
+    },
+    {
+      "userId": 1,
+      "restaurantId": "hRoAl3MoV3_D9W9Vi7x3ZA",
+      "name": "Josephine",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/gzsB7lqSDG9kdGL0VLOY2g/o.jpg",
+      "location": {
+        "address1": "2316 12th Ave S",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37204",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2316 12th Ave S",
+          "Nashville, TN 37204"
+        ]
+      },
+      "phone": "(615) 292-7766",
+      "rating": 4,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "restaurantId": "lrffZkUTTf-qAyGex9sOwA",
+      "name": "Delicias Las Catrachas",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/WInGyfq9jrtM-RYmF8UpeA/o.jpg",
+      "location": {
+        "address1": "2518 Nolensville Pike",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2518 Nolensville Pike",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 686-5783",
+      "rating": 5,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "restaurantId": "dBNfyR0RRX-w1SMuYYF3-A",
+      "name": "The Jam Coffee House",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/zfDJRaTKOlHL2FeJsqoeyg/o.jpg",
+      "location": {
+        "address1": "1210 Wedgewood Ave",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37212",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1210 Wedgewood Ave",
+          "Nashville, TN 37212"
+        ]
+      },
+      "phone": "(615) 823-3292",
+      "rating": 4,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "restaurantId": "quUQsNwaNWSLedV1W7Geyw",
+      "name": "Red's 615 Kitchen",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/1ruZxHKTRTV5vQRUdQSUEQ/o.jpg",
+      "location": {
+        "address1": null,
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "Nashville, TN"
+        ]
+      },
+      "phone": "(615) 400-1454",
+      "rating": 4.5,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "restaurantId": "Ppfih0Ek1DzO3DgIJ1riEg",
+      "name": "Pita & Grill",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/eUNht8Btj0lS6GIyUEyUww/o.jpg",
+      "location": {
+        "address1": "2403 Nolensville Pike",
+        "address2": "Ste 105",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2403 Nolensville Pike",
+          "Ste 105",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 736-2099",
+      "rating": 1.5,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "restaurantId": "5DJ2sDvM_XRndlB24DnxYw",
+      "name": "Adele's Nashville",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/PVDBVeeaHGJj_rlEj1QXTA/o.jpg",
+      "location": {
+        "address1": "1210 McGavock St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1210 McGavock St",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 988-9700",
+      "rating": 4,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "restaurantId": "UlGS2NxZSiph33E3nfovRw",
+      "name": "Whiskey Kitchen",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/me4qtWYV-gdOJzMKmGkP4A/o.jpg",
+      "location": {
+        "address1": "118 12th Ave S",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "118 12th Ave S",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 254-3029",
+      "rating": 3.5,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "restaurantId": "4SRl5od0lY33oK1GMbA23A",
+      "name": "Husk",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/WsIlMx2Yhr3bxrkHeRbe8g/o.jpg",
+      "location": {
+        "address1": "37 Rutledge St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37210",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "37 Rutledge St",
+          "Nashville, TN 37210"
+        ]
+      },
+      "phone": "(615) 256-6565",
+      "rating": 4,
+      "id": 15,
+      "notes": "Had the chicken. It. Was. Delicious!"
+    },
+    {
+      "userId": 1,
+      "restaurantId": "VAeEXLbEcI9Emt9KGYq9aA",
+      "name": "The Pharmacy",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/H-LcK9X6pBAp4DOUMcAUfA/o.jpg",
+      "location": {
+        "address1": "731 McFerrin Ave",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "731 McFerrin Ave",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 712-9517",
+      "rating": 4,
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "restaurantId": "tbHOEjIECq0788WNYVj4bQ",
+      "name": "Legumes Ethiopian Vegetarian Restaurant",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/6nT8s5uOiu8-X-S0bvQP5g/o.jpg",
+      "location": {
+        "address1": "900 Rosa L Parks Blvd",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "900 Rosa L Parks Blvd",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(615) 495-5083",
+      "rating": 5,
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "restaurantId": "MwFLVJ_f_ITjvZI6SRPAdw",
+      "name": "Swagruha Fine Indian Cuisine",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/0mJQZkbUy15k9vnupcJU0w/o.jpg",
+      "location": {
+        "address1": "900 8th Ave N",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "900 8th Ave N",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(615) 736-7001",
+      "rating": 4,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "restaurantId": "aIflpZXlmofFGelTlqgGEQ",
+      "name": "Inchin's Bamboo Garden",
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/NJlmbV2FQTi9uJ1nfz-oag/o.jpg",
+      "location": {
+        "address1": "1800 West End Ave",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1800 West End Ave",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 540-0634",
+      "rating": 4,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "restaurantId": "VOEMn_VFIXdURXLPPms_TA",
+      "name": "Gojo Ethiopian",
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/zrsY1lLt2Y-KmrKyxoWa7g/o.jpg",
+      "location": {
+        "address1": "415 W Thompson Ln",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "415 W Thompson Ln",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 332-0710",
+      "rating": 4.5,
+      "id": 20,
+      "notes": "My favorite Ethiopian place in town. Definitely get the vegetarian combo and make sure to get the potatoes.",
+      "userRating": 5
+    },
+    {
+      "userId": 1,
+      "restaurantId": "O5w-GuNCARANWyDzUO3ReA",
+      "name": "Awash Ethiopian Restaurant",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/kB3Pk74PxiRdmXTprvkMBw/o.jpg",
+      "location": {
+        "address1": "976 Murfreesboro Pike",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37217",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "976 Murfreesboro Pike",
+          "Nashville, TN 37217"
+        ]
+      },
+      "phone": "(615) 366-9911",
+      "rating": 4.5,
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "restaurantId": "St_OHgYAn5czLy0naZwseA",
+      "name": "Sitar Indian Restaurant",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/9_xUsBiECo8gvywk4SUjng/o.jpg",
+      "location": {
+        "address1": "116 21st Ave N",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "116 21st Ave N",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 321-8889",
+      "rating": 4,
+      "id": 22
+    },
+    {
+      "userId": 1,
+      "restaurantId": "foFpx3znhLJvnplex8aqww",
+      "name": "Taj Indian Restaurant",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/5D7eb3MLpXcEcPoqV3laQQ/o.jpg",
+      "location": {
+        "address1": "3943 Nolensville Pike",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "3943 Nolensville Pike",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 750-3490",
+      "rating": 4.5,
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "restaurantId": "5quqExjLtFNhykec_na8pg",
+      "name": "Bombay Palace Restaurant",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/tfUmkmEv1F-GyD85VMXUBA/o.jpg",
+      "location": {
+        "address1": "2912 W End Ave",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2912 W End Ave",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 321-6140",
+      "rating": 4,
+      "notes": "",
+      "id": 24
+    },
+    {
+      "userId": 5,
+      "restaurantId": "gGK9oTurV0N5UxPGUs3_sw",
+      "name": "Saint Stephen",
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/4NCVcW7eESm7qb2e9SKgXw/o.jpg",
+      "location": {
+        "address1": "1300 3rd Ave N",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1300 3rd Ave N",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(615) 974-0121",
+      "rating": 4,
+      "notes": "",
+      "id": 25
+    },
+    {
+      "userId": 5,
+      "restaurantId": "TKzt7jlAgLRJe4vzQje1bA",
+      "name": "Portland Brew",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/PRqi7AmIREnrgxsMgYsg0g/o.jpg",
+      "location": {
+        "address1": "2605 12th Ave S",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37204",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2605 12th Ave S",
+          "Nashville, TN 37204"
+        ]
+      },
+      "phone": "(615) 732-2003",
+      "rating": 3.5,
+      "notes": "",
+      "id": 26
+    },
+    {
+      "userId": 1,
+      "restaurantId": "HKjB6JWmaKSho9CUjjYIYA",
+      "name": "The Urban Juicer",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/qo54geYKUWsFb7YRxk2Trg/o.jpg",
+      "location": {
+        "address1": "21 Arcade Aly",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37219",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "21 Arcade Aly",
+          "Nashville, TN 37219"
+        ]
+      },
+      "phone": "",
+      "rating": 4.5,
+      "notes": "",
+      "id": 27
+    }
+  ],
+  "states": [
+    {
       "name": "Alabama",
       "abbreviation": "AL"
-      },
-      {
+    },
+    {
       "name": "Alaska",
       "abbreviation": "AK"
-      },
-      {
+    },
+    {
       "name": "American Samoa",
       "abbreviation": "AS"
-      },
-      {
+    },
+    {
       "name": "Arizona",
       "abbreviation": "AZ"
-      },
-      {
+    },
+    {
       "name": "Arkansas",
       "abbreviation": "AR"
-      },
-      {
+    },
+    {
       "name": "California",
       "abbreviation": "CA"
-      },
-      {
+    },
+    {
       "name": "Colorado",
       "abbreviation": "CO"
-      },
-      {
+    },
+    {
       "name": "Connecticut",
       "abbreviation": "CT"
-      },
-      {
+    },
+    {
       "name": "Delaware",
       "abbreviation": "DE"
-      },
-      {
+    },
+    {
       "name": "District Of Columbia",
       "abbreviation": "DC"
-      },
-      {
+    },
+    {
       "name": "Federated States Of Micronesia",
       "abbreviation": "FM"
-      },
-      {
+    },
+    {
       "name": "Florida",
       "abbreviation": "FL"
-      },
-      {
+    },
+    {
       "name": "Georgia",
       "abbreviation": "GA"
-      },
-      {
+    },
+    {
       "name": "Guam",
       "abbreviation": "GU"
-      },
-      {
+    },
+    {
       "name": "Hawaii",
       "abbreviation": "HI"
-      },
-      {
+    },
+    {
       "name": "Idaho",
       "abbreviation": "ID"
-      },
-      {
+    },
+    {
       "name": "Illinois",
       "abbreviation": "IL"
-      },
-      {
+    },
+    {
       "name": "Indiana",
       "abbreviation": "IN"
-      },
-      {
+    },
+    {
       "name": "Iowa",
       "abbreviation": "IA"
-      },
-      {
+    },
+    {
       "name": "Kansas",
       "abbreviation": "KS"
-      },
-      {
+    },
+    {
       "name": "Kentucky",
       "abbreviation": "KY"
-      },
-      {
+    },
+    {
       "name": "Louisiana",
       "abbreviation": "LA"
-      },
-      {
+    },
+    {
       "name": "Maine",
       "abbreviation": "ME"
-      },
-      {
+    },
+    {
       "name": "Marshall Islands",
       "abbreviation": "MH"
-      },
-      {
+    },
+    {
       "name": "Maryland",
       "abbreviation": "MD"
-      },
-      {
+    },
+    {
       "name": "Massachusetts",
       "abbreviation": "MA"
-      },
-      {
+    },
+    {
       "name": "Michigan",
       "abbreviation": "MI"
-      },
-      {
+    },
+    {
       "name": "Minnesota",
       "abbreviation": "MN"
-      },
-      {
+    },
+    {
       "name": "Mississippi",
       "abbreviation": "MS"
-      },
-      {
+    },
+    {
       "name": "Missouri",
       "abbreviation": "MO"
-      },
-      {
+    },
+    {
       "name": "Montana",
       "abbreviation": "MT"
-      },
-      {
+    },
+    {
       "name": "Nebraska",
       "abbreviation": "NE"
-      },
-      {
+    },
+    {
       "name": "Nevada",
       "abbreviation": "NV"
-      },
-      {
+    },
+    {
       "name": "New Hampshire",
       "abbreviation": "NH"
-      },
-      {
+    },
+    {
       "name": "New Jersey",
       "abbreviation": "NJ"
-      },
-      {
+    },
+    {
       "name": "New Mexico",
       "abbreviation": "NM"
-      },
-      {
+    },
+    {
       "name": "New York",
       "abbreviation": "NY"
-      },
-      {
+    },
+    {
       "name": "North Carolina",
       "abbreviation": "NC"
-      },
-      {
+    },
+    {
       "name": "North Dakota",
       "abbreviation": "ND"
-      },
-      {
+    },
+    {
       "name": "Northern Mariana Islands",
       "abbreviation": "MP"
-      },
-      {
+    },
+    {
       "name": "Ohio",
       "abbreviation": "OH"
-      },
-      {
+    },
+    {
       "name": "Oklahoma",
       "abbreviation": "OK"
-      },
-      {
+    },
+    {
       "name": "Oregon",
       "abbreviation": "OR"
-      },
-      {
+    },
+    {
       "name": "Palau",
       "abbreviation": "PW"
-      },
-      {
+    },
+    {
       "name": "Pennsylvania",
       "abbreviation": "PA"
-      },
-      {
+    },
+    {
       "name": "Puerto Rico",
       "abbreviation": "PR"
-      },
-      {
+    },
+    {
       "name": "Rhode Island",
       "abbreviation": "RI"
-      },
-      {
+    },
+    {
       "name": "South Carolina",
       "abbreviation": "SC"
-      },
-      {
+    },
+    {
       "name": "South Dakota",
       "abbreviation": "SD"
-      },
-      {
+    },
+    {
       "name": "Tennessee",
       "abbreviation": "TN"
-      },
-      {
+    },
+    {
       "name": "Texas",
       "abbreviation": "TX"
-      },
-      {
+    },
+    {
       "name": "Utah",
       "abbreviation": "UT"
-      },
-      {
+    },
+    {
       "name": "Vermont",
       "abbreviation": "VT"
-      },
-      {
+    },
+    {
       "name": "Virgin Islands",
       "abbreviation": "VI"
-      },
-      {
+    },
+    {
       "name": "Virginia",
       "abbreviation": "VA"
-      },
-      {
+    },
+    {
       "name": "Washington",
       "abbreviation": "WA"
-      },
-      {
+    },
+    {
       "name": "West Virginia",
       "abbreviation": "WV"
-      },
-      {
+    },
+    {
       "name": "Wisconsin",
       "abbreviation": "WI"
-      },
-      {
+    },
+    {
       "name": "Wyoming",
       "abbreviation": "WY"
-      }
-      ],
-      "radius": [
-        {
-          "id": 1,
-          "radius": "1 mi",
-          "value": 1609
-        },
-        {
-          "id": 2,
-          "radius": "5 mi",
-          "value": 8046
-        },
-        {
-          "id": 3,
-          "radius": "10 mi",
-          "value": 16093
-        },
-        {
-          "id": 4,
-          "radius": "15 mi",
-          "value": 24140
-        },
-        {
-          "id": 5,
-          "radius": "20 mi",
-          "value": 32186
-        },
-        {
-          "id": 6,
-          "radius": "25 mi",
-          "value": 40233
-        }
-      ]
+    }
+  ],
+  "radius": [
+    {
+      "id": 1,
+      "radius": "1 mi",
+      "value": 1609
+    },
+    {
+      "id": 2,
+      "radius": "5 mi",
+      "value": 8046
+    },
+    {
+      "id": 3,
+      "radius": "10 mi",
+      "value": 16093
+    },
+    {
+      "id": 4,
+      "radius": "15 mi",
+      "value": 24140
+    },
+    {
+      "id": 5,
+      "radius": "20 mi",
+      "value": 32186
+    },
+    {
+      "id": 6,
+      "radius": "25 mi",
+      "value": 40233
+    }
+  ]
 }

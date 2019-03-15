@@ -15,14 +15,14 @@ function validate(email, password) {
 
 export default class Login extends Component {
 
-    activeUserId = () => parseInt(sessionStorage.getItem("credentials"))
+    // activeUserId = () => parseInt(sessionStorage.getItem("credentials"))
 
     // Set initial state
     state = {
         email: "",
         password: "",
         rememberMe: false,
-        activeUser: {}
+        // activeUser: ""
     }
     errors = {
         name: false,
@@ -49,13 +49,14 @@ export default class Login extends Component {
         if (this.state.rememberMe === false) {
             UserManager.matchLoginEmail(this.state.email)
                 .then((user) => {
-                    localStorage.setItem(
+                    sessionStorage.setItem(
                         "credentials", parseInt(user[0].id)
                     )
-                    this.props.history.push("/search")
+                    this.props.history.push("/")
                 })
                 .then(() =>
-                this.props.setActiveUser(localStorage.getItem("credentials")))
+                    this.props.setActiveUser(parseInt(sessionStorage.getItem("credentials"))))
+            .then(()=> this.props.setLocation())
         } else {
             //If checked set credentials to local storage
             UserManager.matchLoginEmail(this.state.email)
@@ -63,8 +64,10 @@ export default class Login extends Component {
                     localStorage.setItem(
                         "credentials", parseInt(user[0].id)
                     )
-                    this.props.history.push("/search")
-                }).then(() => this.props.setActiveUser(localStorage.getItem("credentials")))
+                    this.props.history.push("/")
+                })
+                .then(() => this.props.setActiveUser(parseInt(localStorage.getItem("credentials"))))
+                .then(()=> this.props.setLocation())
         }
     }
 
