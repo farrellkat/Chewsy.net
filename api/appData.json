@@ -76,7 +76,8 @@
       },
       "phone": "(615) 243-3736",
       "rating": 3.5,
-      "id": 2
+      "id": 2,
+      "userRating": 3
     },
     {
       "userId": 1,
@@ -99,7 +100,8 @@
       "phone": "(615) 988-1020",
       "rating": 3,
       "id": 4,
-      "notes": "Could have been better..."
+      "notes": "Love!",
+      "userRating": 4
     },
     {
       "userId": 3,
@@ -342,7 +344,8 @@
       },
       "phone": "(615) 256-6565",
       "rating": 4,
-      "id": 15
+      "id": 15,
+      "notes": "Had the chicken. It. Was. Delicious!"
     },
     {
       "userId": 1,
@@ -452,7 +455,9 @@
       },
       "phone": "(615) 332-0710",
       "rating": 4.5,
-      "id": 20
+      "id": 20,
+      "notes": "My favorite Ethiopian place in town. Definitely get the vegetarian combo and make sure to get the potatoes.",
+      "userRating": 5
     },
     {
       "userId": 1,
@@ -542,6 +547,75 @@
       "rating": 4,
       "notes": "",
       "id": 24
+    },
+    {
+      "userId": 5,
+      "restaurantId": "gGK9oTurV0N5UxPGUs3_sw",
+      "name": "Saint Stephen",
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/4NCVcW7eESm7qb2e9SKgXw/o.jpg",
+      "location": {
+        "address1": "1300 3rd Ave N",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1300 3rd Ave N",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(615) 974-0121",
+      "rating": 4,
+      "notes": "",
+      "id": 25
+    },
+    {
+      "userId": 5,
+      "restaurantId": "TKzt7jlAgLRJe4vzQje1bA",
+      "name": "Portland Brew",
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/PRqi7AmIREnrgxsMgYsg0g/o.jpg",
+      "location": {
+        "address1": "2605 12th Ave S",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37204",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2605 12th Ave S",
+          "Nashville, TN 37204"
+        ]
+      },
+      "phone": "(615) 732-2003",
+      "rating": 3.5,
+      "notes": "",
+      "id": 26
+    },
+    {
+      "userId": 1,
+      "restaurantId": "HKjB6JWmaKSho9CUjjYIYA",
+      "name": "The Urban Juicer",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/qo54geYKUWsFb7YRxk2Trg/o.jpg",
+      "location": {
+        "address1": "21 Arcade Aly",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37219",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "21 Arcade Aly",
+          "Nashville, TN 37219"
+        ]
+      },
+      "phone": "",
+      "rating": 4.5,
+      "notes": "",
+      "id": 27
     }
   ],
   "states": [

@@ -36,7 +36,11 @@ export default class MainRestaurantCard extends Component {
                 notes: ""
             }
             this.props.postFavoriteRestaurant(favoriteRestaurant)
-            this.setState({visible: true})
+            this.setState({
+                visible: true,
+                saveButton: "Favorited",
+                favButtonValue: true
+            })
         }
 
         onDismiss = () => {

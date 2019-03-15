@@ -52,7 +52,7 @@ export default class Login extends Component {
                     sessionStorage.setItem(
                         "credentials", parseInt(user[0].id)
                     )
-                    this.props.history.push("/search")
+                    this.props.history.push("/")
                 })
                 .then(() =>
                     this.props.setActiveUser(parseInt(sessionStorage.getItem("credentials"))))
@@ -64,7 +64,7 @@ export default class Login extends Component {
                     localStorage.setItem(
                         "credentials", parseInt(user[0].id)
                     )
-                    this.props.history.push("/search")
+                    this.props.history.push("/")
                 })
                 .then(() => this.props.setActiveUser(parseInt(localStorage.getItem("credentials"))))
                 .then(()=> this.props.setLocation())

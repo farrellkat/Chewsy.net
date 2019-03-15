@@ -225,7 +225,7 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props} />
                 }} />
-                <Route exact path="/search" render={(props) => {
+                <Route exact path="/" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <SearchForm
                             {...props}
