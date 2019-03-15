@@ -21,7 +21,7 @@ export default {
       body: JSON.stringify(obj)
     }).then(data => data.json())
   },
-  getAll() {
+  getAllUsers() {
     return fetch(`${settings.appDataURL}/users`).then(e => e.json())
   },
   updateFavorite(id, obj) {

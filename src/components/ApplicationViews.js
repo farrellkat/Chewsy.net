@@ -10,6 +10,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import UserManager from "../modules/UserManager"
 import Favorites from "./Favorites";
 import FavoriteEditForm from "./FavoriteEditForm";
+import Friends from "./Friends";
 export default class ApplicationViews extends Component {
 
     isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
@@ -283,6 +284,18 @@ export default class ApplicationViews extends Component {
                             userFavorites={this.state.userFavorites}
                         >
                         </Favorites>
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/friends" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <Friends
+                            {...props}
+                            activeUser={this.state.activeUser}
+                            userFavorites={this.state.userFavorites}
+                        >
+                        </Friends>
                     } else {
                         return <Redirect to="/login" />
                     }

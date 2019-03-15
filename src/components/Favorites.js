@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button} from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button} from 'reactstrap';
 
 export default class Favorites extends Component {
     state = {

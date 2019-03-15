@@ -18,7 +18,12 @@ class NavBar extends Component {
                 </ul>
                 <ul className="nav nav-pills">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/favorites">favorites</Link>
+                        <Link className="nav-link" to="/favorites">Favorites</Link>
+                    </li>
+                </ul>
+                <ul className="nav nav-pills">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/friends">Friends</Link>
                     </li>
                 </ul>
                 <ul className="nav nav-pills">
