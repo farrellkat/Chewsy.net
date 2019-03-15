@@ -41,11 +41,26 @@ export default {
   getUserFavorites(id) {
     return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
   },
+  getAllFavorites(id) {
+    return fetch(`${settings.appDataURL}/favorites/`).then(e => e.json())
+  },
   getOneUserFavorite(id) {
     return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
   },
   addUserFavorite(obj) {
     return fetch(`${settings.appDataURL}/favorites`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(data => data.json())
+  },
+  getAllFriends(id) {
+    return fetch(`${settings.appDataURL}/friends/?userId=${id}`).then(e => e.json())
+  },
+  addNewFriend(obj) {
+    return fetch(`${settings.appDataURL}/friends`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -10,6 +10,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import UserManager from "../modules/UserManager"
 import Favorites from "./Favorites";
 import FavoriteEditForm from "./FavoriteEditForm";
+import FindFriends from "./FindFriends";
 import Friends from "./Friends";
 export default class ApplicationViews extends Component {
 
@@ -224,7 +225,8 @@ export default class ApplicationViews extends Component {
                         activeUser={this.state.activeUser} />
                 }} />
                 <Route exact path="/registration" render={(props) => {
-                    return <Registration {...props} />
+                    return <Registration {...props}
+                    states={this.state.states} />
                 }} />
                 <Route exact path="/" render={(props) => {
                     if (this.isAuthenticated()) {
@@ -288,12 +290,26 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/login" />
                     }
                 }} />
+                <Route exact path="/findfriends" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <FindFriends
+                            {...props}
+                            activeUser={this.state.activeUser}
+                            userFavorites={this.state.userFavorites}
+                            friends={this.state.friends}
+                        >
+                        </FindFriends>
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
                 <Route exact path="/friends" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <Friends
                             {...props}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
+                            friends={this.state.friends}
                         >
                         </Friends>
                     } else {

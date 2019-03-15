@@ -64,6 +64,9 @@ export default class Login extends Component {
                     localStorage.setItem(
                         "credentials", parseInt(user[0].id)
                     )
+                    sessionStorage.setItem(
+                        "credentials", parseInt(user[0].id)
+                    )
                     this.props.history.push("/")
                 })
                 .then(() => this.props.setActiveUser(parseInt(localStorage.getItem("credentials"))))

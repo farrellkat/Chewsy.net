@@ -1,50 +1,50 @@
 import React, { Component } from "react"
-import { Button, Row, Col, Container, Form, FormGroup, Label, Input } from "reactstrap"
-import UserManager from "../modules/UserManager";
-import "../App.css"
+import UserManager from "../modules/UserManager"
+import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button} from 'reactstrap';
 
-export default class Friends extends Component {
-
+export default class Favorites extends Component {
     state = {
-        users: []
+        favorites: [],
     }
 
     componentDidMount() {
-        UserManager.getAllUsers().then((users) =>
-            users.map(user =>
+            UserManager.getAllFavorites()
+            .then((favorites) => favorites.filter((favorite) => favorite.userId !== this.props.activeUser))
+            .then((favorites) => {
                 this.setState({
-                    users: users
+                    favorites: favorites
                 })
-            )
-        )
+            })
     }
 
     render() {
         return (
-            <React.Fragment>
-                <div style={{marginBottom: 50}} className="searchContainer">
-            <Form inline>
-            <FormGroup>
-              <Input type="text" name="searchForm" id="searchForm" style={{marginRight:5}}/>
-            </FormGroup>
-              <Button color="info">Search</Button>
-            </Form>
-            </div>
-
-            <section className="friendListContainer">
+            <CardGroup className="favorites" style={{margin:20, justifyContent:"center"}}>
                 {
-                    this.state.users.map(user =>
-                        <Container style={{ marginBottom: 10}} className="mainFriendContainer">
-                            <Row className="friendContainer" style={{ marginBottom: 10 }}>
-                                <Col xs="3" className="friendName">{user.firstName} {user.lastName}</Col>
-                                <Col xs="3" className="friendCity">{user.city}, {user.state} </Col>
-                                <Button color="primary" className="addFriendButton">Add Friend</Button>
-                            </Row>
-                        </Container>
+                    this.state.favorites.map(favorite =>
+                        <Card key={favorite.restaurantId} id={favorite.id} style={{maxWidth:350, minWidth:350, margin:5}}>
+                            <CardImg width="100%" src={favorite.image} />
+                            <CardBody>
+                                <CardTitle style={{marginBottom:10}}><h4>{favorite.name}</h4></CardTitle>
+                                <CardText><strong>Yelp rating: </strong>{favorite.rating}</CardText>
+                                <CardText><strong>My rating: </strong>{favorite.userRating}</CardText>
+                                <CardText style={{marginBottom:0}}><strong>Address:</strong></CardText>
+                                <CardText>{favorite.location.address1}<br/>
+                                {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}</CardText>
+                                <CardText><strong>Phone:</strong>{favorite.phone}</CardText>
+                                <CardText style={{marginBottom: 0}}><strong>Notes:</strong></CardText>
+                                <CardText>{favorite.notes}</CardText>
+                                <Button
+                                color="primary"
+                                style={{marginRight: 10}}
+                                onClick={()=>this.props.history.push(`/favorites/${favorite.id}/edit`)}
+                                >Add Note</Button>
+                                <Button color="danger" onClick={() => this.deleteFavorite(favorite.id)}>Remove</Button>
+                            </CardBody>
+                        </Card>
                     )
                 }
-            </section>
-            </React.Fragment>
+            </CardGroup>
         )
     }
 }

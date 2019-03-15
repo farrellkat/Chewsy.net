@@ -54,6 +54,50 @@
       "state": "tn",
       "zipCode": "37206",
       "id": 5
+    },
+    {
+      "email": "frank@gmail.com",
+      "password": "1234",
+      "firstName": "Frank",
+      "lastName": "Franklin",
+      "address": "123 Redville. Road",
+      "city": "",
+      "state": "AL",
+      "zipCode": "11111",
+      "id": 6
+    },
+    {
+      "email": "charles@incharge.com",
+      "password": "1234",
+      "firstName": "Charles",
+      "lastName": "InCharge",
+      "address": "123 Main St.",
+      "city": "Ankorage",
+      "state": "AK",
+      "zipCode": "11111",
+      "id": 7
+    },
+    {
+      "email": "mo.leslie.silvera@gmail.com",
+      "password": "password",
+      "firstName": "Mo",
+      "lastName": "Silvera",
+      "address": "1922 b 14th ave n",
+      "city": "nashville",
+      "state": "TN",
+      "zipCode": "37208",
+      "id": 8
+    },
+    {
+      "email": "brianbneal@gmail.com",
+      "password": "admin",
+      "firstName": "Brian",
+      "lastName": "Neal",
+      "address": "1412 Phillips St",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37208",
+      "id": 9
     }
   ],
   "favorites": [
@@ -616,9 +660,100 @@
       "rating": 4.5,
       "notes": "",
       "id": 27
+    },
+    {
+      "userId": 1,
+      "restaurantId": "XjuqPaZGBL_9FdV200Vqag",
+      "name": "Jimbo's Sushi & Korean Food",
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/R7sgf_k4zdUqvwaYAJvnXA/o.jpg",
+      "location": {
+        "address1": "7 Arcade",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37219",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "7 Arcade",
+          "Nashville, TN 37219"
+        ]
+      },
+      "phone": "(615) 244-9242",
+      "rating": 4.5,
+      "notes": "",
+      "id": 28
+    },
+    {
+      "userId": 1,
+      "restaurantId": "m1kM87opn4tR6lt3v9AiWw",
+      "name": "Pei Wei",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/pHpRNg1-WieW8SbA_-y5Ug/o.jpg",
+      "location": {
+        "address1": "4017 Hillsboro Pike",
+        "address2": "Ste 301",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37215",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "4017 Hillsboro Pike",
+          "Ste 301",
+          "Nashville, TN 37215"
+        ]
+      },
+      "phone": "(615) 514-3230",
+      "rating": 3,
+      "notes": "",
+      "id": 29
+    },
+    {
+      "userId": 1,
+      "restaurantId": "yE1raqkLX7OZsjmX3qKIKg",
+      "name": "Butcher & Bee",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/FWChDdiVFyp8XdvvDBEyAg/o.jpg",
+      "location": {
+        "address1": "902 Main St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "902 Main St",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 226-3322",
+      "rating": 4,
+      "notes": "",
+      "id": 30
     }
   ],
-  "friends": [],
+  "friends": [
+    {
+      "friendId": 1,
+      "userId": 3,
+      "id": 1
+    },
+    {
+      "friendId": 5,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "friendId": 4,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "friendId": 2,
+      "userId": 1,
+      "id": 4
+    }
+  ],
   "states": [
     {
       "name": "Alabama",

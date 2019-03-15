@@ -5,7 +5,6 @@ import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button} from '
 export default class Favorites extends Component {
     state = {
         favorites: [],
-        stars: [1, 2, 3, 4, 5]
     }
 
 deleteFavorite = (id) => {

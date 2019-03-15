@@ -13,7 +13,6 @@ export default class MainRestaurantCard extends Component {
 
         checkIfFavorite = (restaurantId) => {
             this.state.favorites.find((favorite) => {
-                // console.log(favorite)
                 if(favorite.restaurantId === restaurantId) {
                     this.setState({
                         saveButton: "Favorited",
