@@ -41,12 +41,6 @@ export default class Favorites extends Component {
                                 <CardText><strong>Phone:</strong>{favorite.phone}</CardText>
                                 <CardText style={{ marginBottom: 0 }}><strong>Notes:</strong></CardText>
                                 <CardText>{favorite.notes}</CardText>
-                                <Button
-                                    color="primary"
-                                    style={{ marginRight: 10 }}
-                                    onClick={() => this.props.history.push(`/favorites/${favorite.id}/edit`)}
-                                >Add Note</Button>
-                                <Button color="danger" onClick={() => this.deleteFavorite(favorite.id)}>Remove</Button>
                             </CardBody>
                         </Card>
                     )
