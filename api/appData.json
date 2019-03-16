@@ -734,24 +734,19 @@
   ],
   "friends": [
     {
-      "friendId": 1,
-      "userId": 3,
+      "friendId": 2,
+      "userId": 1,
       "id": 1
     },
     {
-      "friendId": 5,
+      "friendId": 3,
       "userId": 1,
       "id": 2
     },
     {
-      "friendId": 4,
+      "friendId": 5,
       "userId": 1,
       "id": 3
-    },
-    {
-      "friendId": 2,
-      "userId": 1,
-      "id": 4
     }
   ],
   "states": [

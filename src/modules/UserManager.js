@@ -41,11 +41,8 @@ export default {
   getUserFavorites(id) {
     return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
   },
-  getAllFavorites(id) {
+  getAllFavorites() {
     return fetch(`${settings.appDataURL}/favorites/`).then(e => e.json())
-  },
-  getOneUserFavorite(id) {
-    return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
   },
   addUserFavorite(obj) {
     return fetch(`${settings.appDataURL}/favorites`, {

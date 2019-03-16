@@ -55,11 +55,6 @@ export default class Registration extends Component {
                     UserManager.addUser(newUser).then(user => {
                         sessionStorage.setItem("credentials", JSON.stringify({
                             userId: parseInt(user.id),
-                            address: user.address,
-                            city: user.city,
-                            state: user.state,
-                            zipCode: user.zipCode
-
                         }))
                         this.props.history.push("/")
                         // this.props.setAuth()
