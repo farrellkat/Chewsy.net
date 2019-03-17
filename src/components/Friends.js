@@ -5,7 +5,7 @@ import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button, CardSu
 export default class Favorites extends Component {
     state = {
         favorites: [],
-        friends: []
+        friends: [],
     }
     favArray =[]
 
@@ -24,6 +24,7 @@ export default class Favorites extends Component {
     }
 
     render() {
+        console.log(this.newFavs)
         return (
             <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
                 {
@@ -32,15 +33,20 @@ export default class Favorites extends Component {
                             <CardImg width="100%" src={favorite.image} />
                             <CardBody>
                                 <CardTitle style={{ marginBottom: 10 }}><h4>{favorite.name}</h4></CardTitle>
-                                <CardSubtitle style={{ marginBottom: 10 }}><i>so and so liked this...</i></CardSubtitle>
+                                <CardSubtitle color="info" style={{ marginBottom: 10 }}>{favorite.user.firstName} {favorite.user.lastName} liked this</CardSubtitle>
                                 <CardText><strong>Yelp rating: </strong>{favorite.rating}</CardText>
                                 <CardText><strong>My rating: </strong>{favorite.userRating}</CardText>
                                 <CardText style={{ marginBottom: 0 }}><strong>Address:</strong></CardText>
-                                {/* <CardText>{favorite.location.address1}<br/> */}
-                                {/* {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}</CardText> */}
+                                <CardText>{favorite.location.address1}<br/>
+                                {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}</CardText>
                                 <CardText><strong>Phone:</strong>{favorite.phone}</CardText>
                                 <CardText style={{ marginBottom: 0 }}><strong>Notes:</strong></CardText>
                                 <CardText>{favorite.notes}</CardText>
+                                <Button
+                                color="primary"
+                                style={{marginRight: 10}}
+                                onClick={()=>this.props.history.push(`/favorites/${favorite.userId}/friendfavorite`)}
+                                >See more of {favorite.user.firstName}'s favorites</Button>
                             </CardBody>
                         </Card>
                     )

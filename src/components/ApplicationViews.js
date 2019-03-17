@@ -8,10 +8,11 @@ import CardViewer from "./CardViewer";
 import MainRestaurantCard from "./MainRestaurantCard";
 import ErrorBoundary from "./ErrorBoundary";
 import UserManager from "../modules/UserManager"
-import Favorites from "./Favorites";
-import FavoriteEditForm from "./FavoriteEditForm";
+import Favorites from "./favorites/Favorites";
+import FavoriteEditForm from "./favorites/FavoriteEditForm";
 import FindFriends from "./FindFriends";
 import Friends from "./Friends";
+import OneFriendFavorites from "./favorites/OneFriendFavorites";
 export default class ApplicationViews extends Component {
 
     isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
@@ -318,6 +319,12 @@ export default class ApplicationViews extends Component {
                 }} />
                  <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {
                         return <FavoriteEditForm
+                                    {...props}
+                                    />
+                    }}
+                    />
+                 <Route path="/favorites/:friendId(\d+)/friendfavorite" render={props => {
+                        return <OneFriendFavorites
                                     {...props}
                                     />
                     }}

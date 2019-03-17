@@ -39,10 +39,10 @@ export default {
     }).then(e => e.json())
   },
   getUserFavorites(id) {
-    return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
+    return fetch(`${settings.appDataURL}/favorites/?userId=${id}&_expand=user`).then(e => e.json())
   },
   getAllFavorites() {
-    return fetch(`${settings.appDataURL}/favorites/`).then(e => e.json())
+    return fetch(`${settings.appDataURL}/favorites/?_expand=user`).then(e => e.json())
   },
   getOneUserFavorite(id) {
     return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())

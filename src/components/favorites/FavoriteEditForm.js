@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import UserManager from "../modules/UserManager"
+import UserManager from "../../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button, Input, Label } from 'reactstrap';
 
 export default class FavoriteEditForm extends Component {
