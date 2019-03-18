@@ -7,10 +7,11 @@ export default class FindFriends extends Component {
 
     state = {
         users: [],
-        friends: []
+        friends: [],
     }
 
     userArray = []
+    userFriendArray = []
 
     followFriend = (friendId) => {
         const friendObject = {
@@ -32,8 +33,12 @@ export default class FindFriends extends Component {
                         friends: friends
                     })))
     }
-
     render() {
+        const userFriends = (this.state.friends.map((friend) => friend.friendId))
+        userFriends.map(id =>
+            this.state.users.filter((user) =>
+                id === user.id).map((user) =>
+                    this.userFriendArray.push(user)))
         return (
             <React.Fragment>
                 <div style={{ marginBottom: 50 }} className="searchContainer">

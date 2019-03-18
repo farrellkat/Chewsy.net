@@ -24,7 +24,6 @@ export default class Favorites extends Component {
     }
 
     render() {
-        console.log(this.newFavs)
         return (
             <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
                 {
