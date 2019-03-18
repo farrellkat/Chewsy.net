@@ -59,7 +59,7 @@ export default {
   getAllFriends(id) {
     return fetch(`${settings.appDataURL}/friends/?userId=${id}`).then(e => e.json())
   },
-  addNewFriend(obj) {
+  followFriend(obj) {
     return fetch(`${settings.appDataURL}/friends`, {
       method: "POST",
       headers: {
@@ -67,6 +67,11 @@ export default {
       },
       body: JSON.stringify(obj)
     }).then(data => data.json())
+  },
+  unfollowFriend(id) {
+    return fetch(`${settings.appDataURL}/friends/${id}`, {
+      method: "DELETE"
+    }).then(e => e.json())
   },
   searchUP(email, password) {
     return fetch(

@@ -303,29 +303,6 @@
     },
     {
       "userId": 1,
-      "restaurantId": "Ppfih0Ek1DzO3DgIJ1riEg",
-      "name": "Pita & Grill",
-      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/eUNht8Btj0lS6GIyUEyUww/o.jpg",
-      "location": {
-        "address1": "2403 Nolensville Pike",
-        "address2": "Ste 105",
-        "address3": null,
-        "city": "Nashville",
-        "zip_code": "37211",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "2403 Nolensville Pike",
-          "Ste 105",
-          "Nashville, TN 37211"
-        ]
-      },
-      "phone": "(615) 736-2099",
-      "rating": 1.5,
-      "id": 12
-    },
-    {
-      "userId": 1,
       "restaurantId": "5DJ2sDvM_XRndlB24DnxYw",
       "name": "Adele's Nashville",
       "image": "https://s3-media4.fl.yelpcdn.com/bphoto/PVDBVeeaHGJj_rlEj1QXTA/o.jpg",
@@ -753,19 +730,31 @@
       "rating": 4,
       "notes": "",
       "id": 31
+    },
+    {
+      "userId": 1,
+      "restaurantId": "ANpUM1Nu0IfW-OSUteBsPw",
+      "name": "Smokin' Buttz",
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/icYtJxe_7V5VA0aBN7eyZA/o.jpg",
+      "location": {
+        "address1": "",
+        "address2": "",
+        "address3": "",
+        "city": "La Vergne",
+        "zip_code": "37086",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "La Vergne, TN 37086"
+        ]
+      },
+      "phone": "(615) 713-2888",
+      "rating": 3,
+      "notes": "",
+      "id": 32
     }
   ],
   "friends": [
-    {
-      "friendId": 2,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "friendId": 3,
-      "userId": 1,
-      "id": 2
-    },
     {
       "friendId": 5,
       "userId": 1,
@@ -780,6 +769,11 @@
       "friendId": 1,
       "userId": 5,
       "id": 5
+    },
+    {
+      "friendId": 4,
+      "userId": 1,
+      "id": 6
     }
   ],
   "states": [
