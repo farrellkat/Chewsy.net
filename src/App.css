@@ -243,3 +243,9 @@ h5, h6 {
   right: 10px;
   bottom: 10px;
 }
+
+.registrationTakeout {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}

@@ -10,129 +10,22 @@
       "state": "TN",
       "zipCode": "37206",
       "id": 1
-    },
-    {
-      "email": "testkitchenstudios615@gmail.com",
-      "password": "1234",
-      "firstName": "William",
-      "lastName": "James",
-      "address": "334 N Kenilworth Ave",
-      "city": "Oak Park",
-      "state": "IL",
-      "zipCode": "60302",
-      "id": 2
-    },
-    {
-      "email": "james@james.com",
-      "password": "1234",
-      "firstName": "James",
-      "lastName": "Jamerson",
-      "address": "334 N Kenilworth Ave",
-      "city": "Oak Park",
-      "state": "IL",
-      "zipCode": "60302",
-      "id": 3
-    },
-    {
-      "email": "steve@steve.com",
-      "password": "1234",
-      "firstName": "Steve",
-      "lastName": "Stevenson",
-      "address": "123 Main St",
-      "city": "Nashville",
-      "state": "TN",
-      "zipCode": "37206",
-      "id": 4
-    },
-    {
-      "email": "allegrafarrell@gmail.com",
-      "password": "1234",
-      "firstName": "Allegra",
-      "lastName": "Farrell",
-      "address": "123 main street",
-      "city": "Nashville",
-      "state": "tn",
-      "zipCode": "37206",
-      "id": 5
-    },
-    {
-      "email": "frank@gmail.com",
-      "password": "1234",
-      "firstName": "Frank",
-      "lastName": "Franklin",
-      "address": "123 Redville. Road",
-      "city": "",
-      "state": "AL",
-      "zipCode": "11111",
-      "id": 6
-    },
-    {
-      "email": "charles@incharge.com",
-      "password": "1234",
-      "firstName": "Charles",
-      "lastName": "InCharge",
-      "address": "123 Main St.",
-      "city": "Ankorage",
-      "state": "AK",
-      "zipCode": "11111",
-      "id": 7
-    },
-    {
-      "email": "mo.leslie.silvera@gmail.com",
-      "password": "password",
-      "firstName": "Mo",
-      "lastName": "Silvera",
-      "address": "1922 b 14th ave n",
-      "city": "nashville",
-      "state": "TN",
-      "zipCode": "37208",
-      "id": 8
-    },
-    {
-      "email": "brianbneal@gmail.com",
-      "password": "admin",
-      "firstName": "Brian",
-      "lastName": "Neal",
-      "address": "1412 Phillips St",
-      "city": "Nashville",
-      "state": "TN",
-      "zipCode": "37208",
-      "id": 9
-    },
-    {
-      "email": "jenna@j.com",
-      "password": "1",
-      "firstName": "jenna",
-      "lastName": "solis",
-      "address": "11 slkdjf",
-      "city": "nashville",
-      "state": "TN",
-      "zipCode": "37206",
-      "id": 10
     }
   ],
   "favorites": [
     {
       "userId": 1,
-      "restaurantId": "wLV_IZfy6nrNbplZ5sHJKQ",
-      "name": "Mellow Mushroom",
+      "restaurantId": "SnXow6pGSf6mUy4ZLrzzZw",
+      "name": "Thai Esane",
       "category": [
         {
-          "alias": "pizza",
-          "title": "Pizza"
-        },
-        {
-          "alias": "sandwiches",
-          "title": "Sandwiches"
-        },
-        {
-          "alias": "bars",
-          "title": "Bars"
+          "alias": "thai",
+          "title": "Thai"
         }
       ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/Cl6wCjdeT6__S7KwOUHcmQ/o.jpg",
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/99XiRJrd9jLEkFZssibVnA/o.jpg",
       "location": {
-        "address1": "212 21st Ave S",
+        "address1": "907 12th Ave S",
         "address2": "",
         "address3": "",
         "city": "Nashville",
@@ -140,194 +33,51 @@
         "country": "US",
         "state": "TN",
         "display_address": [
-          "212 21st Ave S",
+          "907 12th Ave S",
           "Nashville, TN 37203"
         ]
       },
-      "phone": "(615) 342-0044",
-      "yelpRating": 3.5,
-      "url": "https://www.yelp.com/biz/mellow-mushroom-nashville-3?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$$",
-      "notes": "",
-      "id": 1,
-      "rating": 3
-    },
-    {
-      "userId": 1,
-      "restaurantId": "vrX8vraAe1D34U6NCFAMDQ",
-      "name": "Hungry Howie's Pizza",
-      "category": [
-        {
-          "alias": "pizza",
-          "title": "Pizza"
-        }
-      ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/nHsD8CxduKxqyxpPp5zweQ/o.jpg",
-      "location": {
-        "address1": "63 E Thompson Ln",
-        "address2": "",
-        "address3": null,
-        "city": "Nashville",
-        "zip_code": "37211",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "63 E Thompson Ln",
-          "Nashville, TN 37211"
-        ]
-      },
-      "phone": "(615) 401-8181",
-      "yelpRating": 5,
-      "url": "https://www.yelp.com/biz/hungry-howies-pizza-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "notes": "",
-      "id": 2,
-      "userRating": "",
-      "rating": 2
-    },
-    {
-      "userId": 1,
-      "restaurantId": "tMkwHmWFUEXrC9ZduonpTg",
-      "name": "The Green Pheasant",
-      "category": [
-        {
-          "alias": "japanese",
-          "title": "Japanese"
-        },
-        {
-          "alias": "seafood",
-          "title": "Seafood"
-        }
-      ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/jTIsMwbZcU_ZnO3Du2KoVQ/o.jpg",
-      "location": {
-        "address1": "215 1st Ave S",
-        "address2": "",
-        "address3": null,
-        "city": "Nashville",
-        "zip_code": "37201",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "215 1st Ave S",
-          "Nashville, TN 37201"
-        ]
-      },
-      "phone": "(615) 205-5400",
-      "yelpRating": 4.5,
-      "url": "https://www.yelp.com/biz/the-green-pheasant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "notes": "So good!",
-      "id": 3,
-      "rating": 5
-    },
-    {
-      "userId": 3,
-      "restaurantId": "uT3Eb1PqAqFF1OecPouqwQ",
-      "name": "La Playa",
-      "category": [
-        {
-          "alias": "mexican",
-          "title": "Mexican"
-        }
-      ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/L0JN3NK9ZgAhW3EwDWEO9Q/o.jpg",
-      "location": {
-        "address1": "27 The Arcade",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37219",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "27 The Arcade",
-          "Nashville, TN 37219"
-        ]
-      },
-      "phone": "(615) 251-8077",
-      "yelpRating": 3.5,
-      "url": "https://www.yelp.com/biz/la-playa-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "",
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "restaurantId": "1b5mnK8bMnnju_cvU65GqQ",
-      "name": "Biscuit Love: Gulch",
-      "category": [
-        {
-          "alias": "southern",
-          "title": "Southern"
-        },
-        {
-          "alias": "breakfast_brunch",
-          "title": "Breakfast & Brunch"
-        },
-        {
-          "alias": "tradamerican",
-          "title": "American (Traditional)"
-        }
-      ],
-      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/4tpJUgxJNhcYzAsGj_ZNRw/o.jpg",
-      "location": {
-        "address1": "316 11th Ave S",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37203",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "316 11th Ave S",
-          "Nashville, TN 37203"
-        ]
-      },
-      "phone": "(615) 490-9584",
+      "phone": "(615) 454-5373",
       "yelpRating": 4,
-      "url": "https://www.yelp.com/biz/biscuit-love-gulch-nashville-3?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "url": "https://www.yelp.com/biz/thai-esane-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
-      "notes": "Try the biscuits!",
-      "id": 5,
-      "rating": 5
+      "notes": "",
+      "id": 1
     },
     {
       "userId": 1,
-      "restaurantId": "j9fzpALNCgvDwCXmA5Vcjw",
-      "name": "BOX - Bongo & Bakery on 10th",
+      "restaurantId": "bA4_MDnT5fK7NJaw_YNJaA",
+      "name": "Aiyara Thai & Sushi",
       "category": [
         {
-          "alias": "coffee",
-          "title": "Coffee & Tea"
+          "alias": "thai",
+          "title": "Thai"
         },
         {
-          "alias": "bakeries",
-          "title": "Bakeries"
-        },
-        {
-          "alias": "breakfast_brunch",
-          "title": "Breakfast & Brunch"
+          "alias": "sushi",
+          "title": "Sushi Bars"
         }
       ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/wMVta_A8DwWAZI5K-y9w_Q/o.jpg",
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/Yw3FrqOf1KcN4-duZZbY7A/o.jpg",
       "location": {
-        "address1": "2229 10th Ave S",
-        "address2": null,
+        "address1": "2535 Franklin Pike",
+        "address2": "Ste 105",
         "address3": null,
         "city": "Nashville",
         "zip_code": "37204",
         "country": "US",
         "state": "TN",
         "display_address": [
-          "2229 10th Ave S",
+          "2535 Franklin Pike",
+          "Ste 105",
           "Nashville, TN 37204"
         ]
       },
-      "phone": "(615) 777-5282",
-      "yelpRating": 4,
-      "url": "https://www.yelp.com/biz/box-bongo-and-bakery-on-10th-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$$",
+      "phone": "(615) 942-6208",
+      "yelpRating": 3.5,
+      "url": "https://www.yelp.com/biz/aiyara-thai-and-sushi-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "notes": "",
-      "id": 6
+      "id": 2
     },
     {
       "userId": 1,
@@ -367,264 +117,10 @@
       "url": "https://www.yelp.com/biz/night-train-pizza-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "restaurantId": "3awWfOPccIIZi5G9zedZew",
-      "name": "Tacos Aurora",
-      "category": [
-        {
-          "alias": "mexican",
-          "title": "Mexican"
-        },
-        {
-          "alias": "foodtrucks",
-          "title": "Food Trucks"
-        }
-      ],
-      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/C0GO0vYqyOjWxKla1leA3A/o.jpg",
-      "location": {
-        "address1": "4611 Alabama Ave",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37209",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "4611 Alabama Ave",
-          "Nashville, TN 37209"
-        ]
-      },
-      "phone": "(615) 474-6670",
-      "yelpRating": 4,
-      "url": "https://www.yelp.com/biz/tacos-aurora-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "restaurantId": "rx4fcNjuqoaEugMPq5PBfw",
-      "name": "Gabby's Burgers",
-      "category": [
-        {
-          "alias": "burgers",
-          "title": "Burgers"
-        }
-      ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/oOKF4tbJMxOmltejEH0tmw/o.jpg",
-      "location": {
-        "address1": "493 Humphreys St",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37203",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "493 Humphreys St",
-          "Nashville, TN 37203"
-        ]
-      },
-      "phone": "(615) 733-3119",
-      "yelpRating": 4.5,
-      "url": "https://www.yelp.com/biz/gabbys-burgers-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "restaurantId": "8ikj9GaC2oEf_leisl-Wrg",
-      "name": "Nashville Biscuit House",
-      "category": [
-        {
-          "alias": "southern",
-          "title": "Southern"
-        },
-        {
-          "alias": "diners",
-          "title": "Diners"
-        }
-      ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/HhcxDumRyC7GThn541FO2A/o.jpg",
-      "location": {
-        "address1": "805 Gallatin Rd",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37206",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "805 Gallatin Rd",
-          "Nashville, TN 37206"
-        ]
-      },
-      "phone": "(615) 228-4504",
-      "yelpRating": 4,
-      "url": "https://www.yelp.com/biz/nashville-biscuit-house-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "",
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "restaurantId": "O5w-GuNCARANWyDzUO3ReA",
-      "name": "Awash Ethiopian Restaurant",
-      "category": [
-        {
-          "alias": "ethiopian",
-          "title": "Ethiopian"
-        }
-      ],
-      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/kB3Pk74PxiRdmXTprvkMBw/o.jpg",
-      "location": {
-        "address1": "976 Murfreesboro Pike",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37217",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "976 Murfreesboro Pike",
-          "Nashville, TN 37217"
-        ]
-      },
-      "phone": "(615) 366-9911",
-      "yelpRating": 4.5,
-      "url": "https://www.yelp.com/biz/awash-ethiopian-restaurant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "Get the veggie plate!",
-      "id": 11,
-      "rating": 5
-    },
-    {
-      "userId": 1,
-      "restaurantId": "qMrWq1CimcZlE02mIBH9SQ",
-      "name": "Bar Otaku",
-      "category": [
-        {
-          "alias": "japanese",
-          "title": "Japanese"
-        },
-        {
-          "alias": "tapasmallplates",
-          "title": "Tapas/Small Plates"
-        },
-        {
-          "alias": "beerbar",
-          "title": "Beer Bar"
-        }
-      ],
-      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/4xO8CWASCVpWBs4mTFxu_A/o.jpg",
-      "location": {
-        "address1": "505 12th Ave S",
-        "address2": null,
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37203",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "505 12th Ave S",
-          "Nashville, TN 37203"
-        ]
-      },
-      "phone": "(615) 454-3946",
-      "yelpRating": 4.5,
-      "url": "https://www.yelp.com/biz/bar-otaku-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "notes": "",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "restaurantId": "tV10M4tasdLyNAOOxnoNZw",
-      "name": "El Tapatio",
-      "category": [
-        {
-          "alias": "mexican",
-          "title": "Mexican"
-        }
-      ],
-      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/JOcgMRMBiAYVMKzBHkfQbA/o.jpg",
-      "location": {
-        "address1": "4801 Nolensville Pike",
-        "address2": null,
-        "address3": null,
-        "city": "Nashville",
-        "zip_code": "37211",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "4801 Nolensville Pike",
-          "Nashville, TN 37211"
-        ]
-      },
-      "phone": "(615) 835-4419",
-      "yelpRating": 4.5,
-      "url": "https://www.yelp.com/biz/el-tapatio-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "restaurantId": "jVjJx4hMN-7H0BzvThoimg",
-      "name": "Ajora Kitchen",
-      "category": [
-        {
-          "alias": "ethiopian",
-          "title": "Ethiopian"
-        }
-      ],
-      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/dfJdtygnzJIUA89O5xrDGg/o.jpg",
-      "location": {
-        "address1": "34 Arcade Aly",
-        "address2": "",
-        "address3": "",
-        "city": "Nashville",
-        "zip_code": "37219",
-        "country": "US",
-        "state": "TN",
-        "display_address": [
-          "34 Arcade Aly",
-          "Nashville, TN 37219"
-        ]
-      },
-      "phone": "(615) 891-1898",
-      "yelpRating": 4.5,
-      "url": "https://www.yelp.com/biz/ajora-kitchen-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
-      "price": "$",
-      "notes": "",
-      "id": 14
+      "id": 3
     }
   ],
-  "friends": [
-    {
-      "fId": 1,
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "fId": 3,
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "fId": 5,
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "fId": 2,
-      "userId": 1,
-      "id": 7
-    }
-  ],
+  "friends": [],
   "states": [
     {
       "name": "Alabama",

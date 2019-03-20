@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button, CardSubtitle } from 'reactstrap';
-import Header from "../components/Header"
+// import Header from "../components/Header"
 import Ratings from "react-ratings-declarative"
 export default class Favorites extends Component {
     state = {

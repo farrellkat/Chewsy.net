@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
 import { Link } from "react-router-dom"
+import takeout from "../../img/takeout.png"
 
 function validate(email, password, firstName, lastName, address, city, state, zipCode) {
     // true means invalid, so our conditions got reversed
@@ -201,6 +202,7 @@ export default class Registration extends Component {
                 </button>
                 <Link className="ml-5" to="/login">Login</Link>
                 </div>
+                <img src={takeout} alt="takeout" className="registrationTakeout"/>
             </form>
         )
     }
