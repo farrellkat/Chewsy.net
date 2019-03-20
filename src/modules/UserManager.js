@@ -21,7 +21,7 @@ export default {
       body: JSON.stringify(obj)
     }).then(data => data.json())
   },
-  getAll() {
+  getAllUsers() {
     return fetch(`${settings.appDataURL}/users`).then(e => e.json())
   },
   updateFavorite(id, obj) {
@@ -39,7 +39,10 @@ export default {
     }).then(e => e.json())
   },
   getUserFavorites(id) {
-    return fetch(`${settings.appDataURL}/favorites/?userId=${id}`).then(e => e.json())
+    return fetch(`${settings.appDataURL}/favorites/?userId=${id}&_expand=user`).then(e => e.json())
+  },
+  getAllFavorites() {
+    return fetch(`${settings.appDataURL}/favorites/?_expand=user`).then(e => e.json())
   },
   getOneUserFavorite(id) {
     return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
@@ -52,6 +55,32 @@ export default {
       },
       body: JSON.stringify(obj)
     }).then(data => data.json())
+  },
+  getAllFriends(id) {
+    return fetch(`${settings.appDataURL}/friends/?userId=${id}`).then(e => e.json())
+  },
+  followFriend(obj) {
+    return fetch(`${settings.appDataURL}/friends`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(data => data.json())
+  },
+  unfollowFriend(userId, friendId) {
+    return fetch(`${settings.appDataURL}/friends/?userId=${userId}&fId=${friendId}`)
+      .then(e => e.json())
+      .then((user) => {
+        return fetch(`${settings.appDataURL}/friends/${user[0].id}`, {
+          method: "DELETE"
+        }).then(e => e.json())
+      })
+  },
+  deleteFriend(id) {
+    return fetch(`${settings.appDataURL}/friends/${id}`, {
+      method: "DELETE"
+    }).then(e => e.json())
   },
   searchUP(email, password) {
     return fetch(

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Nav, NavItem, NavLink, Navbar } from "reactstrap"
 
 
 class NavBar extends Component {
@@ -10,23 +11,30 @@ class NavBar extends Component {
     }
     render() {
         return (
-            <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/">Search</Link>
-                    </li>
-                </ul>
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/favorites">favorites</Link>
-                    </li>
-                </ul>
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <Link className="nav-link" onClick={this.logout} to="/login">Logout</Link>
-                    </li>
-                </ul>
-            </nav>
+            <Navbar color="dark">
+            <Nav pills>
+                <NavItem>
+                    <NavLink tag={Link} className="nav-link text-info" to="/">Search</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link} className="nav-link text-info" to="/favorites">Favorites</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link}  className="nav-link text-info" to="/friends">Friends</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link} className="nav-link text-info" to="/findfriends">Find Friends</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link}  className="nav-link text-warning" onClick={this.logout} to="/login">Logout</NavLink>
+                </NavItem>
+            </Nav>
+            <Nav>
+                <NavItem>
+                <h1 className="nav-item mr-3" style={{fontSize: "30px"}}>Chewsy</h1>
+                </NavItem>
+                </Nav>
+            </Navbar>
         )
     }
 }

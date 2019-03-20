@@ -11,7 +11,7 @@ function validate(email, password, firstName, lastName, address, city, state, zi
         lastName: lastName.length === 0,
         address: address.length === 0,
         city: city.length === 0,
-        state: state.length === 0,
+        state: state.length === 2,
         zipCode: zipCode.length === 0
     };
 }
@@ -55,14 +55,9 @@ export default class Registration extends Component {
                     UserManager.addUser(newUser).then(user => {
                         sessionStorage.setItem("credentials", JSON.stringify({
                             userId: parseInt(user.id),
-                            address: user.address,
-                            city: user.city,
-                            state: user.state,
-                            zipCode: user.zipCode
-
                         }))
                         this.props.history.push("/")
-                        this.props.setAuth()
+                        // this.props.setAuth()
                     })
                 }
             })
@@ -169,16 +164,26 @@ export default class Registration extends Component {
                             <input onChange={this.handleFieldChange} className="form-control" type="text"
                                 id="city"
                                 placeholder="Nashville"
-                                required="" />
+                                required="" autoFocus="" />
                         </div>
                         <div className="form-group col-md-1">
-                            <label htmlFor="state">
+                        <label htmlFor="stateInput">
                                 State:
                 </label>
-                            <input onChange={this.handleFieldChange} className="form-control" type="text"
+                        <select className="custom-select"
+                                name="state"
                                 id="state"
-                                placeholder="TN"
-                                required="" />
+                                required="" autoFocus=""
+                                // defaultValue={this.state.stateInput}
+                                onChange={this.handleFieldChange}
+                            >
+                                <option>State</option>
+                                {this.props.states.map(state => (
+                                    <option key={state.abbreviation} value={state.abbreviation}>
+                                        {state.abbreviation}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                         <div className="form-group col-md-1">
                             <label htmlFor="zipCode">
