@@ -32,7 +32,7 @@ export default class MainRestaurantCard extends Component {
                 image: image,
                 location: location,
                 phone: phone,
-                rating: rating,
+                yelpRating: rating,
                 url: url,
                 price: price,
                 notes: ""

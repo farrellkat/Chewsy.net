@@ -34,8 +34,8 @@ export default class OneFriendFavorites extends Component {
                                 <CardBody>
                                     <CardTitle style={{ marginBottom: 10 }}><h4>{favorite.name}</h4></CardTitle>
                                     <CardSubtitle color="info" style={{ marginBottom: 10 }}>{favorite.user.firstName} {favorite.user.lastName} liked this</CardSubtitle>
-                                    <CardText><strong>Yelp rating: </strong>{favorite.rating}</CardText>
-                                    <CardText><strong>{favorite.user.firstName}'s rating: </strong>{favorite.userRating}</CardText>
+                                    <CardText><strong>Yelp rating: </strong>{favorite.yelpRating}</CardText>
+                                    <CardText><strong>{favorite.user.firstName}'s rating: </strong>{favorite.rating}</CardText>
                                     <CardText style={{ marginBottom: 0 }}><strong>Address:</strong></CardText>
                                     <CardText>{favorite.location.address1}<br />
                                         {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}</CardText>

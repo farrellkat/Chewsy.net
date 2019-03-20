@@ -145,11 +145,12 @@
         ]
       },
       "phone": "(615) 342-0044",
-      "rating": 3.5,
+      "yelpRating": 3.5,
       "url": "https://www.yelp.com/biz/mellow-mushroom-nashville-3?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "",
-      "id": 1
+      "id": 1,
+      "rating": 3
     },
     {
       "userId": 1,
@@ -176,10 +177,12 @@
         ]
       },
       "phone": "(615) 401-8181",
-      "rating": 5,
+      "yelpRating": 5,
       "url": "https://www.yelp.com/biz/hungry-howies-pizza-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "notes": "",
-      "id": 2
+      "id": 2,
+      "userRating": "",
+      "rating": 2
     },
     {
       "userId": 1,
@@ -210,11 +213,11 @@
         ]
       },
       "phone": "(615) 205-5400",
-      "rating": 4.5,
+      "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/the-green-pheasant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "notes": "So good!",
       "id": 3,
-      "userRating": 5
+      "rating": 5
     },
     {
       "userId": 3,
@@ -241,7 +244,7 @@
         ]
       },
       "phone": "(615) 251-8077",
-      "rating": 3.5,
+      "yelpRating": 3.5,
       "url": "https://www.yelp.com/biz/la-playa-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "",
@@ -280,12 +283,12 @@
         ]
       },
       "phone": "(615) 490-9584",
-      "rating": 4,
+      "yelpRating": 4,
       "url": "https://www.yelp.com/biz/biscuit-love-gulch-nashville-3?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "Try the biscuits!",
       "id": 5,
-      "userRating": 5
+      "rating": 5
     },
     {
       "userId": 1,
@@ -320,7 +323,7 @@
         ]
       },
       "phone": "(615) 777-5282",
-      "rating": 4,
+      "yelpRating": 4,
       "url": "https://www.yelp.com/biz/box-bongo-and-bakery-on-10th-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "",
@@ -360,7 +363,7 @@
         ]
       },
       "phone": "(615) 540-0138",
-      "rating": 4,
+      "yelpRating": 4,
       "url": "https://www.yelp.com/biz/night-train-pizza-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "",
@@ -395,7 +398,7 @@
         ]
       },
       "phone": "(615) 474-6670",
-      "rating": 4,
+      "yelpRating": 4,
       "url": "https://www.yelp.com/biz/tacos-aurora-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "",
@@ -426,7 +429,7 @@
         ]
       },
       "phone": "(615) 733-3119",
-      "rating": 4.5,
+      "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/gabbys-burgers-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "",
@@ -461,7 +464,7 @@
         ]
       },
       "phone": "(615) 228-4504",
-      "rating": 4,
+      "yelpRating": 4,
       "url": "https://www.yelp.com/biz/nashville-biscuit-house-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "",
@@ -492,12 +495,12 @@
         ]
       },
       "phone": "(615) 366-9911",
-      "rating": 4.5,
+      "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/awash-ethiopian-restaurant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "Get the veggie plate!",
       "id": 11,
-      "userRating": 5
+      "rating": 5
     },
     {
       "userId": 1,
@@ -532,7 +535,7 @@
         ]
       },
       "phone": "(615) 454-3946",
-      "rating": 4.5,
+      "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/bar-otaku-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "notes": "",
       "id": 12
@@ -562,7 +565,7 @@
         ]
       },
       "phone": "(615) 835-4419",
-      "rating": 4.5,
+      "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/el-tapatio-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "",
@@ -593,7 +596,7 @@
         ]
       },
       "phone": "(615) 891-1898",
-      "rating": 4.5,
+      "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/ajora-kitchen-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
       "notes": "",

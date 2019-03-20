@@ -70,7 +70,7 @@ export default class ApplicationViews extends Component {
             image: image,
             location: location,
             phone: phone,
-            rating: rating
+            yelpRating: rating
         }
         this.postFavoriteRestaurant(favoriteRestaurant)
     }
