@@ -43,7 +43,7 @@ export default class SearchForm extends Component {
                     {/* <Header /> */}
                     {
                         <Form className="container" style={{backgroundColor: "rgb(245, 138, 88, 0.3)", borderRadius: "5px", width:"80%"}}>
-                        <h1 style={{textAlign:"center"}}>Let's eat!</h1>
+                        <h1 style={{textAlign:"center", fontSize: "5em"}}>Let's eat!</h1>
                             <p className="text-center" style={{color: "white", fontWeight: "bold", fontSize:"25px"}}>Choose your location:</p>
                             <FormGroup className="row justify-content-center">
                                 <Input

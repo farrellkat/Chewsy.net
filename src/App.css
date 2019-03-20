@@ -40,7 +40,7 @@ html, body {
 .friendsBg {
   width: 100%;
   height: 100vh;
-  background-image: url("img/phone.jpg");
+  background-image: url("img/darkFriends.jpg");
   background-position: top;
   background-repeat: repeat;
   background-size: cover;

@@ -31,7 +31,7 @@ class NavBar extends Component {
             </Nav>
             <Nav>
                 <NavItem>
-                <h1 className="nav-item" style={{fontSize: "25px"}}>Chewsy</h1>
+                <h1 className="nav-item mr-3" style={{fontSize: "30px"}}>Chewsy</h1>
                 </NavItem>
                 </Nav>
             </Navbar>
