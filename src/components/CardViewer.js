@@ -1,13 +1,17 @@
 import React, { Component } from "react"
 import "../App.css"
-
-
+import takeout from "../img/takeout.png"
 
 export default class CardViewer extends Component {
+    componentDidMount() {
+        this.props.checkUserId()
+    }
 
     render() {
         return (
-            <section className="cardHolder">
+            <React.Fragment>
+                <div className="cardHolderBg">
+            <section className="cardHolder" style={{marginTop:"70px"}}>
                 <div className="imgContainer">
                         <button
                             className="btn btn-danger passButton"
@@ -22,6 +26,9 @@ export default class CardViewer extends Component {
                         onClick={()=> this.props.history.push("/restaurantinfo")}>Yum!</button>
                 </div>
             </section>
+                <img src={takeout} alt="takeout" style={{width:"200px", filter: "invert(100%)"}} />
+            </div>
+            </React.Fragment>
         )
     }
 }

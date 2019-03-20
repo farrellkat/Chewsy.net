@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button } from 'reactstrap';
-
+import Header from "../Header"
 export default class OneFriendFavorites extends Component {
     state = {
         favorites: [],
@@ -18,13 +18,15 @@ export default class OneFriendFavorites extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="friendsBg" style={{overflowY: "scroll"}}>
+                <Header />
                 <div className="oneFriendTopButtonDiv">
                     <Button
                     color="info"
                     onClick={() => this.props.history.push("/friends")}
                     >Back</Button>
                 </div>
-                <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
+                <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center"}}>
                     {
                         this.state.favorites.map(favorite =>
                             <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5 }}>
@@ -45,6 +47,7 @@ export default class OneFriendFavorites extends Component {
                         )
                     }
                 </CardGroup>
+                </div>
             </React.Fragment>
         )
     }

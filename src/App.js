@@ -13,7 +13,6 @@ class App extends Component {
     return (
       <React.Fragment>
         {navHeader}
-        <Header />
         <ApplicationViews />
       </React.Fragment>
     );

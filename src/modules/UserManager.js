@@ -68,7 +68,16 @@ export default {
       body: JSON.stringify(obj)
     }).then(data => data.json())
   },
-  unfollowFriend(id) {
+  unfollowFriend(userId, friendId) {
+    return fetch(`${settings.appDataURL}/friends/?userId=${userId}&fId=${friendId}`)
+      .then(e => e.json())
+      .then((user) => {
+        return fetch(`${settings.appDataURL}/friends/${user[0].id}`, {
+          method: "DELETE"
+        }).then(e => e.json())
+      })
+  },
+  deleteFriend(id) {
     return fetch(`${settings.appDataURL}/friends/${id}`, {
       method: "DELETE"
     }).then(e => e.json())

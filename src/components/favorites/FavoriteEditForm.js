@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button, Input, Label } from 'reactstrap';
-
+import Header from "../Header"
 export default class FavoriteEditForm extends Component {
   // Set initial state
   state = {
@@ -28,6 +28,7 @@ export default class FavoriteEditForm extends Component {
   }
 
   componentDidMount() {
+    this.props.checkUserId()
     UserManager.getOneUserFavorite(this.props.match.params.favoriteId)
       .then(restaurant => {
         this.setState({
@@ -54,10 +55,13 @@ export default class FavoriteEditForm extends Component {
       <React.Fragment>
         <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
           {
-            <Card key={this.state.restaurantId} id={this.state.id} style={{ maxWidth: 350, minWidth: 350, margin: 5 }}>
+            <Card key={this.state.restaurantId} id={this.state.id} style={{ maxWidth: 350, minWidth: 350, marginTop: 50 }}>
+              <div className="editImgHolder">
               <CardImg width="100%" src={this.state.image} />
+              </div>
+              <div className="editInfoHolder">
               <CardBody>
-                <CardTitle style={{ marginBottom: 10 }}><h4>{this.state.name}</h4></CardTitle>
+                <CardTitle style={{ marginBottom: 10 }}><p className="favoritesName">{this.state.name}</p></CardTitle>
                 <CardSubtitle><strong>Yelp rating: </strong>{this.state.rating}</CardSubtitle>
 
                   <Label for="exampleSelect">My Rating:</Label>
@@ -68,12 +72,7 @@ export default class FavoriteEditForm extends Component {
                     <option value={4}>4</option>
                     <option value={5}>5</option>
                   </Input>
-
-                <CardText style={{ marginBottom: 0 }}><strong>Address:</strong></CardText>
-                <CardText>{this.state.address1}<br />
-                  {this.state.city}, {this.state.state} {this.state.zip_code}</CardText>
-                <CardText><strong>Phone:</strong>{this.state.phone}</CardText>
-                <CardText><strong>Notes:</strong></CardText>
+                <CardText style={{marginTop:10}}><strong>Notes:</strong></CardText>
                 <div className="form-group">
                   <Input defaultValue={this.state.notes} type="textarea" name="text" id="notes" onChange={this.handleFieldChange} />
                 </div>
@@ -85,7 +84,16 @@ export default class FavoriteEditForm extends Component {
                 >
                   Submit
             </Button>
+                <Button
+                  color="danger"
+                  type="submit"
+                  style={{marginLeft:"5px"}}
+                  onClick={()=>this.props.history.push("/favorites")}
+                >
+                  Cancel
+            </Button>
               </CardBody>
+              </div>
             </Card>
           }
         </CardGroup>

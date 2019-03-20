@@ -15,29 +15,32 @@ export default class MainRestaurantCard extends Component {
             this.state.favorites.find((favorite) => {
                 if(favorite.restaurantId === restaurantId) {
                     this.setState({
-                        saveButton: "Favorited",
+                        saveButton: <i class="far fa-star"></i>,
                         favButtonValue: true
                     })
                 }
             })
         }
 
-        saveFavoriteRestaurant = (userId, id, name, image, location, phone, rating) => {
+        saveFavoriteRestaurant = (userId, id, name, category, image, location, phone, rating, url, price) => {
 
             const favoriteRestaurant = {
                 userId: userId,
                 restaurantId: id,
                 name: name,
+                category: category,
                 image: image,
                 location: location,
                 phone: phone,
                 rating: rating,
+                url: url,
+                price: price,
                 notes: ""
             }
             this.props.postFavoriteRestaurant(favoriteRestaurant)
             this.setState({
                 visible: true,
-                saveButton: "Favorited",
+                saveButton: <i class="far fa-star"></i>,
                 favButtonValue: true
             })
         }
@@ -47,6 +50,7 @@ export default class MainRestaurantCard extends Component {
         }
 
         componentDidMount() {
+                this.props.checkUserId()
             UserManager.getUserFavorites(this.props.activeUser).then((favorites) => {
                 this.setState({
                     favorites: favorites,
@@ -60,8 +64,9 @@ export default class MainRestaurantCard extends Component {
     render() {
         // const activeUser = sessionStorage.getItem("credentials")
         return (
+                <div className="cardHolderBg">
             <React.Fragment>
-                <div style={{marginLeft: 200, marginRight: 200, marginTop: 20}}>
+                <div style={{marginLeft: 200, marginRight: 200, marginTop: 50}}>
                 <Alert color="success" isOpen={this.state.visible} toggle={this.onDismiss}>
         Saved to your favorites!
       </Alert>
@@ -110,18 +115,22 @@ export default class MainRestaurantCard extends Component {
                                     this.props.activeUser,
                                     this.props.businessInfo[0].id,
                                     this.props.businessInfo[0].name,
+                                    this.props.businessInfo[0].categories,
                                     this.props.businessInfo[0].image_url,
                                     this.props.businessInfo[0].location,
                                     this.props.businessInfo[0].display_phone,
                                     this.props.businessInfo[0].rating,
                                     this.props.businessInfo[0].url,
-                                    this.props.businessInfo[0].price)
+                                    this.props.businessInfo[0].price
+                                    )
                             }>{this.state.saveButton}</Button>
                     </div>
                     </div>
                 </section>
                 </div>
+                <p style={{color: "white", fontSize:"100px"}}>HOORAY!</p>
             </React.Fragment >
+                </div>
         )
     }
 }
