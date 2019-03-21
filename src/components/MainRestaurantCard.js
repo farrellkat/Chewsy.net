@@ -100,7 +100,7 @@ export default class MainRestaurantCard extends Component {
                         </div>
                         <div className="additionalInfo text-light">
                             <div>Phone Number: {this.props.businessInfo[0].display_phone}</div>
-                            <div>Business Website: <a href={this.props.businessInfo[0].url} target="_blank">{this.props.businessInfo[0].name}</a></div>
+                            <div>Business Website: <a href={this.props.businessInfo[0].url} target="_blank" rel="noopener noreferrer">{this.props.businessInfo[0].name}</a></div>
                         </div>
                         <div className="ratingAndPrice text-light">
                             <div>Rating: {this.props.businessInfo[0].rating}/5</div>

@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button } from 'reactstrap';
-import Header from "../../components/Header"
 import burger from "../../img/burger.png"
 import hotdog from "../../img/hotdog.png"
 import Ratings from "react-ratings-declarative"
@@ -34,8 +33,7 @@ export default class Favorites extends Component {
         return (
             <React.Fragment>
                 <div className="favBg" style={{ overflowY: "scroll" }}>
-                    {/* <Header /> */}
-                    <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
+                    <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems:"flex-start" }}>
                         {
                             this.state.favorites.map(favorite =>
                                 <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5 }}>
@@ -82,7 +80,7 @@ export default class Favorites extends Component {
                                         <CardText>{favorite.location.address1}<br />
                                             {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}</CardText>
                                         <CardText><strong>Phone: </strong>{favorite.phone}</CardText>
-                                        <CardText><strong>Website: </strong><a href={favorite.url} target="_blank">{favorite.name}</a></CardText>
+                                        <CardText><strong>Website: </strong><a href={favorite.url} target="_blank" rel="noopener noreferrer">{favorite.name}</a></CardText>
                                         <div className="favNotes">
                                             <CardText style={{ marginBottom: 0 }}><strong>Notes:</strong></CardText>
                                             <CardText>{favorite.notes}</CardText>

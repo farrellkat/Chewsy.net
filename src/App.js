@@ -2,17 +2,26 @@ import React, { Component } from "react";
 import "./App.css";
 import ApplicationViews from "./components/ApplicationViews"
 import NavBar from "./components/NavBar";
-import Header from "./components/Header";
+import UserManager from "./modules/UserManager"
 
 class App extends Component {
+  state = {
+    activeUser: {}
+  }
 
-  isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+  componentDidMount() {
+    UserManager.get(this.activeUserId()).then(activeUser =>
+      this.setState({ activeUser: activeUser })
+
+    )
+  }
+  activeUserId = () => parseInt(sessionStorage.getItem("credentials"))
 
   render() {
-    let navHeader = this.isAuthenticated() ? <NavBar /> : '';
+
     return (
       <React.Fragment>
-        {navHeader}
+        <NavBar activeUser={this.state.activeUser}/>
         <ApplicationViews />
       </React.Fragment>
     );

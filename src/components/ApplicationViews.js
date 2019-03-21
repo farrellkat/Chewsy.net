@@ -19,7 +19,7 @@ export default class ApplicationViews extends Component {
 
     state = {
         categories: [],
-        activeUser: parseInt(""),
+        activeUser: "",
         userCity: "",
         userState: "",
         states: [],
@@ -49,6 +49,8 @@ export default class ApplicationViews extends Component {
             activeUser: parseInt(id)
         })
     }
+
+    clearActiveUser = () => this.setState({activeUser: ""})
 
     checkUserId = () => {
             if (sessionStorage.getItem("credentials") !== "") {
@@ -222,12 +224,16 @@ export default class ApplicationViews extends Component {
             <React.Fragment>
                 <Route exact path="/login" render={(props) => {
                     return <Login {...props}
+                        checkUserId={this.checkUserId}
                         setActiveUser={this.setActiveUser}
                         setLocation={this.setLocation}
                         activeUser={this.state.activeUser} />
-                }} />
+                    }} />
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
+                    checkUserId={this.checkUserId}
+                    activeUser={this.state.activeUser}
+                    setActiveUser={this.setActiveUser}
                     states={this.state.states} />
                 }} />
                 <Route exact path="/" render={(props) => {
