@@ -5,7 +5,7 @@ import { Nav, NavItem, NavLink, Navbar } from "reactstrap"
 
 class NavBar extends Component {
 
-    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null || this.props.activeUser !== null)
+    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
 
     logout = () => {
         sessionStorage.clear("credentials")
