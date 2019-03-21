@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 // import apiModule from "../modules/apiModule";
-import Header from "../components/Header"
 import { Input, FormGroup, Form, Label, Button } from "reactstrap"
 
 export default class SearchForm extends Component {
@@ -40,7 +39,6 @@ export default class SearchForm extends Component {
         return (
             <React.Fragment>
                 <div className="searchBg">
-                    {/* <Header /> */}
                     {
                         <Form className="container" style={{backgroundColor: "rgb(245, 138, 88, 0.3)", borderRadius: "5px", width:"80%"}}>
                         <h1 style={{textAlign:"center", fontSize: "5em"}}>Let's eat!</h1>

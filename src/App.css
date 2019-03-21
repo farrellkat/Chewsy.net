@@ -221,6 +221,12 @@ h5, h6 {
   border-radius: 5px;
 }
 
+.favoritePageRatings {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
 .friendButtonContainer,
 .favButtonContainer {
   display: flex;
@@ -236,4 +242,10 @@ h5, h6 {
   position: absolute;
   right: 10px;
   bottom: 10px;
+}
+
+.registrationTakeout {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
 }

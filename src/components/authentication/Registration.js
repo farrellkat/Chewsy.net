@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
 import { Link } from "react-router-dom"
+import takeout from "../../img/takeout.png"
 
 function validate(email, password, firstName, lastName, address, city, state, zipCode) {
     // true means invalid, so our conditions got reversed
@@ -36,6 +37,7 @@ export default class Registration extends Component {
 
     handleRegister = e => {
         e.preventDefault()
+        this.props.checkUserId()
         const newUser = {
             email: this.state.email,
             password: this.state.password,
@@ -46,22 +48,23 @@ export default class Registration extends Component {
             state: this.state.state,
             zipCode: this.state.zipCode
         }
-        console.log(newUser)
         if (this.state.email && this.state.password) {
             UserManager.searchEmail(this.state.email).then(users => {
                 if (users.length) {
                     alert(`Email ${this.state.email} already exits!`)
                 } else {
-                    UserManager.addUser(newUser).then(user => {
-                        sessionStorage.setItem("credentials", JSON.stringify({
-                            userId: parseInt(user.id),
-                        }))
-                        this.props.history.push("/")
-                        // this.props.setAuth()
+                    UserManager.addUser(newUser)
+                    .then(user => {
+                        this.props.setActiveUser((user.id))
+                        sessionStorage.setItem("credentials",
+                            parseInt(user.id)
+                        )
                     })
                 }
             })
         }
+
+        this.props.history.push("/")
     }
 
     // Update state whenever an input field is edited
@@ -201,6 +204,7 @@ export default class Registration extends Component {
                 </button>
                 <Link className="ml-5" to="/login">Login</Link>
                 </div>
+                <img src={takeout} alt="takeout" className="registrationTakeout"/>
             </form>
         )
     }

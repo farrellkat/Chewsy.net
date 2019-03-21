@@ -1,8 +1,7 @@
 import React, { Component } from "react"
-import { Button, Row, Col, Container, Form, FormGroup, Input } from "reactstrap"
+import { Button, Row, Col, Container } from "reactstrap"
 import UserManager from "../modules/UserManager";
 import "../App.css"
-import Header from "../components/Header"
 export default class FindFriends extends Component {
 
     state = {
@@ -87,15 +86,14 @@ export default class FindFriends extends Component {
         return (
             <React.Fragment>
                 <div className="findBg" style={{overflowY: "scroll"}}>
-            {/* <Header/> */}
-                <div style={{ marginBottom: 50  }} className="searchContainer">
+                {/* <div style={{ marginBottom: 50  }} className="searchContainer">
                     <Form inline>
                         <FormGroup>
                             <Input type="text" name="searchForm" id="searchForm" style={{ marginRight: 5 }} />
                         </FormGroup>
                         <Button color="info">Search</Button>
                     </Form>
-                </div>
+                </div> */}
 
                 <section className="friendListContainer" >
                     <h4 style={{ textAlign: "center", marginBottom: 30, color: "rgb(245, 138, 88)"}}>My Friends</h4>
