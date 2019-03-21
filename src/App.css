@@ -13,6 +13,7 @@ html, body {
   width: 100%;
   height: 100vh;
   background-image: url("img/avocado-millenials.jpg");
+  position: absolute;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
