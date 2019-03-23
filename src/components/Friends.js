@@ -5,7 +5,8 @@ import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
 
 const masonryOptions = {
-    transitionDuration: 0
+    transitionDuration: '0.8s',
+    fitWidth: true
 };
 
 const imagesLoadedOptions = { background: '.my-bg-image-el' }
@@ -59,7 +60,7 @@ export default class Favorites extends Component {
         return (
             // this.state.favorites.length ?
             <React.Fragment>
-                <div className="friendsBg" style={{ overflowY: "scroll" }}>
+                <div className="friendsBg" style={{ overflowY: "scroll"}}>
                     {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems: "flex-start" }}> */}
                     <Masonry
                 className={'my-gallery-class'} // default ''
@@ -140,8 +141,8 @@ export default class Favorites extends Component {
                             )
                         }
                         </Masonry>
+                        </div>
                     {/* </CardGroup> */}
-                </div>
             </React.Fragment>
         )
     }

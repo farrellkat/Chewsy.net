@@ -1,14 +1,15 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button } from 'reactstrap';
-import burger from "../../img/burger.png"
-import hotdog from "../../img/hotdog.png"
+import { Card, CardTitle, CardText, CardImg, CardBody, Button } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
 
 const masonryOptions = {
-    transitionDuration: 0
+    transitionDuration: '0.8s',
+    fitWidth: true,
 };
+
+
 
 const imagesLoadedOptions = { background: '.my-bg-image-el' }
 export default class Favorites extends Component {
@@ -33,6 +34,25 @@ export default class Favorites extends Component {
                 }))
     }
 
+    yelpCurtain = (favorite) => {
+        if (favorite.rating === undefined) {
+            return "Rate to unlock"
+        } else {
+            return <Ratings
+                rating={favorite.yelpRating}
+                widgetDimensions="30px"
+                widgetSpacings="5px"
+                widgetRatedColors="darkred"
+            >
+                <Ratings.Widget />
+                <Ratings.Widget />
+                <Ratings.Widget />
+                <Ratings.Widget />
+                <Ratings.Widget />
+            </Ratings>
+        }
+    }
+
     componentDidMount() {
         UserManager.getUserFavorites(this.props.activeUser).then((favorites) => {
             this.setState({
@@ -48,13 +68,13 @@ export default class Favorites extends Component {
                 <div className="favBg" style={{ overflowY: "scroll" }}>
                     {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems: "flex-start" }}> */}
                     <Masonry
-                className={'my-gallery-class'} // default ''
-                elementType={'ul'} // default 'div'
-                options={masonryOptions} // default {}
-                disableImagesLoaded={false} // default false
-                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-                imagesLoadedOptions={imagesLoadedOptions} // default {}
-            >
+                        className={'my-gallery-class'} // default ''
+                        elementType={'ul'} // default 'div'
+                        options={masonryOptions} // default {}
+                        disableImagesLoaded={false} // default false
+                        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                        imagesLoadedOptions={imagesLoadedOptions} // default {}
+                    >
                         {
                             this.state.favorites.map(favorite =>
                                 <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}>
@@ -71,18 +91,7 @@ export default class Favorites extends Component {
                                                 <CardText className="text-muted" style={{ textAlign: "center", marginTop: 0 }}>{favorite.price}</CardText>
                                                 <CardText style={{ marginBottom: "0px", textAlign: "center" }}><strong>Yelp rating:</strong></CardText>
                                                 <div className="favoritePageRatings">
-                                                    <Ratings
-                                                        rating={favorite.yelpRating}
-                                                        widgetDimensions="30px"
-                                                        widgetSpacings="5px"
-                                                        widgetRatedColors="darkred"
-                                                    >
-                                                        <Ratings.Widget />
-                                                        <Ratings.Widget />
-                                                        <Ratings.Widget />
-                                                        <Ratings.Widget />
-                                                        <Ratings.Widget />
-                                                    </Ratings>
+                                                    {this.yelpCurtain(favorite)} {/* hides the yelp review until user reviews */}
                                                 </div>
                                                 <CardText style={{ marginBottom: "0px", textAlign: "center" }}><strong>My rating:</strong></CardText>
                                                 <div className="favoritePageRatings">
@@ -118,14 +127,12 @@ export default class Favorites extends Component {
                                                 </div>
                                             </CardBody>
                                         }
-                                        </div>
+                                    </div>
                                 </Card>
                             )
                         }
-                        </Masonry>
+                    </Masonry>
                     {/* </CardGroup> */}
-                    <img src={burger} className="favBurger" alt="burger" style={{ filter: "invert(100%)", width: "150px" }} />
-                    <img src={hotdog} className="favHotdog" alt="hotdog" style={{ filter: "invert(100%)", width: "150px" }} />
                 </div>
             </React.Fragment>
         )
