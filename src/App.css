@@ -31,7 +31,7 @@ html, body {
 .favBg {
   width: 100%;
   height: 100vh;
-  background-image: url("img/paletas.jpg");
+  background-image: url("img/brooke-lark-500141-unsplash.jpg");
   background-position: top;
   background-repeat: repeat;
   background-size: cover;
@@ -41,12 +41,10 @@ html, body {
 .friendsBg {
   width: 100%;
   height: 100vh;
-  background-image: url("img/darkFriends.jpg");
+  background-image: url("img/bwDarkFriends.png");
   background-position: top;
   background-repeat: repeat;
   background-size: cover;
-  /* background: rgb(34,193,195); */
-  /* background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,0.2455357142857143) 100%); */
 }
 .findBg {
   width: 100%;
@@ -58,7 +56,7 @@ html, body {
 }
 .cardHolderBg {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: black;
   background-position: top;
   background-repeat: repeat;
@@ -71,6 +69,10 @@ html, body {
 .inputPassword {
   color:white;
 }
+
+/* .grid {
+  margin: 0 40px;
+} */
 
 
 /* body {
@@ -93,6 +95,7 @@ h2, h3, h4 {
   text-align: center;
   margin-bottom: 0px;
 }
+
 h5, h6 {
   font-family: 'Julius Sans One', sans-serif;
   font-weight: 300;

@@ -86,7 +86,8 @@
       "url": "https://www.yelp.com/biz/thai-esane-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "",
-      "id": 1
+      "id": 1,
+      "rating": 4
     },
     {
       "userId": 1,
@@ -161,7 +162,8 @@
       "url": "https://www.yelp.com/biz/night-train-pizza-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
       "notes": "",
-      "id": 3
+      "id": 3,
+      "rating": 3
     },
     {
       "userId": 3,
@@ -739,6 +741,488 @@
       "notes": "Expensive but worth it.",
       "id": 20,
       "rating": 4
+    },
+    {
+      "userId": 1,
+      "restaurantId": "4SRl5od0lY33oK1GMbA23A",
+      "name": "Husk",
+      "category": [
+        {
+          "alias": "southern",
+          "title": "Southern"
+        },
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        },
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        }
+      ],
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/WsIlMx2Yhr3bxrkHeRbe8g/o.jpg",
+      "location": {
+        "address1": "37 Rutledge St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37210",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "37 Rutledge St",
+          "Nashville, TN 37210"
+        ]
+      },
+      "phone": "(615) 256-6565",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/husk-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$$",
+      "notes": "",
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "restaurantId": "7evVLlKovx8DV4CfqJgXww",
+      "name": "Lyra",
+      "category": [
+        {
+          "alias": "mideastern",
+          "title": "Middle Eastern"
+        }
+      ],
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/NPybZSGL275zefwKozlR9w/o.jpg",
+      "location": {
+        "address1": "935 W Eastland Ave",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "935 W Eastland Ave",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 928-8040",
+      "yelpRating": 4.5,
+      "url": "https://www.yelp.com/biz/lyra-nashville-3?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 22
+    },
+    {
+      "userId": 1,
+      "restaurantId": "XeogL9kqQxKEO42ZEqMbvg",
+      "name": "Pepperfire Hot Chicken",
+      "category": [
+        {
+          "alias": "southern",
+          "title": "Southern"
+        },
+        {
+          "alias": "soulfood",
+          "title": "Soul Food"
+        },
+        {
+          "alias": "chickenshop",
+          "title": "Chicken Shop"
+        }
+      ],
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/qTAEcpzVafuRyLsj2icZFQ/o.jpg",
+      "location": {
+        "address1": "1000 Gallatin Ave",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1000 Gallatin Ave",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 582-4824",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/pepperfire-hot-chicken-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "restaurantId": "Y0WIZpnXFFT5VH6WBVCxlg",
+      "name": "Sweet 16th Bakery",
+      "category": [
+        {
+          "alias": "bakeries",
+          "title": "Bakeries"
+        },
+        {
+          "alias": "cupcakes",
+          "title": "Cupcakes"
+        },
+        {
+          "alias": "cafes",
+          "title": "Cafes"
+        }
+      ],
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/m05CHRu8u-lL1-ePYnXwJw/o.jpg",
+      "location": {
+        "address1": "311 N 16th St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "311 N 16th St",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 226-8367",
+      "yelpRating": 4.5,
+      "url": "https://www.yelp.com/biz/sweet-16th-bakery-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 24
+    },
+    {
+      "userId": 1,
+      "restaurantId": "2OXCAbz3x_MrQSYj1zarIA",
+      "name": "Pinewood Social",
+      "category": [
+        {
+          "alias": "social_clubs",
+          "title": "Social Clubs"
+        },
+        {
+          "alias": "tradamerican",
+          "title": "American (Traditional)"
+        },
+        {
+          "alias": "lounges",
+          "title": "Lounges"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/v5jwOoZYWemQlP4wgOf-2g/o.jpg",
+      "location": {
+        "address1": "33 Peabody St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37210",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "33 Peabody St",
+          "Nashville, TN 37210"
+        ]
+      },
+      "phone": "(615) 751-8111",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/pinewood-social-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 25
+    },
+    {
+      "userId": 1,
+      "restaurantId": "Y1QKeVZSvhnAZnO26SK6QQ",
+      "name": "Nordstrom Grill",
+      "category": [
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        },
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        }
+      ],
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/a2sBl1ENMdGQ9OOqHFm89g/o.jpg",
+      "location": {
+        "address1": "2130 Abbott Martin Rd",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37215",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2130 Abbott Martin Rd",
+          "Nashville, TN 37215"
+        ]
+      },
+      "phone": "(615) 850-6630",
+      "yelpRating": 3.5,
+      "url": "https://www.yelp.com/biz/nordstrom-grill-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 26
+    },
+    {
+      "userId": 1,
+      "restaurantId": "JPoLb8jZYc5e7WjI2coVkQ",
+      "name": "Love, Peace & Pho",
+      "category": [
+        {
+          "alias": "vietnamese",
+          "title": "Vietnamese"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/7Q1_QyusPq5I0bRaKUieKw/o.jpg",
+      "location": {
+        "address1": "2112 8th Ave S",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37204",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2112 8th Ave S",
+          "Nashville, TN 37204"
+        ]
+      },
+      "phone": "(615) 942-0045",
+      "yelpRating": 3.5,
+      "url": "https://www.yelp.com/biz/love-peace-and-pho-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 27
+    },
+    {
+      "userId": 1,
+      "restaurantId": "t-RHwZzlTAZeTcgrrbRtqg",
+      "name": "The Grilled Cheeserie",
+      "category": [
+        {
+          "alias": "sandwiches",
+          "title": "Sandwiches"
+        },
+        {
+          "alias": "foodtrucks",
+          "title": "Food Trucks"
+        },
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/4Z49DU0XrrVIrmKJWzNR8A/o.jpg",
+      "location": {
+        "address1": "2003 Belcourt Ave",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37212",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2003 Belcourt Ave",
+          "Nashville, TN 37212"
+        ]
+      },
+      "phone": "(615) 203-0351",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/the-grilled-cheeserie-nashville-6?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 28
+    },
+    {
+      "userId": 1,
+      "restaurantId": "w5P6cL-KgrLGiqkf_XgfYg",
+      "name": "The Mockingbird Nashville",
+      "category": [
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        },
+        {
+          "alias": "diners",
+          "title": "Diners"
+        },
+        {
+          "alias": "tapasmallplates",
+          "title": "Tapas/Small Plates"
+        }
+      ],
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/JnAWETXfvcTtneaLXH05sQ/o.jpg",
+      "location": {
+        "address1": "121 12th Ave N",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "121 12th Ave N",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 741-9900",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/the-mockingbird-nashville-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 29
+    },
+    {
+      "userId": 1,
+      "restaurantId": "BRewtSoPssadaodaIS_Sdw",
+      "name": "Babo Korean Bar",
+      "category": [
+        {
+          "alias": "bars",
+          "title": "Bars"
+        },
+        {
+          "alias": "korean",
+          "title": "Korean"
+        }
+      ],
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/9ytouRi9uWmDjrEBqhEdkg/o.jpg",
+      "location": {
+        "address1": "1601 Riverside Dr",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37216",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1601 Riverside Dr",
+          "Nashville, TN 37216"
+        ]
+      },
+      "phone": "",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/babo-korean-bar-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "notes": "",
+      "id": 30
+    },
+    {
+      "userId": 1,
+      "restaurantId": "mV12ZKWE2WuYy0Mq3irzYA",
+      "name": "Athens Family Restaurant",
+      "category": [
+        {
+          "alias": "greek",
+          "title": "Greek"
+        },
+        {
+          "alias": "breakfast_brunch",
+          "title": "Breakfast & Brunch"
+        },
+        {
+          "alias": "tradamerican",
+          "title": "American (Traditional)"
+        }
+      ],
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/9CSwIOQ55AaUL2Vu2elNRQ/o.jpg",
+      "location": {
+        "address1": "2526 Franklin Pike",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37204",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "2526 Franklin Pike",
+          "Nashville, TN 37204"
+        ]
+      },
+      "phone": "(615) 383-2848",
+      "yelpRating": 3.5,
+      "url": "https://www.yelp.com/biz/athens-family-restaurant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 31
+    },
+    {
+      "userId": 1,
+      "restaurantId": "x3h0A6n3zIVcnrC0q4bGKg",
+      "name": "The Crying Wolf",
+      "category": [
+        {
+          "alias": "burgers",
+          "title": "Burgers"
+        },
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        },
+        {
+          "alias": "beerbar",
+          "title": "Beer Bar"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/1x031zLym0LSBvBi3ILBkA/o.jpg",
+      "location": {
+        "address1": "823 Woodland St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "823 Woodland St",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 953-6715",
+      "yelpRating": 3.5,
+      "url": "https://www.yelp.com/biz/the-crying-wolf-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 32
+    },
+    {
+      "userId": 1,
+      "restaurantId": "GJtRRcx44M9ptMUYxccUeg",
+      "name": "Little Mosko's",
+      "category": [
+        {
+          "alias": "bakeries",
+          "title": "Bakeries"
+        },
+        {
+          "alias": "breakfast_brunch",
+          "title": "Breakfast & Brunch"
+        },
+        {
+          "alias": "sandwiches",
+          "title": "Sandwiches"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/EknCGlglbHLAFOo2sQ_s8A/o.jpg",
+      "location": {
+        "address1": "41 Peabody St",
+        "address2": null,
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37210",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "41 Peabody St",
+          "Nashville, TN 37210"
+        ]
+      },
+      "phone": "(615) 727-8555",
+      "yelpRating": 5,
+      "url": "https://www.yelp.com/biz/little-moskos-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 33
     }
   ],
   "friends": [
@@ -756,11 +1240,6 @@
       "fId": 2,
       "userId": 3,
       "id": 4
-    },
-    {
-      "fId": 2,
-      "userId": 1,
-      "id": 5
     },
     {
       "fId": 3,
@@ -791,6 +1270,16 @@
       "fId": 3,
       "userId": 2,
       "id": 11
+    },
+    {
+      "fId": 5,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "fId": 2,
+      "userId": 1,
+      "id": 13
     }
   ],
   "states": [

@@ -103,7 +103,7 @@ export default class MainRestaurantCard extends Component {
                             <div>Business Website: <a href={this.props.businessInfo[0].url} target="_blank" rel="noopener noreferrer">{this.props.businessInfo[0].name}</a></div>
                         </div>
                         <div className="ratingAndPrice text-light">
-                            <div>Rating: {this.props.businessInfo[0].rating}/5</div>
+                            {/* <div>Rating: {this.props.businessInfo[0].rating}/5</div> */}
                             <div>Price: {this.props.businessInfo[0].price}</div>
                         </div>
                     <div className="mainCardButtonContainer">
