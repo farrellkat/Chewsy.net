@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button, CardSubtitle } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardBody, Button, CardSubtitle } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
 
@@ -61,7 +61,7 @@ export default class Favorites extends Component {
             // this.state.favorites.length ?
             <React.Fragment>
                 <div className="friendsBg" style={{ overflowY: "scroll"}}>
-                    {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems: "flex-start" }}> */}
+                <h1 style={{textAlign:"center", color:"white"}}>Friends</h1>
                     <Masonry
                 className={'my-gallery-class'} // default ''
                 elementType={'ul'} // default 'div'
@@ -142,7 +142,6 @@ export default class Favorites extends Component {
                         }
                         </Masonry>
                         </div>
-                    {/* </CardGroup> */}
             </React.Fragment>
         )
     }

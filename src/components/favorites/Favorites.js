@@ -66,7 +66,7 @@ export default class Favorites extends Component {
         return (
             <React.Fragment>
                 <div className="favBg" style={{ overflowY: "scroll" }}>
-                    {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems: "flex-start" }}> */}
+                <h1 style={{textAlign:"center", color:"white"}}>My Favorites</h1>
                     <Masonry
                         className={'my-gallery-class'} // default ''
                         elementType={'ul'} // default 'div'
@@ -132,7 +132,6 @@ export default class Favorites extends Component {
                             )
                         }
                     </Masonry>
-                    {/* </CardGroup> */}
                 </div>
             </React.Fragment>
         )

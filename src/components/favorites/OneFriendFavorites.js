@@ -1,10 +1,25 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, Button, CardSubtitle } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardBody, Button, CardSubtitle } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
+import Masonry from "react-masonry-component"
+
+const masonryOptions = {
+    transitionDuration: '0.8s',
+    fitWidth: true,
+};
+
+const imagesLoadedOptions = { background: '.my-bg-image-el' }
 export default class OneFriendFavorites extends Component {
     state = {
         favorites: [],
+        isHidden: true
+    }
+
+    toggleHidden() {
+        this.setState({
+            isHidden: !this.state.isHidden
+        })
     }
 
     componentDidMount() {
@@ -21,6 +36,7 @@ export default class OneFriendFavorites extends Component {
         return (
             <React.Fragment>
                 <div className="friendsBg" style={{overflowY: "scroll"}}>
+                <h1 style={{textAlign:"center", color:"white"}}>{this.state.friendName}'s faves</h1>
                 <div className="oneFriendTopButtonDiv">
                     <Button
                     style={{marginTop:"20px", marginBottom:"20px"}}
@@ -28,12 +44,21 @@ export default class OneFriendFavorites extends Component {
                     onClick={() => this.props.history.push("/friends")}
                     >Back</Button>
                 </div>
-                <h1 style={{textAlign:"center"}}>{this.state.friendName}'s faves</h1>
-                <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems:"flex-start" }}>
+                {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems:"flex-start" }}> */}
+                <Masonry
+                        className={'my-gallery-class'} // default ''
+                        elementType={'ul'} // default 'div'
+                        options={masonryOptions} // default {}
+                        disableImagesLoaded={false} // default false
+                        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                        imagesLoadedOptions={imagesLoadedOptions} // default {}
+                        >
                         {
                             this.state.favorites.map(favorite =>
-                                <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5 }}>
-                                    <CardImg width="100%" src={favorite.image} />
+                                <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}>
+                                    <CardImg width="100%" src={favorite.image} onClick={this.toggleHidden.bind(this)}/>
+                                    <div>
+                                        {!this.state.isHidden &&
                                     <CardBody>
                                         <CardTitle style={{ marginBottom: 0 }}><p className="favoritesName">{favorite.name}</p></CardTitle>
                                         <CardText style={{ textAlign: "center" }}>
@@ -83,10 +108,13 @@ export default class OneFriendFavorites extends Component {
                                             <CardText>{favorite.notes}</CardText>
                                         </div>
                                     </CardBody>
+                                    }
+                                    </div>
                                 </Card>
                             )
                         }
-                    </CardGroup>
+                        </Masonry>
+                    {/* </CardGroup> */}
                 </div>
             </React.Fragment>
         )

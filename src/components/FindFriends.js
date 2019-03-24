@@ -96,7 +96,7 @@ export default class FindFriends extends Component {
                 </div> */}
 
                 <section className="friendListContainer" >
-                    <h4 style={{ textAlign: "center", marginBottom: 30, color: "rgb(245, 138, 88)"}}>My Friends</h4>
+                    <h4 style={{ textAlign: "center", marginBottom: 30, marginTop: "30px", color: "rgb(245, 138, 88)"}}>My Friends</h4>
                     {
                         this.state.myFriends.map(user =>
                             <Container style={{ marginBottom: 10 }} className="mainFriendContainer" id={user.id} key={user.id}>
