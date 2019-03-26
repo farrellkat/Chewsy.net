@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 // import apiModule from "../modules/apiModule";
 import { Input, FormGroup, Form, Label, Button } from "reactstrap"
+import staticAppData from "../staticAppData"
 
 export default class SearchForm extends Component {
     userId = sessionStorage.getItem("credentials")
@@ -16,17 +17,18 @@ export default class SearchForm extends Component {
         randomNumber: "",
     }
 
+
     // getDefaultStateValue = () => {return this.props.states.find(state => state.abbreviation === this.props.userState)}
 
     // console.log(getDefaultStateValue)
 
-    componentDidMount() {
-        this.props.checkUserId()
-        this.setState({
-            cityInput: this.props.userCity,
-            stateInput: this.props.userState
-        })
-    }
+    // componentDidMount() {
+        // this.props.checkUserId()
+        // this.setState({
+        //     cityInput: this.props.userCity,
+        //     stateInput: this.props.userState
+        // })
+    // }
 
     handleFieldChange = evt => {
         const stateToChange = {};
@@ -36,6 +38,7 @@ export default class SearchForm extends Component {
     };
 
     render() {
+       const categories = staticAppData.categories.filter(data => data.parents[0] === "restaurants")
         return (
             <React.Fragment>
                 <div className="searchBg">
@@ -61,7 +64,7 @@ export default class SearchForm extends Component {
                                     onChange={this.handleFieldChange}>
 
                                     <option>State</option>
-                                    {this.props.states.map(state => (
+                                    {staticAppData.states.map(state => (
                                         <option key={state.abbreviation} value={state.abbreviation}>
                                             {state.abbreviation}
                                         </option>
@@ -75,7 +78,7 @@ export default class SearchForm extends Component {
                                     onChange={this.handleFieldChange}
                                 >
                                     <option>Radius</option>
-                                    {this.props.radii.map(radii => (
+                                    {staticAppData.radius.map(radii => (
                                         <option key={radii.radius} id={radii.radius} value={radii.value}>
                                             {radii.radius}
                                         </option>
@@ -94,7 +97,7 @@ export default class SearchForm extends Component {
                                             onChange={this.handleFieldChange}
                                         >
                                             <option>Select a Category</option>
-                                            {this.props.categories.map(c => (
+                                            {categories.map(c => (
                                                 <option key={c.alias} id={c.alias} value={c.alias}>
                                                     {c.title}
                                                 </option>
@@ -112,7 +115,7 @@ export default class SearchForm extends Component {
                                             onChange={this.handleFieldChange}
                                         >
                                             <option>Select a Category</option>
-                                            {this.props.categories.map(c => (
+                                            {categories.map(c => (
                                                 <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
                                                     {c.title}
                                                 </option>
@@ -130,7 +133,7 @@ export default class SearchForm extends Component {
                                             onChange={this.handleFieldChange}
                                         >
                                             <option>Select a Category</option>
-                                            {this.props.categories.map(c => (
+                                            {categories.map(c => (
                                                 <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
                                                     {c.title}
                                                 </option>

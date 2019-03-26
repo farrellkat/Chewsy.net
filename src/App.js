@@ -1,31 +1,37 @@
-import React, { Component } from "react";
-import "./App.css";
-import ApplicationViews from "./components/ApplicationViews"
-import NavBar from "./components/NavBar";
-import UserManager from "./modules/UserManager"
+import React, { Component } from 'react';
+import NavBar from "./components/NavBar"
+import './App.css';
+import ApplicationViews from './components/ApplicationViews';
 
-class App extends Component {
-  state = {
-    activeUser: {}
+export default class App extends Component {
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
   }
 
   componentDidMount() {
-    UserManager.get(this.activeUserId()).then(activeUser =>
-      this.setState({ activeUser: activeUser })
+    const { renewSession } = this.props.auth;
 
-    )
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      renewSession();
+    }
   }
-  activeUserId = () => parseInt(sessionStorage.getItem("credentials"))
 
   render() {
+    // const { isAuthenticated } = this.props.auth;
 
     return (
-      <React.Fragment>
-        <NavBar activeUser={this.state.activeUser}/>
-        <ApplicationViews />
+        <React.Fragment>
+        <NavBar auth={this.props.auth}/>
+        <ApplicationViews auth={this.props.auth} />
       </React.Fragment>
     );
   }
 }
-
-export default App;

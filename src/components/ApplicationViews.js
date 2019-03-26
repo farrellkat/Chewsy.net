@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Route, Redirect } from "react-router-dom"
 import SearchForm from "./searchForm";
-import Login from "./authentication/Login"
+// import Login from "./authentication/Login"
 import apiModule from "../modules/apiModule";
 import Registration from "./authentication/Registration";
 import CardViewer from "./CardViewer";
@@ -13,9 +13,17 @@ import FavoriteEditForm from "./favorites/FavoriteEditForm";
 import FindFriends from "./FindFriends";
 import Friends from "./Friends";
 import OneFriendFavorites from "./favorites/OneFriendFavorites";
+import LoginAuth0 from "./authentication/LoginAuth0";
+
 export default class ApplicationViews extends Component {
 
-    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+    isAuthenticated() {
+        // Check whether the current time is past the
+        // access token's expiry time
+        return localStorage.getItem('isLoggedIn')
+        // let expiresAt = this.expiresAt;
+        // return new Date().getTime() < expiresAt;
+      }
 
     state = {
         categories: [],
@@ -222,13 +230,16 @@ export default class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment>
-                <Route exact path="/login" render={(props) => {
-                    return <Login {...props}
-                        checkUserId={this.checkUserId}
-                        setActiveUser={this.setActiveUser}
-                        setLocation={this.setLocation}
-                        activeUser={this.state.activeUser} />
-                    }} />
+                <Route exact path="/" render={(props) => {
+                    return <LoginAuth0 {...props} auth={this.props.auth}
+                        // checkUserId={this.checkUserId}
+                        // setActiveUser={this.setActiveUser}
+                        // setLocation={this.setLocation}
+                        // activeUser={this.state.activeUser}
+                        />
+                    }
+                }
+                    />
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
                     checkUserId={this.checkUserId}
@@ -236,10 +247,11 @@ export default class ApplicationViews extends Component {
                     setActiveUser={this.setActiveUser}
                     states={this.state.states} />
                 }} />
-                <Route exact path="/" render={(props) => {
-                    if (this.isAuthenticated()) {
-                        return <SearchForm
-                        {...props}
+                <Route exact path="/search" render={(props) => {
+                    // if (this.isAuthenticated()) {
+                        if (this.isAuthenticated()) {
+                            return <SearchForm
+                            {...props}
                             checkUserId={this.checkUserId}
                             userCity={this.state.userCity}
                             userState={this.state.userState}
@@ -251,14 +263,15 @@ export default class ApplicationViews extends Component {
                             getAllRandomOffset={this.getAllRandomOffset}
                             updateUserState={this.updateUserState}
                             updateSurpriseUserState={this.updateSurpriseUserState}
-                        />
+                            />
+                        } else {
+                                return <Redirect to="/" />
+                                }
 
-                    } else {
-                        return <Redirect to="/login" />
-                    }
-                }} />
+                            }} />
                 <Route exact path="/cardviewer" render={(props) => {
-                    if (this.isAuthenticated()) {
+                    // if (this.isAuthenticated()) {
+                        if (this.isAuthenticated()) {
                         return <ErrorBoundary>
                             <CardViewer
                                 {...props}
@@ -271,11 +284,11 @@ export default class ApplicationViews extends Component {
                             />
                         </ErrorBoundary>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/restaurantinfo" render={(props) => {
-                    if (this.isAuthenticated()) {
+                     if (this.isAuthenticated()) {
                         return <MainRestaurantCard
                             {...props}
                             businessInfo={this.state.businessInfo}
@@ -285,7 +298,7 @@ export default class ApplicationViews extends Component {
                             checkUserId={this.checkUserId}
                         />
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/favorites" render={(props) => {
@@ -298,11 +311,11 @@ export default class ApplicationViews extends Component {
                         >
                         </Favorites>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/findfriends" render={(props) => {
-                    if (this.isAuthenticated()) {
+                     if (this.isAuthenticated()) {
                         return <FindFriends
                             {...props}
                             activeUser={this.state.activeUser}
@@ -312,7 +325,7 @@ export default class ApplicationViews extends Component {
                         >
                         </FindFriends>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/friends" render={(props) => {
@@ -326,7 +339,7 @@ export default class ApplicationViews extends Component {
                         >
                         </Friends>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                  <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {

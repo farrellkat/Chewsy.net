@@ -1,27 +1,43 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Nav, NavItem, NavLink, Navbar } from "reactstrap"
+import { Nav, NavItem, NavLink, Navbar, Button } from "reactstrap"
 
 class NavBar extends Component {
 
-    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+    goTo(route) {
+        this.props.history.replace(`/${route}`)
+      }
 
-    logout = () => {
-        sessionStorage.clear("credentials")
-        localStorage.clear("credentials")
-    }
+      login() {
+        this.props.auth.login();
+      }
+
+      logout() {
+        this.props.auth.logout();
+      }
+
+      componentDidMount() {
+        const { renewSession } = this.props.auth;
+
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+          renewSession();
+        }
+      }
+    // isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+
+    // logout = () => {
+    //     sessionStorage.clear("credentials")
+    //     localStorage.clear("credentials")
+    // }
 
     render() {
-        let logoutLink = this.isAuthenticated() ?
-            <NavItem>
-                <NavLink tag={Link} className="nav-link text-warning" onClick={this.logout} to="/login">Logout</NavLink>
-            </NavItem> : "";
+        const { isAuthenticated } = this.props.auth;
         return (
             <Navbar color="dark">
                 <Nav pills>
                     <NavItem>
-                        <NavLink tag={Link} className="nav-link text-info" to="/">Search</NavLink>
+                        <NavLink tag={Link} className="nav-link text-info" to="/search">Search</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink tag={Link} className="nav-link text-info" to="/favorites">Favorites</NavLink>
@@ -32,7 +48,18 @@ class NavBar extends Component {
                     <NavItem>
                         <NavLink tag={Link} className="nav-link text-info" to="/findfriends">Find Friends</NavLink>
                     </NavItem>
-                    {logoutLink}
+            {
+                isAuthenticated() && (
+                    <Button
+                      id="qsLogoutBtn"
+                      bsStyle="primary"
+                      className="btn-margin"
+                      onClick={this.logout.bind(this)}
+                    >
+                      Log Out
+                    </Button>
+                  )
+              }
                 </Nav>
                 <Nav>
                     <NavItem>
