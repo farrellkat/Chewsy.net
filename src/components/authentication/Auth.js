@@ -1,8 +1,11 @@
 import history from '../History';
 import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
+import jwt_decode from "jwt-decode"
+import UserManager from '../../modules/UserManager';
 
 export default class Auth {
+
   accessToken;
   idToken;
   expiresAt;
@@ -12,7 +15,7 @@ export default class Auth {
     clientID: AUTH_CONFIG.clientId,
     redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid profile'
   });
 
   constructor() {
@@ -23,6 +26,7 @@ export default class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.renewSession = this.renewSession.bind(this);
+    this.getProfile = this.getProfile.bind(this);
   }
 
   login() {
@@ -59,8 +63,33 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    // navigate to the home route
-    history.replace('/search');
+    //get token and decode it to get unique userId
+    var token = this.idToken;
+    var decoded = jwt_decode(token);
+    const authId = decoded.sub;
+    UserManager.searchAuthId(authId)
+    .then((user) => {
+    if (user.length) {
+      console.log(user)
+      localStorage.setItem("userId", user[0].id)
+      localStorage.setItem("userName", user[0].firstName)
+      // navigate to the home route
+      history.replace('/search');
+    } else {
+      sessionStorage.setItem("email", decoded.name)
+      sessionStorage.setItem("authId", authId)
+      history.replace('/registration')
+    }
+  })
+  }
+
+  getProfile(cb) {
+    this.auth0.client.userInfo(this.accessToken, (err, profile) => {
+      if (profile) {
+        this.userProfile = profile;
+      }
+      cb(err, profile);
+    });
   }
 
   renewSession() {
@@ -82,10 +111,13 @@ export default class Auth {
     this.expiresAt = 0;
 
     // Remove isLoggedIn flag from localStorage
-    localStorage.removeItem('isLoggedIn');
+    localStorage.clear()
 
     // navigate to the home route
     history.replace('/');
+
+    // Remove user profile
+    this.userProfile = null;
   }
 
   isAuthenticated() {

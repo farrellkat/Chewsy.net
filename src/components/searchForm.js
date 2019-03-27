@@ -5,9 +5,10 @@ import { Input, FormGroup, Form, Label, Button } from "reactstrap"
 import staticAppData from "../staticAppData"
 
 export default class SearchForm extends Component {
-    userId = sessionStorage.getItem("credentials")
+    // userId = sessionStorage.getItem("credentials")
 
     state = {
+        activeUser:"",
         category1: "",
         category2: "",
         category3: "",
@@ -22,13 +23,10 @@ export default class SearchForm extends Component {
 
     // console.log(getDefaultStateValue)
 
-    // componentDidMount() {
-        // this.props.checkUserId()
-        // this.setState({
-        //     cityInput: this.props.userCity,
-        //     stateInput: this.props.userState
-        // })
-    // }
+    componentDidMount() {
+        const activeUser = localStorage.getItem("userId")
+        this.setState({activeUser:activeUser})
+    }
 
     handleFieldChange = evt => {
         const stateToChange = {};
@@ -64,7 +62,7 @@ export default class SearchForm extends Component {
                                     onChange={this.handleFieldChange}>
 
                                     <option>State</option>
-                                    {staticAppData.states.map(state => (
+                                    {this.props.states.map(state => (
                                         <option key={state.abbreviation} value={state.abbreviation}>
                                             {state.abbreviation}
                                         </option>
@@ -78,7 +76,7 @@ export default class SearchForm extends Component {
                                     onChange={this.handleFieldChange}
                                 >
                                     <option>Radius</option>
-                                    {staticAppData.radius.map(radii => (
+                                    {this.props.radii.map(radii => (
                                         <option key={radii.radius} id={radii.radius} value={radii.value}>
                                             {radii.radius}
                                         </option>

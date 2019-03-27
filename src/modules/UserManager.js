@@ -2,7 +2,7 @@ import settings from "./settings"
 
 export default {
   get(id) {
-    return fetch(`${settings.appDataURL}/users/${id}`).then(e => e.json())
+    return fetch(`${settings.appDataURL}/users/?authId=${id}`).then(e => e.json())
   },
   matchLoginEmail(email) {
     return fetch(`${settings.appDataURL}/users/?email=${email}`).then(e => e.json())
@@ -89,6 +89,11 @@ export default {
   },
   searchEmail(email) {
     return fetch(`${settings.appDataURL}/users?email=${email}`).then(e =>
+      e.json()
+    )
+  },
+  searchAuthId(authId) {
+    return fetch(`${settings.appDataURL}/users?authId=${authId}`).then(e =>
       e.json()
     )
   }

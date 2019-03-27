@@ -14,6 +14,8 @@ import FindFriends from "./FindFriends";
 import Friends from "./Friends";
 import OneFriendFavorites from "./favorites/OneFriendFavorites";
 import LoginAuth0 from "./authentication/LoginAuth0";
+import Profile from "./authentication/Profile";
+import staticAppData from "../staticAppData"
 
 export default class ApplicationViews extends Component {
 
@@ -26,12 +28,9 @@ export default class ApplicationViews extends Component {
       }
 
     state = {
-        categories: [],
         activeUser: "",
-        userCity: "",
-        userState: "",
-        states: [],
-        radii: [],
+        states: staticAppData.states,
+        radii: staticAppData.radius,
         randomNumber: "",
         category1: "",
         category2: "",
@@ -40,7 +39,7 @@ export default class ApplicationViews extends Component {
         stateInput: "",
         radiiInput: "",
         businessInfo: "",
-        businessImage: "",
+        businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif",
         userFavorites: []
     }
 
@@ -52,21 +51,15 @@ export default class ApplicationViews extends Component {
             stateInput: r.state
         }))
 
-    setActiveUser = (id) => {
-        this.setState({
-            activeUser: parseInt(id)
-        })
-    }
+    // setActiveUser = (authId) => {
+    //     UserManager.get(authId)
+    //    .then((user) =>
+    //     this.setState({
+    //         activeUser: user.id
+    //     })
+    //    )}
 
     clearActiveUser = () => this.setState({activeUser: ""})
-
-    checkUserId = () => {
-            if (sessionStorage.getItem("credentials") !== "") {
-                this.setState({ activeUser: parseInt(sessionStorage.getItem("credentials")) })
-            } else {
-                this.setState({activeUser: parseInt(localStorage.getItem("credentials")) })
-            }
-    }
 
     postFavoriteRestaurant = (favoriteRestaurant) => {
         UserManager.addUserFavorite(favoriteRestaurant)
@@ -84,33 +77,20 @@ export default class ApplicationViews extends Component {
         }
         this.postFavoriteRestaurant(favoriteRestaurant)
     }
+
+
+
+
     componentDidMount() {
-        this.checkUserId()
-        const newState = {}
-        apiModule.getAllCategories().then(allCategories => {
-            this.setState({
-                categories: allCategories
-            })
-        })
-            .then(() =>
-                this.setState(newState))
-            .then(() =>
-                apiModule.getAllStates()).then(allStates => {
-                    this.setState({
-                        states: allStates
-                    })
-                })
-            .then(() =>
-                apiModule.getAllRadii()).then(allRadii => {
-                    this.setState({
-                        radii: allRadii
-                    })
-                })
-            .then(() =>
-                this.setState({
-                    businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
-                }))
+            const newState={}
+            const userId = parseInt(localStorage.getItem("userId"))
+            newState.activeUser = userId
+            // newState.states = staticAppData.states
+            // newState.radii = staticAppData.radius
+            this.setState(newState)
+
     }
+
 
     updateUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
         this.setState({
@@ -232,17 +212,18 @@ export default class ApplicationViews extends Component {
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
                     return <LoginAuth0 {...props} auth={this.props.auth}
-                        // checkUserId={this.checkUserId}
-                        // setActiveUser={this.setActiveUser}
-                        // setLocation={this.setLocation}
-                        // activeUser={this.state.activeUser}
+                        />
+                    }
+                }
+                    />
+                <Route exact path="/profile" render={(props) => {
+                    return <Profile {...props} auth={this.props.auth}
                         />
                     }
                 }
                     />
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
-                    checkUserId={this.checkUserId}
                     activeUser={this.state.activeUser}
                     setActiveUser={this.setActiveUser}
                     states={this.state.states} />
@@ -252,7 +233,6 @@ export default class ApplicationViews extends Component {
                         if (this.isAuthenticated()) {
                             return <SearchForm
                             {...props}
-                            checkUserId={this.checkUserId}
                             userCity={this.state.userCity}
                             userState={this.state.userState}
                             categories={this.state.categories}
@@ -275,7 +255,6 @@ export default class ApplicationViews extends Component {
                         return <ErrorBoundary>
                             <CardViewer
                                 {...props}
-                                checkUserId={this.checkUserId}
                                 businessInfo={this.state.businessInfo}
                                 businessImage={this.state.businessImage}
                                 activeUser={this.props.activeUser}
@@ -295,7 +274,6 @@ export default class ApplicationViews extends Component {
                             businessId={this.businessId}
                             postFavoriteRestaurant={this.postFavoriteRestaurant}
                             activeUser={this.state.activeUser}
-                            checkUserId={this.checkUserId}
                         />
                     } else {
                         return <Redirect to="/" />
@@ -307,7 +285,6 @@ export default class ApplicationViews extends Component {
                             {...props}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
-                            checkUserId={this.checkUserId}
                         >
                         </Favorites>
                     } else {
@@ -321,7 +298,6 @@ export default class ApplicationViews extends Component {
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                             friends={this.state.friends}
-                            checkUserId={this.checkUserId}
                         >
                         </FindFriends>
                     } else {
@@ -335,7 +311,6 @@ export default class ApplicationViews extends Component {
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                             friends={this.state.friends}
-                            checkUserId={this.checkUserId}
                         >
                         </Friends>
                     } else {
@@ -345,14 +320,12 @@ export default class ApplicationViews extends Component {
                  <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {
                         return <FavoriteEditForm
                                     {...props}
-                                    checkUserId={this.checkUserId}
                                     />
                     }}
                     />
                  <Route path="/favorites/:friendId(\d+)/friendfavorite" render={props => {
                         return <OneFriendFavorites
                                     {...props}
-                                    checkUserId={this.checkUserId}
                                     />
                     }}
                     />

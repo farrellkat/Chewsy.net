@@ -9,6 +9,7 @@
       "city": "Nashville",
       "state": "TN",
       "zipCode": "37206",
+      "authId": "auth0|5c994c3608411b333f9570c3",
       "id": 1
     },
     {
@@ -54,6 +55,16 @@
       "state": "CA",
       "zipCode": "94599",
       "id": 5
+    },
+    {
+      "email": "testkitchenstudios615@gmail.com",
+      "firstName": "Don",
+      "lastName": "Johnson",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "authId": "auth0|5c9acb4bba5cad125f5f4788",
+      "id": 6
     }
   ],
   "favorites": [
@@ -926,8 +937,9 @@
       "yelpRating": 4,
       "url": "https://www.yelp.com/biz/pinewood-social-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
-      "notes": "",
-      "id": 25
+      "notes": "Pricey but has good breakfast. Decent veggie options",
+      "id": 25,
+      "rating": 4
     },
     {
       "userId": 1,
@@ -1223,6 +1235,45 @@
       "price": "$",
       "notes": "",
       "id": 33
+    },
+    {
+      "userId": 1,
+      "restaurantId": "r9L9r7YxzpC1U32GYQboWA",
+      "name": "Grassmere Grill & Kabob",
+      "category": [
+        {
+          "alias": "mediterranean",
+          "title": "Mediterranean"
+        },
+        {
+          "alias": "turkish",
+          "title": "Turkish"
+        },
+        {
+          "alias": "kebab",
+          "title": "Kebab"
+        }
+      ],
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/PDdYUi4Blp77Z1S7Pt5x5Q/o.jpg",
+      "location": {
+        "address1": "3802 Nolensville Pike",
+        "address2": null,
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "3802 Nolensville Pike",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 837-2567",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/grassmere-grill-and-kabob-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 34
     }
   ],
   "friends": [
@@ -1240,11 +1291,6 @@
       "fId": 2,
       "userId": 3,
       "id": 4
-    },
-    {
-      "fId": 3,
-      "userId": 1,
-      "id": 6
     },
     {
       "fId": 4,
@@ -1272,14 +1318,19 @@
       "id": 11
     },
     {
-      "fId": 5,
-      "userId": 1,
-      "id": 12
-    },
-    {
       "fId": 2,
       "userId": 1,
       "id": 13
+    },
+    {
+      "fId": 3,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "fId": 5,
+      "userId": 1,
+      "id": 15
     }
   ]
 }

@@ -6,10 +6,10 @@ import Auth from './components/authentication/Auth';
 import history from './components/History';
 
 const auth = new Auth();
-
 const handleAuthentication = ({location}) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
+    
   }
 }
 

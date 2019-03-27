@@ -35,7 +35,6 @@ export default class FavoriteEditForm extends Component {
   }
 
   componentDidMount() {
-    this.props.checkUserId()
     UserManager.getOneUserFavorite(this.props.match.params.favoriteId)
       .then(restaurant => {
         this.setState({

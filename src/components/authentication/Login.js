@@ -46,7 +46,6 @@ export default class Login extends Component {
     // Simplistic handler for login submit
     handleLogin = (e) => {
         e.preventDefault()
-        this.props.checkUserId()
         // If remember me isn't checked set credentials to session storage
         if (this.state.rememberMe === false) {
             UserManager.matchLoginEmail(this.state.email)
