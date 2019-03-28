@@ -51,7 +51,7 @@ export default class SearchForm extends Component {
                                     // defaultValue={this.props.userCity}
                                     required
                                     className="form-control col-md-2 mr-1"
-                                    placeholder="City"
+                                    placeholder="City or Zip Code"
                                     onChange={this.handleFieldChange}
                                 />
                                 <Input className="custom-select col-md-1 mr-1"
