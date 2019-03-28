@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardBody, Button, CardSubtitle } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardBody, Button, CardSubtitle, Form, FormGroup, Input } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
 import Switch from "react-switch";
@@ -21,7 +21,8 @@ export default class Favorites extends Component {
     state = {
         favorites: [],
         friends: [],
-        checked: false
+        checked: false,
+        search: ""
     }
     favArray = []
 
@@ -52,6 +53,23 @@ export default class Favorites extends Component {
         this.loadFriends()
     }
 
+    handleFieldChange = evt => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+    };
+
+    searchAllFavorites = (search) => {
+        this.favArray = []
+        UserManager.searchAllFavorites(search)
+        .then((favorites)=> {
+            const friendId = this.state.friends.map((friend) => friend.fId)
+            friendId.map((id) =>
+            (favorites.filter((favorite) => id === favorite.userId).map((favorite) => this.favArray.push(favorite))))
+            this.setState({ favorites: this.favArray })
+        })
+        }
+
     render() {
         return (
             // this.state.favorites.length ?
@@ -59,9 +77,38 @@ export default class Favorites extends Component {
                 <div className="friendsBg" style={{ overflowY: "scroll" }}>
                         <div className="stickyHeader">
                     <h1 style={{ textAlign: "center", color: "white", marginLeft:"40px" }}>Friends</h1>
+                    <div className="searchContainer">
+                    <Form inline>
+                        <FormGroup>
+                            <Input type="text"
+                            name="search"
+                            id="search"
+                            onChange={this.handleFieldChange}
+                            style={{ marginRight: 5 }} />
+                        </FormGroup>
+                        <Button
+                        color="info"
+                        onClick={()=> this.searchAllFavorites(this.state.search)}
+                        >Search</Button>
+                        <Button
+                        outline color="warning"
+                        onClick={()=>  UserManager.getAllFavorites()
+                            .then((favorites)=> {
+                                const friendId = this.state.friends.map((friend) => friend.fId)
+                                    friendId.map((id) =>
+                                        (favorites.filter((favorite) => id === favorite.userId).map((favorite) => this.favArray.push(favorite))))
+                                    this.setState({ favorites: this.favArray })
+                                })}
+                        style={{marginLeft:"5px"}}
+                        >Show all</Button>
+                    </Form>
+                </div>
                     <label style={{ display: "flex", color:"white", alignItems:"center", marginRight:"40px" }}>
                         <span style={{marginRight:"10px"}}>{`${(this.state.checked) ? `Hide details` : `Show details`}`}</span>
-                            <Switch onChange={this.handleChange} checked={this.state.checked} />
+                            <Switch
+                            onChange={this.handleChange}
+                            checked={this.state.checked}
+                            onColor="#f58a58" />
                     </label>
                         </div>
                     <Masonry

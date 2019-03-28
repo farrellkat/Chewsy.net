@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardBody, Button } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
 import Switch from "react-switch";
@@ -26,7 +26,8 @@ export default class Favorites extends Component {
 
     state = {
         favorites: [],
-        checked: false
+        checked: false,
+        search: ""
     }
 
     editSaveButton = (favorite) => { return (favorite.notes === "") ? "New Note" : "Edit Note" }
@@ -68,6 +69,19 @@ export default class Favorites extends Component {
         })
     }
 
+    searchUsersFavorites = (user, search) => {
+        UserManager.searchUserFavorites(user, search).then((favorites) => {
+            this.setState({
+                favorites: favorites
+            })
+        })
+    }
+
+    handleFieldChange = evt => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+    };
 
     render() {
         return (
@@ -75,9 +89,36 @@ export default class Favorites extends Component {
                 <div className="favBg" style={{ overflowY: "scroll" }}>
                 <div className="stickyHeader">
                     <h1 style={{ textAlign: "center", color: "white", marginLeft:"40px" }}>My Favorites</h1>
+                <div className="searchContainer">
+                    <Form inline>
+                        <FormGroup>
+                            <Input type="text"
+                            name="search"
+                            id="search"
+                            onChange={this.handleFieldChange}
+                            style={{ marginRight: 5 }} />
+                        </FormGroup>
+                        <Button
+                        color="info"
+                        onClick={()=> this.searchUsersFavorites(this.props.activeUser, this.state.search)}
+                        >Search</Button>
+                        <Button
+                        outline color="warning"
+                        onClick={()=> UserManager.getUserFavorites(this.props.activeUser).then((favorites) => {
+                            this.setState({
+                                favorites: favorites
+                            })
+                        })}
+                        style={{marginLeft:"5px"}}
+                        >Show all</Button>
+                    </Form>
+                </div>
                     <label style={{ display: "flex", color:"white", alignItems:"center", marginRight:"40px" }}>
                         <span style={{marginRight:"10px"}}>{`${(this.state.checked) ? `Hide details` : `Show details`}`}</span>
-                            <Switch onChange={this.handleChange} checked={this.state.checked} />
+                            <Switch
+                            onChange={this.handleChange}
+                            checked={this.state.checked}
+                            onColor="#f58a58" />
                     </label>
                         </div>
                     <Masonry

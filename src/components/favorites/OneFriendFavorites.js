@@ -45,7 +45,10 @@ export default class OneFriendFavorites extends Component {
                     <h1 style={{ textAlign: "center", color: "white", marginLeft:"40px" }}>{this.state.friendName}'s Favorites</h1>
                     <label style={{ display: "flex", color:"white", alignItems:"center", marginRight:"40px" }}>
                         <span style={{marginRight:"10px"}}>{`${(this.state.checked) ? `Hide details` : `Show details`}`}</span>
-                            <Switch onChange={this.handleChange} checked={this.state.checked} />
+                            <Switch
+                            onChange={this.handleChange}
+                            checked={this.state.checked}
+                            onColor="#f58a58" />
                     </label>
                         </div>
                     <div className="oneFriendTopButtonDiv">

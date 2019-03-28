@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Row, Col, Container } from "reactstrap"
+import { Button, Row, Col, Container, Form, FormGroup, Input } from "reactstrap"
 import UserManager from "../modules/UserManager";
 import "../App.css"
 export default class FindFriends extends Component {
@@ -93,7 +93,9 @@ export default class FindFriends extends Component {
                         <FormGroup>
                             <Input type="text" name="searchForm" id="searchForm" style={{ marginRight: 5 }} />
                         </FormGroup>
-                        <Button color="info">Search</Button>
+                        <Button
+                        color="info"
+                        >Search</Button>
                     </Form>
                 </div> */}
 

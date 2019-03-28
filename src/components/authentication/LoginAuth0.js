@@ -54,7 +54,10 @@ export default class LoginAuth0 extends Component {
                       this.login.bind(this)
                     }
                   >
+                  <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
                     <i className="fas fa-lock" style={{fontSize:"30px"}}></i>
+                    sign in
+                  </div>
                   </Button>
                 )
             }
