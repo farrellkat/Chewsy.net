@@ -3,6 +3,7 @@ import UserManager from "../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardBody, Button, CardSubtitle } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
+import Switch from "react-switch";
 
 const masonryOptions = {
     transitionDuration: '0.8s',
@@ -11,18 +12,22 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: '.my-bg-image-el' }
 export default class Favorites extends Component {
+
+    constructor() {
+        super();
+        this.handleChange = this.handleChange.bind(this);
+      }
+
     state = {
         favorites: [],
         friends: [],
-        isHidden: true
+        checked: false
     }
     favArray = []
 
-    toggleHidden() {
-        this.setState({
-            isHidden: !this.state.isHidden
-        })
-    }
+    handleChange(checked) {
+        this.setState({ checked });
+      }
 
     loadFriends = () => {
         this.setState({
@@ -47,38 +52,36 @@ export default class Favorites extends Component {
         this.loadFriends()
     }
 
-    // componentDidUpdate(prevProps) {
-    //     console.log(this.props.activeUser)
-    //     // Typical usage (don't forget to compare props):
-    //     if (this.props.activeUser !== prevProps.activeUser) {
-    //         this.loadFriends()
-    //     }
-    // }
-
     render() {
         return (
             // this.state.favorites.length ?
             <React.Fragment>
-                <div className="friendsBg" style={{ overflowY: "scroll"}}>
-                <h1 style={{textAlign:"center", color:"white"}}>Friends</h1>
+                <div className="friendsBg" style={{ overflowY: "scroll" }}>
+                        <div className="stickyHeader">
+                    <h1 style={{ textAlign: "center", color: "white", marginLeft:"40px" }}>Friends</h1>
+                    <label style={{ display: "flex", color:"white", alignItems:"center", marginRight:"40px" }}>
+                        <span style={{marginRight:"10px"}}>{`${(this.state.checked) ? `Hide details` : `Show details`}`}</span>
+                            <Switch onChange={this.handleChange} checked={this.state.checked} />
+                    </label>
+                        </div>
                     <Masonry
-                className={'my-gallery-class'} // default ''
-                elementType={'ul'} // default 'div'
-                options={masonryOptions} // default {}
-                disableImagesLoaded={false} // default false
-                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-                imagesLoadedOptions={imagesLoadedOptions} // default {}
-            >
+                        className={'my-gallery-class'} // default ''
+                        elementType={'ul'} // default 'div'
+                        options={masonryOptions} // default {}
+                        disableImagesLoaded={false} // default false
+                        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                        imagesLoadedOptions={imagesLoadedOptions} // default {}
+                        style={{top:"60px"}}
+                    >
                         {
                             this.state.favorites.map(favorite =>
                                 <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}>
                                     <CardImg
                                         width="100%"
                                         src={favorite.image}
-                                        onClick={this.toggleHidden.bind(this)}
                                     />
                                     <div>
-                                        {!this.state.isHidden &&
+                                        {this.state.checked &&
                                             <CardBody>
                                                 <CardTitle style={{ marginBottom: 0 }}><p className="favoritesName">{favorite.name}</p></CardTitle>
                                                 <CardText style={{ textAlign: "center" }}>
@@ -139,8 +142,8 @@ export default class Favorites extends Component {
                                 </Card>
                             )
                         }
-                        </Masonry>
-                        </div>
+                    </Masonry>
+                </div>
             </React.Fragment>
         )
     }

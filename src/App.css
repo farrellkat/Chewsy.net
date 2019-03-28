@@ -78,6 +78,16 @@ html, body {
   flex-direction: column;
 }
 
+.stickyHeader {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 0px 40px; */
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background-color: lightcoral;
+}
+
 .inputEmail,
 .inputPassword {
   color:white;

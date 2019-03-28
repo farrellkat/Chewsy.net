@@ -3,6 +3,7 @@ import UserManager from "../../modules/UserManager"
 import { Card, CardTitle, CardText, CardImg, CardBody, Button } from 'reactstrap';
 import Ratings from "react-ratings-declarative"
 import Masonry from "react-masonry-component"
+import Switch from "react-switch";
 
 const masonryOptions = {
     transitionDuration: '0.8s',
@@ -13,15 +14,21 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: '.my-bg-image-el' }
 export default class Favorites extends Component {
+
+    constructor() {
+        super();
+        this.handleChange = this.handleChange.bind(this);
+      }
+
+      handleChange(checked) {
+        this.setState({ checked });
+      }
+
     state = {
         favorites: [],
-        isHidden: true
+        checked: false
     }
-    toggleHidden() {
-        this.setState({
-            isHidden: !this.state.isHidden
-        })
-    }
+
     editSaveButton = (favorite) => { return (favorite.notes === "") ? "New Note" : "Edit Note" }
 
     deleteFavorite = (id) => {
@@ -66,7 +73,13 @@ export default class Favorites extends Component {
         return (
             <React.Fragment>
                 <div className="favBg" style={{ overflowY: "scroll" }}>
-                <h1 style={{textAlign:"center", color:"white"}}>My Favorites</h1>
+                <div className="stickyHeader">
+                    <h1 style={{ textAlign: "center", color: "white", marginLeft:"40px" }}>My Favorites</h1>
+                    <label style={{ display: "flex", color:"white", alignItems:"center", marginRight:"40px" }}>
+                        <span style={{marginRight:"10px"}}>{`${(this.state.checked) ? `Hide details` : `Show details`}`}</span>
+                            <Switch onChange={this.handleChange} checked={this.state.checked} />
+                    </label>
+                        </div>
                     <Masonry
                         className={'my-gallery-class'} // default ''
                         elementType={'ul'} // default 'div'
@@ -74,13 +87,14 @@ export default class Favorites extends Component {
                         disableImagesLoaded={false} // default false
                         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
                         imagesLoadedOptions={imagesLoadedOptions} // default {}
+                        style={{top:"60px"}}
                     >
                         {
                             this.state.favorites.map(favorite =>
                                 <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}>
-                                    <CardImg width="100%" src={favorite.image} onClick={this.toggleHidden.bind(this)} />
+                                    <CardImg width="100%" src={favorite.image} />
                                     <div>
-                                        {!this.state.isHidden &&
+                                        {this.state.checked &&
                                             <CardBody>
                                                 <CardTitle style={{ marginBottom: 0 }}><p className="favoritesName">{favorite.name}</p></CardTitle>
                                                 <CardText style={{ textAlign: "center" }}>
