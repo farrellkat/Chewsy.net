@@ -1,11 +1,7 @@
 
 import React, { Component } from "react"
-// import { Link } from "react-router-dom"
-// import UserManager from "../../modules/UserManager";
 import Header from "../Header"
 import {Button } from "reactstrap"
-
-
 
 
 export default class LoginAuth0 extends Component {
@@ -30,7 +26,13 @@ export default class LoginAuth0 extends Component {
         }
       }
 
-      welcomeMessage = localStorage.getItem("isLoggedIn") ? "Welcome! Let's eat!" : "Please Log in"
+      enterWebsite() {
+        this.props.setActiveUser(parseInt(localStorage.getItem("userId")))
+        this.props.setFirstName(localStorage.getItem("firstName"))
+        this.props.history.push("/search")
+        localStorage.setItem("nav", true)
+      }
+
 
     //Build login form
     render() {
@@ -40,26 +42,38 @@ export default class LoginAuth0 extends Component {
             <React.Fragment>
         <div className="bg" >
             <Header />
-            {/* <form onSubmit={this.handleLogin} className="px-5 mt-5" style={{backgroundColor: "rgb(245, 138, 88, 0.2)", borderRadius: "5px", width:"80%", padding:5}}> */}
                     <div className="container loginContainer">
-                        {/* <h1 className="h3 mb-3 font-weight-bold" style={{textAlign:"center", color:"white"}}>{this.welcomeMessage}</h1> */}
                         {
               !isAuthenticated() && (
                   <Button
                     style={{margin:"auto", width:"100px", height:"100px", fontSize:"20px", borderRadius:"100%"}}
-                    outline color="info"
+                    outline color="danger"
                     id="qsLoginBtn"
                     className="btn-margin"
                     onClick={
                       this.login.bind(this)
                     }
                   >
-                    <i className="fas fa-utensils" style={{fontSize:"30px"}}></i>
+                    <i className="fas fa-lock" style={{fontSize:"30px"}}></i>
                   </Button>
                 )
             }
+             {
+              isAuthenticated() && (
+                  <Button
+                    style={{margin:"auto", width:"100px", height:"100px", fontSize:"20px", borderRadius:"100%"}}
+                    outline color="info"
+                    id="qsLoginBtn"
+                    className="btn-margin"
+                    onClick={()=>
+                      this.enterWebsite()
+                    }
+                  >
+                    <i className="fas fa-utensils" style={{fontSize:"30px"}}></i>
+                  </Button>
+              )
+                  }
                     </div>
-                {/* </form> */}
             </div>
             </React.Fragment >
         )

@@ -51,13 +51,16 @@ export default class ApplicationViews extends Component {
             stateInput: r.state
         }))
 
-    setActiveUser = (authId) => {
-        UserManager.get(authId)
-       .then((user) =>
+    setActiveUser = (userId) => {
         this.setState({
-            activeUser: user.id
+            activeUser: userId
         })
-       )}
+    }
+    setFirstName = (firstName) => {
+        this.setState({
+            firstName: firstName
+        })
+    }
 
     clearActiveUser = () => this.setState({activeUser: ""})
 
@@ -87,7 +90,6 @@ export default class ApplicationViews extends Component {
         newState.activeUser = userId
         // newState.states = staticAppData.states
         // newState.radii = staticAppData.radius
-        debugger
         this.setState(newState)
 
     }
@@ -212,7 +214,11 @@ export default class ApplicationViews extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
-                    return <LoginAuth0 {...props} auth={this.props.auth}
+                    return <LoginAuth0 {...props}
+                    auth={this.props.auth}
+                    setActiveUser={this.setActiveUser}
+                    setFirstName={this.setFirstName}
+                    firstName={this.state.firstName}
                         />
                     }
                 }

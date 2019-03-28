@@ -74,7 +74,7 @@ export default class Auth {
       localStorage.setItem("userId", user[0].id)
       localStorage.setItem("firstName", user[0].firstName)
       // navigate to the home route
-      history.replace('/search');
+      history.replace('/');
     } else {
       sessionStorage.setItem("email", decoded.name)
       sessionStorage.setItem("authId", authId)

@@ -29,7 +29,11 @@ export default class App extends Component {
 
     return (
         <React.Fragment>
-        <NavBar auth={this.props.auth}/>
+          {
+            (localStorage.getItem("nav"))
+            ?<NavBar auth={this.props.auth}/>
+            : ""
+          }
         <ApplicationViews auth={this.props.auth} />
       </React.Fragment>
     );
