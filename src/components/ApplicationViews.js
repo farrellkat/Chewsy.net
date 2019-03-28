@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Route, Redirect } from "react-router-dom"
 import SearchForm from "./searchForm";
-import Login from "./authentication/Login"
+// import Login from "./authentication/Login"
 import apiModule from "../modules/apiModule";
 import Registration from "./authentication/Registration";
 import CardViewer from "./CardViewer";
@@ -13,17 +13,24 @@ import FavoriteEditForm from "./favorites/FavoriteEditForm";
 import FindFriends from "./FindFriends";
 import Friends from "./Friends";
 import OneFriendFavorites from "./favorites/OneFriendFavorites";
+import LoginAuth0 from "./authentication/LoginAuth0";
+import Profile from "./authentication/Profile";
+import staticAppData from "../staticAppData"
+
 export default class ApplicationViews extends Component {
 
-    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+    isAuthenticated() {
+        // Check whether the current time is past the
+        // access token's expiry time
+        return localStorage.getItem('isLoggedIn')
+        // let expiresAt = this.expiresAt;
+        // return new Date().getTime() < expiresAt;
+      }
 
     state = {
-        categories: [],
-        activeUser: "",
-        userCity: "",
-        userState: "",
-        states: [],
-        radii: [],
+        activeUser: localStorage.getItem("userId"),
+        states: staticAppData.states,
+        radii: staticAppData.radius,
         randomNumber: "",
         category1: "",
         category2: "",
@@ -32,7 +39,7 @@ export default class ApplicationViews extends Component {
         stateInput: "",
         radiiInput: "",
         businessInfo: "",
-        businessImage: "",
+        businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif",
         userFavorites: []
     }
 
@@ -44,21 +51,15 @@ export default class ApplicationViews extends Component {
             stateInput: r.state
         }))
 
-    setActiveUser = (id) => {
+    setActiveUser = (authId) => {
+        UserManager.get(authId)
+       .then((user) =>
         this.setState({
-            activeUser: parseInt(id)
+            activeUser: user.id
         })
-    }
+       )}
 
     clearActiveUser = () => this.setState({activeUser: ""})
-
-    checkUserId = () => {
-            if (sessionStorage.getItem("credentials") !== "") {
-                this.setState({ activeUser: parseInt(sessionStorage.getItem("credentials")) })
-            } else {
-                this.setState({activeUser: parseInt(localStorage.getItem("credentials")) })
-            }
-    }
 
     postFavoriteRestaurant = (favoriteRestaurant) => {
         UserManager.addUserFavorite(favoriteRestaurant)
@@ -76,33 +77,21 @@ export default class ApplicationViews extends Component {
         }
         this.postFavoriteRestaurant(favoriteRestaurant)
     }
+
+
+
+
     componentDidMount() {
-        this.checkUserId()
-        const newState = {}
-        apiModule.getAllCategories().then(allCategories => {
-            this.setState({
-                categories: allCategories
-            })
-        })
-            .then(() =>
-                this.setState(newState))
-            .then(() =>
-                apiModule.getAllStates()).then(allStates => {
-                    this.setState({
-                        states: allStates
-                    })
-                })
-            .then(() =>
-                apiModule.getAllRadii()).then(allRadii => {
-                    this.setState({
-                        radii: allRadii
-                    })
-                })
-            .then(() =>
-                this.setState({
-                    businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
-                }))
+        const newState={}
+        const userId = parseInt(localStorage.getItem("userId"))
+        newState.activeUser = userId
+        // newState.states = staticAppData.states
+        // newState.radii = staticAppData.radius
+        debugger
+        this.setState(newState)
+
     }
+
 
     updateUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
         this.setState({
@@ -149,7 +138,7 @@ export default class ApplicationViews extends Component {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                    res.businesses[0].image_url !== "undefined" ? (
+                    (res.businesses[0].image_url) ? (
                         this.setState({
                             businessInfo: res.businesses,
                             businessImage: res.businesses[0].image_url
@@ -198,7 +187,7 @@ export default class ApplicationViews extends Component {
         if (businesses.total < 1000) {
             return Math.floor(Math.random() * businesses.total + 1)
         } else {
-            const total = 999
+            const total = 1000
             return Math.floor(Math.random() * total + 1)
         }
     }
@@ -222,25 +211,29 @@ export default class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment>
-                <Route exact path="/login" render={(props) => {
-                    return <Login {...props}
-                        checkUserId={this.checkUserId}
-                        setActiveUser={this.setActiveUser}
-                        setLocation={this.setLocation}
-                        activeUser={this.state.activeUser} />
-                    }} />
+                <Route exact path="/" render={(props) => {
+                    return <LoginAuth0 {...props} auth={this.props.auth}
+                        />
+                    }
+                }
+                    />
+                <Route exact path="/profile" render={(props) => {
+                    return <Profile {...props} auth={this.props.auth}
+                        />
+                    }
+                }
+                    />
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
-                    checkUserId={this.checkUserId}
                     activeUser={this.state.activeUser}
                     setActiveUser={this.setActiveUser}
                     states={this.state.states} />
                 }} />
-                <Route exact path="/" render={(props) => {
-                    if (this.isAuthenticated()) {
-                        return <SearchForm
-                        {...props}
-                            checkUserId={this.checkUserId}
+                <Route exact path="/search" render={(props) => {
+                    // if (this.isAuthenticated()) {
+                        if (this.isAuthenticated()) {
+                            return <SearchForm
+                            {...props}
                             userCity={this.state.userCity}
                             userState={this.state.userState}
                             categories={this.state.categories}
@@ -251,18 +244,18 @@ export default class ApplicationViews extends Component {
                             getAllRandomOffset={this.getAllRandomOffset}
                             updateUserState={this.updateUserState}
                             updateSurpriseUserState={this.updateSurpriseUserState}
-                        />
+                            />
+                        } else {
+                                return <Redirect to="/" />
+                                }
 
-                    } else {
-                        return <Redirect to="/login" />
-                    }
-                }} />
+                            }} />
                 <Route exact path="/cardviewer" render={(props) => {
-                    if (this.isAuthenticated()) {
+                    // if (this.isAuthenticated()) {
+                        if (this.isAuthenticated()) {
                         return <ErrorBoundary>
                             <CardViewer
                                 {...props}
-                                checkUserId={this.checkUserId}
                                 businessInfo={this.state.businessInfo}
                                 businessImage={this.state.businessImage}
                                 activeUser={this.props.activeUser}
@@ -271,21 +264,20 @@ export default class ApplicationViews extends Component {
                             />
                         </ErrorBoundary>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/restaurantinfo" render={(props) => {
-                    if (this.isAuthenticated()) {
+                     if (this.isAuthenticated()) {
                         return <MainRestaurantCard
                             {...props}
                             businessInfo={this.state.businessInfo}
                             businessId={this.businessId}
                             postFavoriteRestaurant={this.postFavoriteRestaurant}
                             activeUser={this.state.activeUser}
-                            checkUserId={this.checkUserId}
                         />
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/favorites" render={(props) => {
@@ -294,25 +286,23 @@ export default class ApplicationViews extends Component {
                             {...props}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
-                            checkUserId={this.checkUserId}
                         >
                         </Favorites>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/findfriends" render={(props) => {
-                    if (this.isAuthenticated()) {
+                     if (this.isAuthenticated()) {
                         return <FindFriends
                             {...props}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                             friends={this.state.friends}
-                            checkUserId={this.checkUserId}
                         >
                         </FindFriends>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                 <Route exact path="/friends" render={(props) => {
@@ -322,24 +312,21 @@ export default class ApplicationViews extends Component {
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                             friends={this.state.friends}
-                            checkUserId={this.checkUserId}
                         >
                         </Friends>
                     } else {
-                        return <Redirect to="/login" />
+                        return <Redirect to="/" />
                     }
                 }} />
                  <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {
                         return <FavoriteEditForm
                                     {...props}
-                                    checkUserId={this.checkUserId}
                                     />
                     }}
                     />
                  <Route path="/favorites/:friendId(\d+)/friendfavorite" render={props => {
                         return <OneFriendFavorites
                                     {...props}
-                                    checkUserId={this.checkUserId}
                                     />
                     }}
                     />

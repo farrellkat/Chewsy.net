@@ -3,9 +3,8 @@ import "../App.css"
 import takeout from "../img/takeout.png"
 
 export default class CardViewer extends Component {
-    componentDidMount() {
-        this.props.checkUserId()
-    }
+    // componentDidMount() {
+    // }
 
     render() {
         return (

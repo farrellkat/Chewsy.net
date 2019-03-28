@@ -9,6 +9,7 @@
       "city": "Nashville",
       "state": "TN",
       "zipCode": "37206",
+      "authId": "auth0|5c994c3608411b333f9570c3",
       "id": 1
     },
     {
@@ -54,6 +55,27 @@
       "state": "CA",
       "zipCode": "94599",
       "id": 5
+    },
+    {
+      "email": "testkitchenstudios615@gmail.com",
+      "firstName": "Don",
+      "lastName": "Johnson",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "authId": "auth0|5c9acb4bba5cad125f5f4788",
+      "id": 6
+    },
+    {
+      "email": "junkdrawer85@gmail.com",
+      "firstName": "James",
+      "lastName": "Jamerson",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "authId": "auth0|5c9bd2cd201db154564be083",
+      "userName": "farrellkat",
+      "id": 7
     }
   ],
   "favorites": [
@@ -926,8 +948,9 @@
       "yelpRating": 4,
       "url": "https://www.yelp.com/biz/pinewood-social-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
-      "notes": "",
-      "id": 25
+      "notes": "Pricey but has good breakfast. Decent veggie options",
+      "id": 25,
+      "rating": 4
     },
     {
       "userId": 1,
@@ -1223,6 +1246,45 @@
       "price": "$",
       "notes": "",
       "id": 33
+    },
+    {
+      "userId": 1,
+      "restaurantId": "r9L9r7YxzpC1U32GYQboWA",
+      "name": "Grassmere Grill & Kabob",
+      "category": [
+        {
+          "alias": "mediterranean",
+          "title": "Mediterranean"
+        },
+        {
+          "alias": "turkish",
+          "title": "Turkish"
+        },
+        {
+          "alias": "kebab",
+          "title": "Kebab"
+        }
+      ],
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/PDdYUi4Blp77Z1S7Pt5x5Q/o.jpg",
+      "location": {
+        "address1": "3802 Nolensville Pike",
+        "address2": null,
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "3802 Nolensville Pike",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 837-2567",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/grassmere-grill-and-kabob-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 34
     }
   ],
   "friends": [
@@ -1240,11 +1302,6 @@
       "fId": 2,
       "userId": 3,
       "id": 4
-    },
-    {
-      "fId": 3,
-      "userId": 1,
-      "id": 6
     },
     {
       "fId": 4,
@@ -1272,284 +1329,19 @@
       "id": 11
     },
     {
-      "fId": 5,
-      "userId": 1,
-      "id": 12
-    },
-    {
       "fId": 2,
       "userId": 1,
       "id": 13
-    }
-  ],
-  "states": [
-    {
-      "name": "Alabama",
-      "abbreviation": "AL"
     },
     {
-      "name": "Alaska",
-      "abbreviation": "AK"
+      "fId": 3,
+      "userId": 1,
+      "id": 14
     },
     {
-      "name": "American Samoa",
-      "abbreviation": "AS"
-    },
-    {
-      "name": "Arizona",
-      "abbreviation": "AZ"
-    },
-    {
-      "name": "Arkansas",
-      "abbreviation": "AR"
-    },
-    {
-      "name": "California",
-      "abbreviation": "CA"
-    },
-    {
-      "name": "Colorado",
-      "abbreviation": "CO"
-    },
-    {
-      "name": "Connecticut",
-      "abbreviation": "CT"
-    },
-    {
-      "name": "Delaware",
-      "abbreviation": "DE"
-    },
-    {
-      "name": "District Of Columbia",
-      "abbreviation": "DC"
-    },
-    {
-      "name": "Federated States Of Micronesia",
-      "abbreviation": "FM"
-    },
-    {
-      "name": "Florida",
-      "abbreviation": "FL"
-    },
-    {
-      "name": "Georgia",
-      "abbreviation": "GA"
-    },
-    {
-      "name": "Guam",
-      "abbreviation": "GU"
-    },
-    {
-      "name": "Hawaii",
-      "abbreviation": "HI"
-    },
-    {
-      "name": "Idaho",
-      "abbreviation": "ID"
-    },
-    {
-      "name": "Illinois",
-      "abbreviation": "IL"
-    },
-    {
-      "name": "Indiana",
-      "abbreviation": "IN"
-    },
-    {
-      "name": "Iowa",
-      "abbreviation": "IA"
-    },
-    {
-      "name": "Kansas",
-      "abbreviation": "KS"
-    },
-    {
-      "name": "Kentucky",
-      "abbreviation": "KY"
-    },
-    {
-      "name": "Louisiana",
-      "abbreviation": "LA"
-    },
-    {
-      "name": "Maine",
-      "abbreviation": "ME"
-    },
-    {
-      "name": "Marshall Islands",
-      "abbreviation": "MH"
-    },
-    {
-      "name": "Maryland",
-      "abbreviation": "MD"
-    },
-    {
-      "name": "Massachusetts",
-      "abbreviation": "MA"
-    },
-    {
-      "name": "Michigan",
-      "abbreviation": "MI"
-    },
-    {
-      "name": "Minnesota",
-      "abbreviation": "MN"
-    },
-    {
-      "name": "Mississippi",
-      "abbreviation": "MS"
-    },
-    {
-      "name": "Missouri",
-      "abbreviation": "MO"
-    },
-    {
-      "name": "Montana",
-      "abbreviation": "MT"
-    },
-    {
-      "name": "Nebraska",
-      "abbreviation": "NE"
-    },
-    {
-      "name": "Nevada",
-      "abbreviation": "NV"
-    },
-    {
-      "name": "New Hampshire",
-      "abbreviation": "NH"
-    },
-    {
-      "name": "New Jersey",
-      "abbreviation": "NJ"
-    },
-    {
-      "name": "New Mexico",
-      "abbreviation": "NM"
-    },
-    {
-      "name": "New York",
-      "abbreviation": "NY"
-    },
-    {
-      "name": "North Carolina",
-      "abbreviation": "NC"
-    },
-    {
-      "name": "North Dakota",
-      "abbreviation": "ND"
-    },
-    {
-      "name": "Northern Mariana Islands",
-      "abbreviation": "MP"
-    },
-    {
-      "name": "Ohio",
-      "abbreviation": "OH"
-    },
-    {
-      "name": "Oklahoma",
-      "abbreviation": "OK"
-    },
-    {
-      "name": "Oregon",
-      "abbreviation": "OR"
-    },
-    {
-      "name": "Palau",
-      "abbreviation": "PW"
-    },
-    {
-      "name": "Pennsylvania",
-      "abbreviation": "PA"
-    },
-    {
-      "name": "Puerto Rico",
-      "abbreviation": "PR"
-    },
-    {
-      "name": "Rhode Island",
-      "abbreviation": "RI"
-    },
-    {
-      "name": "South Carolina",
-      "abbreviation": "SC"
-    },
-    {
-      "name": "South Dakota",
-      "abbreviation": "SD"
-    },
-    {
-      "name": "Tennessee",
-      "abbreviation": "TN"
-    },
-    {
-      "name": "Texas",
-      "abbreviation": "TX"
-    },
-    {
-      "name": "Utah",
-      "abbreviation": "UT"
-    },
-    {
-      "name": "Vermont",
-      "abbreviation": "VT"
-    },
-    {
-      "name": "Virgin Islands",
-      "abbreviation": "VI"
-    },
-    {
-      "name": "Virginia",
-      "abbreviation": "VA"
-    },
-    {
-      "name": "Washington",
-      "abbreviation": "WA"
-    },
-    {
-      "name": "West Virginia",
-      "abbreviation": "WV"
-    },
-    {
-      "name": "Wisconsin",
-      "abbreviation": "WI"
-    },
-    {
-      "name": "Wyoming",
-      "abbreviation": "WY"
-    }
-  ],
-  "radius": [
-    {
-      "id": 1,
-      "radius": "1 mi",
-      "value": 1609
-    },
-    {
-      "id": 2,
-      "radius": "5 mi",
-      "value": 8046
-    },
-    {
-      "id": 3,
-      "radius": "10 mi",
-      "value": 16093
-    },
-    {
-      "id": 4,
-      "radius": "15 mi",
-      "value": 24140
-    },
-    {
-      "id": 5,
-      "radius": "20 mi",
-      "value": 32186
-    },
-    {
-      "id": 6,
-      "radius": "25 mi",
-      "value": 40233
+      "fId": 5,
+      "userId": 1,
+      "id": 15
     }
   ]
 }

@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.10.1",
     "bootstrap": "^4.3.1",
     "bulma-start": "0.0.3",
+    "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^2.3.0",
+    "jwks-rsa": "^1.4.0",
+    "jwt-decode": "^2.2.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-loader-spinner": "^2.3.0",

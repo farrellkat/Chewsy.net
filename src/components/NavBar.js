@@ -1,27 +1,44 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Nav, NavItem, NavLink, Navbar } from "reactstrap"
+import { Nav, NavItem, NavLink, Navbar, Button } from "reactstrap"
 
+const firstName = localStorage.getItem("firstName")
 class NavBar extends Component {
 
-    isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+    goTo(route) {
+        this.props.history.replace(`/${route}`)
+      }
 
-    logout = () => {
-        sessionStorage.clear("credentials")
-        localStorage.clear("credentials")
-    }
+      login() {
+        this.props.auth.login();
+      }
+
+      logout() {
+        this.props.auth.logout();
+      }
+
+      componentDidMount() {
+        const { renewSession } = this.props.auth;
+
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+          renewSession();
+        }
+      }
+    // isAuthenticated = () => (sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null)
+
+    // logout = () => {
+    //     sessionStorage.clear("credentials")
+    //     localStorage.clear("credentials")
+    // }
 
     render() {
-        let logoutLink = this.isAuthenticated() ?
-            <NavItem>
-                <NavLink tag={Link} className="nav-link text-warning" onClick={this.logout} to="/login">Logout</NavLink>
-            </NavItem> : "";
+        const { isAuthenticated } = this.props.auth;
         return (
             <Navbar color="dark">
                 <Nav pills>
                     <NavItem>
-                        <NavLink tag={Link} className="nav-link text-info" to="/">Search</NavLink>
+                        <NavLink tag={Link} className="nav-link text-info" to="/search">Search</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink tag={Link} className="nav-link text-info" to="/favorites">Favorites</NavLink>
@@ -32,9 +49,33 @@ class NavBar extends Component {
                     <NavItem>
                         <NavLink tag={Link} className="nav-link text-info" to="/findfriends">Find Friends</NavLink>
                     </NavItem>
-                    {logoutLink}
-                </Nav>
+                    {/* <NavItem>
+                        <NavLink tag={Link} className="nav-link text-info" to="/profile">My Profile</NavLink>
+                      </NavItem> */}
+            {
+                isAuthenticated() && (
+                    <Button
+                    color="link"
+                    id="qsLogoutBtn"
+                    className="btn-margin"
+                    onClick={this.logout.bind(this)}
+                    >
+                      Log Out
+                    </Button>
+                )
+              }
+              {
+                isAuthenticated() && (
+                  <NavLink disabled style={{color:"white"}}>Welcome {firstName}!</NavLink>
+                  )
+                }
+              </Nav>
                 <Nav>
+                    {
+                      isAuthenticated() && (
+              <NavLink href="https://dev-cerpmdij.auth0.com/v2/logout" style={{color:"white"}}>Change User</NavLink>
+                      )
+            }
                     <NavItem>
                         <h1 className="nav-item mr-3" style={{ fontSize: "30px" }}>Chewsy</h1>
                     </NavItem>

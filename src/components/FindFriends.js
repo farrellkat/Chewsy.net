@@ -17,6 +17,7 @@ export default class FindFriends extends Component {
     notFriendsArray = []
 
     followFriend = (friendId) => {
+        if (this.props.activeUser) {
         const friendObject = {
             fId: friendId,
             userId: this.props.activeUser
@@ -24,6 +25,7 @@ export default class FindFriends extends Component {
         UserManager.followFriend(friendObject).then(() =>
             this.componentDidMount())
     }
+}
 
     unfollowFriend = (userId, friendId) => {
         UserManager.unfollowFriend(userId, friendId)
@@ -123,7 +125,7 @@ export default class FindFriends extends Component {
                                     <Button
                                         color="primary"
                                         className="addFriendButton"
-                                        onClick={() => this.followFriend(user.id)}><i class="fas fa-user-plus"></i></Button>
+                                        onClick={() => this.followFriend(user.id)}><i className="fas fa-user-plus"></i></Button>
                                 </Row>
                             </Container>
                         )

@@ -29,7 +29,6 @@ export default class Favorites extends Component {
             favorites: [],
             friends: []
         })
-        this.props.checkUserId()
         UserManager.getAllFriends(this.props.activeUser)
             .then((friends) => this.setState({
                 friends: friends

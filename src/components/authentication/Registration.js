@@ -10,10 +10,7 @@ function validate(email, password, firstName, lastName, address, city, state, zi
         password: password.length === 0,
         firstName: firstName.length === 0,
         lastName: lastName.length === 0,
-        address: address.length === 0,
-        city: city.length === 0,
-        state: state.length === 2,
-        zipCode: zipCode.length === 0
+        address: address.length === 0
     };
 }
 
@@ -37,33 +34,23 @@ export default class Registration extends Component {
 
     handleRegister = e => {
         e.preventDefault()
-        this.props.checkUserId()
         const newUser = {
-            email: this.state.email,
-            password: this.state.password,
+            email: sessionStorage.getItem("email"),
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            address: this.state.address,
             city: this.state.city,
             state: this.state.state,
-            zipCode: this.state.zipCode
+            zipCode: this.state.zipCode,
+            authId: sessionStorage.getItem("authId"),
+            userName: sessionStorage.getItem("userName")
         }
-        if (this.state.email && this.state.password) {
-            UserManager.searchEmail(this.state.email).then(users => {
-                if (users.length) {
-                    alert(`Email ${this.state.email} already exits!`)
-                } else {
-                    UserManager.addUser(newUser)
-                    .then(user => {
-                        this.props.setActiveUser((user.id))
-                        sessionStorage.setItem("credentials",
-                            parseInt(user.id)
-                        )
-                    })
-                }
+        UserManager.addUser(newUser)
+            .then(user => {
+                this.props.setActiveUser((user.id))
+                localStorage.setItem("userId",
+                    parseInt(user.id)
+                )
             })
-        }
-
         this.props.history.push("/")
     }
 
@@ -84,11 +71,8 @@ export default class Registration extends Component {
     //Build login form
     render() {
         const errors = validate(
-            this.state.email,
-            this.state.password,
             this.state.firstName,
             this.state.lastName,
-            this.state.address,
             this.state.state,
             this.state.city,
             this.state.zipCode
@@ -105,32 +89,9 @@ export default class Registration extends Component {
         return (
             <form className="px-5 mt-5 max-width">
                 <div className="container">
-                    <h1 className="h3 mb-3 font-weight-bold text-left">Registration</h1>
-                    <div className="form-row">
-                        <div className="form-group col-md-4">
-                            <label htmlFor="email">
-                                Email address:
-                </label>
-                            <input className={shouldMarkError("email") ? "error border border-warning form-control" : "form-control"}
-                                onBlur={this.handleBlur("email")}
-                                onChange={this.handleFieldChange}
-                                type="email"
-                                id="email"
-                                value={this.state.email}
-                                placeholder="Email address"
-                                required="" autoFocus="" />
-                        </div>
-                        <div className="form-group col-md-4">
-                            <label htmlFor="inputPassword">
-                                Password:
-                </label>
-                            <input onChange={this.handleFieldChange} className={errors.password ? "error form-control" : "form-control"} type="password"
-                                id="password"
-                                placeholder="Password"
-                                required="" />
-                        </div>
-                    </div>
-                    <div className="form-row">
+                    <h1 className="h3 font-weight-bold text-left" style={{ marginBottom: "0px" }}>Welcome to Chewsy!</h1>
+                    <small style={{ marginTop: "0px", marginBottom: "20px" }}>Tell us a little about yourself</small>
+                    <div className="form-row mt-4">
                         <div className="form-group col-md-4">
                             <label htmlFor="firstName">
                                 First Name:
@@ -151,15 +112,6 @@ export default class Registration extends Component {
                         </div>
                     </div>
                     <div className="form-row">
-                        <div className="form-group col-md-4">
-                            <label htmlFor="address">
-                                Address:
-                </label>
-                            <input onChange={this.handleFieldChange} className="form-control" type="text"
-                                id="address"
-                                placeholder="123 Main St."
-                                required="" autoFocus="" />
-                        </div>
                         <div className="form-group col-md-2">
                             <label htmlFor="city">
                                 City:
@@ -170,10 +122,10 @@ export default class Registration extends Component {
                                 required="" autoFocus="" />
                         </div>
                         <div className="form-group col-md-1">
-                        <label htmlFor="stateInput">
+                            <label htmlFor="stateInput">
                                 State:
                 </label>
-                        <select className="custom-select"
+                            <select className="custom-select"
                                 name="state"
                                 id="state"
                                 required="" autoFocus=""
@@ -198,13 +150,13 @@ export default class Registration extends Component {
                                 required="" />
                         </div>
                     </div>
-                        <button type="submit" disabled={!isEnabled} className="btn btn-info"
-                            onClick={this.handleRegister}>
-                            Register
+                    <button type="submit" disabled={!isEnabled} className="btn btn-info"
+                        onClick={this.handleRegister}>
+                        Register
                 </button>
-                <Link className="ml-5" to="/login">Login</Link>
+                    <Link className="ml-5" to="/login">Login</Link>
                 </div>
-                <img src={takeout} alt="takeout" className="registrationTakeout"/>
+                <img src={takeout} alt="takeout" className="registrationTakeout" />
             </form>
         )
     }

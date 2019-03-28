@@ -50,7 +50,6 @@ export default class MainRestaurantCard extends Component {
         }
 
         componentDidMount() {
-                this.props.checkUserId()
             UserManager.getUserFavorites(this.props.activeUser).then((favorites) => {
                 this.setState({
                     favorites: favorites,

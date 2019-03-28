@@ -2,11 +2,13 @@ import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 // import apiModule from "../modules/apiModule";
 import { Input, FormGroup, Form, Label, Button } from "reactstrap"
+import staticAppData from "../staticAppData"
 
 export default class SearchForm extends Component {
-    userId = sessionStorage.getItem("credentials")
+    // userId = sessionStorage.getItem("credentials")
 
     state = {
+        activeUser:"",
         category1: "",
         category2: "",
         category3: "",
@@ -16,16 +18,14 @@ export default class SearchForm extends Component {
         randomNumber: "",
     }
 
+
     // getDefaultStateValue = () => {return this.props.states.find(state => state.abbreviation === this.props.userState)}
 
     // console.log(getDefaultStateValue)
 
     componentDidMount() {
-        this.props.checkUserId()
-        this.setState({
-            cityInput: this.props.userCity,
-            stateInput: this.props.userState
-        })
+        const activeUser = localStorage.getItem("userId")
+        this.setState({activeUser:activeUser})
     }
 
     handleFieldChange = evt => {
@@ -36,6 +36,7 @@ export default class SearchForm extends Component {
     };
 
     render() {
+       const categories = staticAppData.categories.filter(data => data.parents[0] === "restaurants")
         return (
             <React.Fragment>
                 <div className="searchBg">
@@ -94,7 +95,7 @@ export default class SearchForm extends Component {
                                             onChange={this.handleFieldChange}
                                         >
                                             <option>Select a Category</option>
-                                            {this.props.categories.map(c => (
+                                            {categories.map(c => (
                                                 <option key={c.alias} id={c.alias} value={c.alias}>
                                                     {c.title}
                                                 </option>
@@ -112,7 +113,7 @@ export default class SearchForm extends Component {
                                             onChange={this.handleFieldChange}
                                         >
                                             <option>Select a Category</option>
-                                            {this.props.categories.map(c => (
+                                            {categories.map(c => (
                                                 <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
                                                     {c.title}
                                                 </option>
@@ -130,7 +131,7 @@ export default class SearchForm extends Component {
                                             onChange={this.handleFieldChange}
                                         >
                                             <option>Select a Category</option>
-                                            {this.props.categories.map(c => (
+                                            {categories.map(c => (
                                                 <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
                                                     {c.title}
                                                 </option>
