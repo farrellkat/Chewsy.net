@@ -76,6 +76,17 @@
       "authId": "auth0|5c9bd2cd201db154564be083",
       "userName": "farrellkat",
       "id": 7
+    },
+    {
+      "email": "allegra.quercia@gmail.com",
+      "firstName": "Allie",
+      "lastName": "Farrell",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "authId": "auth0|5c9cef5ef5c72f35df186fda",
+      "userName": "leggy",
+      "id": 8
     }
   ],
   "favorites": [
@@ -1342,6 +1353,11 @@
       "fId": 5,
       "userId": 1,
       "id": 15
+    },
+    {
+      "fId": 1,
+      "userId": 8,
+      "id": 16
     }
   ]
 }
