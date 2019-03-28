@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Nav, NavItem, NavLink, Navbar, Button } from "reactstrap"
 
-const userName = localStorage.getItem("userName")
+const firstName = localStorage.getItem("firstName")
 class NavBar extends Component {
 
     goTo(route) {
@@ -66,14 +66,14 @@ class NavBar extends Component {
               }
               {
                 isAuthenticated() && (
-                  <NavLink disabled style={{color:"white"}}>Welcome {userName}!</NavLink>
+                  <NavLink disabled style={{color:"white"}}>Welcome {firstName}!</NavLink>
                   )
                 }
               </Nav>
                 <Nav>
                     {
                       isAuthenticated() && (
-              <NavLink href="https://dev-cerpmdij.auth0.com/v2/logout/?returnTo=http://localhost:3000/search" style={{color:"white"}}>Change User</NavLink>
+              <NavLink href="https://dev-cerpmdij.auth0.com/v2/logout" style={{color:"white"}}>Change User</NavLink>
                       )
             }
                     <NavItem>

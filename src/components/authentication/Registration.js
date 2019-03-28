@@ -41,7 +41,8 @@ export default class Registration extends Component {
             city: this.state.city,
             state: this.state.state,
             zipCode: this.state.zipCode,
-            authId: sessionStorage.getItem("authId")
+            authId: sessionStorage.getItem("authId"),
+            userName: sessionStorage.getItem("userName")
         }
         UserManager.addUser(newUser)
             .then(user => {

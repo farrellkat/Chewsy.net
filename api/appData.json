@@ -65,6 +65,17 @@
       "zipCode": "37206",
       "authId": "auth0|5c9acb4bba5cad125f5f4788",
       "id": 6
+    },
+    {
+      "email": "junkdrawer85@gmail.com",
+      "firstName": "James",
+      "lastName": "Jamerson",
+      "city": "Nashville",
+      "state": "TN",
+      "zipCode": "37206",
+      "authId": "auth0|5c9bd2cd201db154564be083",
+      "userName": "farrellkat",
+      "id": 7
     }
   ],
   "favorites": [

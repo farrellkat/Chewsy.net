@@ -67,17 +67,18 @@ export default class Auth {
     var token = this.idToken;
     var decoded = jwt_decode(token);
     const authId = decoded.sub;
+
     UserManager.searchAuthId(authId)
     .then((user) => {
     if (user.length) {
-      console.log(user)
       localStorage.setItem("userId", user[0].id)
-      localStorage.setItem("userName", user[0].firstName)
+      localStorage.setItem("firstName", user[0].firstName)
       // navigate to the home route
       history.replace('/search');
     } else {
       sessionStorage.setItem("email", decoded.name)
       sessionStorage.setItem("authId", authId)
+      sessionStorage.setItem("userName", decoded.nickname)
       history.replace('/registration')
     }
   })

@@ -28,7 +28,7 @@ export default class ApplicationViews extends Component {
       }
 
     state = {
-        activeUser: "",
+        activeUser: localStorage.getItem("userId"),
         states: staticAppData.states,
         radii: staticAppData.radius,
         randomNumber: "",
@@ -51,13 +51,13 @@ export default class ApplicationViews extends Component {
             stateInput: r.state
         }))
 
-    // setActiveUser = (authId) => {
-    //     UserManager.get(authId)
-    //    .then((user) =>
-    //     this.setState({
-    //         activeUser: user.id
-    //     })
-    //    )}
+    setActiveUser = (authId) => {
+        UserManager.get(authId)
+       .then((user) =>
+        this.setState({
+            activeUser: user.id
+        })
+       )}
 
     clearActiveUser = () => this.setState({activeUser: ""})
 
@@ -82,12 +82,13 @@ export default class ApplicationViews extends Component {
 
 
     componentDidMount() {
-            const newState={}
-            const userId = parseInt(localStorage.getItem("userId"))
-            newState.activeUser = userId
-            // newState.states = staticAppData.states
-            // newState.radii = staticAppData.radius
-            this.setState(newState)
+        const newState={}
+        const userId = parseInt(localStorage.getItem("userId"))
+        newState.activeUser = userId
+        // newState.states = staticAppData.states
+        // newState.radii = staticAppData.radius
+        debugger
+        this.setState(newState)
 
     }
 
@@ -137,7 +138,7 @@ export default class ApplicationViews extends Component {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                    res.businesses[0].image_url !== "undefined" ? (
+                    (res.businesses[0].image_url) ? (
                         this.setState({
                             businessInfo: res.businesses,
                             businessImage: res.businesses[0].image_url
@@ -186,7 +187,7 @@ export default class ApplicationViews extends Component {
         if (businesses.total < 1000) {
             return Math.floor(Math.random() * businesses.total + 1)
         } else {
-            const total = 999
+            const total = 1000
             return Math.floor(Math.random() * total + 1)
         }
     }
