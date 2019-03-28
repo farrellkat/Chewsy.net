@@ -68,6 +68,7 @@ export default class Auth {
     var decoded = jwt_decode(token);
     const authId = decoded.sub;
 
+    //check token user Id against app database and search for user
     UserManager.searchAuthId(authId)
     .then((user) => {
     if (user.length) {
@@ -75,6 +76,7 @@ export default class Auth {
       localStorage.setItem("firstName", user[0].firstName)
       // navigate to the home route
       history.replace('/');
+      //if no user found, send user to registration page
     } else {
       sessionStorage.setItem("email", decoded.name)
       sessionStorage.setItem("authId", authId)

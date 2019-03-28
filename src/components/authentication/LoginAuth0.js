@@ -29,8 +29,8 @@ export default class LoginAuth0 extends Component {
       enterWebsite() {
         this.props.setActiveUser(parseInt(localStorage.getItem("userId")))
         this.props.setFirstName(localStorage.getItem("firstName"))
-        this.props.history.push("/search")
         localStorage.setItem("nav", true)
+        this.props.history.push("/search")
       }
 
 
@@ -69,7 +69,10 @@ export default class LoginAuth0 extends Component {
                       this.enterWebsite()
                     }
                   >
+                  <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
                     <i className="fas fa-utensils" style={{fontSize:"30px"}}></i>
+                    let's eat
+                  </div>
                   </Button>
               )
                   }

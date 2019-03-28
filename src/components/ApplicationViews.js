@@ -14,7 +14,7 @@ import FindFriends from "./FindFriends";
 import Friends from "./Friends";
 import OneFriendFavorites from "./favorites/OneFriendFavorites";
 import LoginAuth0 from "./authentication/LoginAuth0";
-import Profile from "./authentication/Profile";
+// import Profile from "./authentication/Profile";
 import staticAppData from "../staticAppData"
 
 export default class ApplicationViews extends Component {
@@ -223,12 +223,12 @@ export default class ApplicationViews extends Component {
                     }
                 }
                     />
-                <Route exact path="/profile" render={(props) => {
+                {/* <Route exact path="/profile" render={(props) => {
                     return <Profile {...props} auth={this.props.auth}
                         />
                     }
                 }
-                    />
+                    /> */}
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
                     activeUser={this.state.activeUser}

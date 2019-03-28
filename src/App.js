@@ -30,7 +30,7 @@ export default class App extends Component {
     return (
         <React.Fragment>
           {
-            (localStorage.getItem("nav"))
+            (localStorage.getItem("isLoggedIn"))
             ?<NavBar auth={this.props.auth}/>
             : ""
           }
