@@ -19,6 +19,13 @@ html, body {
   background-size: cover;
 }
 
+.my-gallery-class {
+  margin: 0px;
+  padding: 0px 35px 0px 35px;
+  justify-content: center;
+  right: 36px;
+}
+
 .loginContainer{
   display: flex;
   justify-content: center;

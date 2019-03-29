@@ -94,6 +94,7 @@ export default class Favorites extends Component {
                         outline color="warning"
                         onClick={()=>  UserManager.getAllFavorites()
                             .then((favorites)=> {
+                                this.favArray = []
                                 const friendId = this.state.friends.map((friend) => friend.fId)
                                     friendId.map((id) =>
                                         (favorites.filter((favorite) => id === favorite.userId).map((favorite) => this.favArray.push(favorite))))

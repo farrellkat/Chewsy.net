@@ -53,6 +53,9 @@ export default {
   getOneUserFavorite(id) {
     return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
   },
+  searchOneUserFavorite(id, search) {
+    return fetch(`${settings.appDataURL}/favorites/${id}?q=${search}`).then(e => e.json())
+  },
   addUserFavorite(obj) {
     return fetch(`${settings.appDataURL}/favorites`, {
       method: "POST",
