@@ -164,8 +164,13 @@ export default class Favorites extends Component {
                                                     </Ratings>
                                                 </div>
                                                 <CardText style={{ marginBottom: 0 }}><strong>Address:</strong></CardText>
-                                                <CardText>{favorite.location.address1}<br />
-                                                    {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}</CardText>
+                                                <CardText><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/?q=
+                                                ${favorite.location.address1} ${favorite.location.city}, ${favorite.location.state} ${favorite.location.zip_code}`}
+                                                >{favorite.location.address1}
+                                                <br/>
+                                                {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}
+                                                </a>
+                                                </CardText>
                                                 <CardText><strong>Phone: </strong>{favorite.phone}</CardText>
                                                 <CardText><strong>Website: </strong><a href={favorite.url} target="_blank" rel="noopener noreferrer">{favorite.name}</a></CardText>
                                                 <div className="favNotes">

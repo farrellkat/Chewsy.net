@@ -88,14 +88,14 @@ export default class MainRestaurantCard extends Component {
                         </div>
                         <div className="MainCardAddressContainer text-light">
                             <div>Address:</div>
-                            <div>
+                            <a target="_blank" rel="noopener noreferrer" href={`https://maps.google.com/?q=${this.props.businessInfo[0].location.address1} ${this.props.businessInfo[0].location.city}, ${this.props.businessInfo[0].location.state} ${this.props.businessInfo[0].location.zip_code}`}
+                            >
                                 {this.props.businessInfo[0].location.address1}
-                            </div>
-                            <div>
+                                <br/>
                                 {this.props.businessInfo[0].location.city},&nbsp;
                                 {this.props.businessInfo[0].location.state}&nbsp;
                                 {this.props.businessInfo[0].location.zip_code}
-                            </div>
+                            </a>
                         </div>
                         <div className="additionalInfo text-light">
                             <div>Phone Number: {this.props.businessInfo[0].display_phone}</div>
