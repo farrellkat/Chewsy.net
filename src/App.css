@@ -9,6 +9,7 @@ html, body {
 .main{
   height: 100vh;
 }
+
 .bg {
   width: 100%;
   height: 100vh;
@@ -18,25 +19,6 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.my-gallery-class {
-  margin: 0px;
-  padding: 0px 35px 0px 35px;
-  justify-content: center;
-  right: 36px;
-}
-
-.loginContainer{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  /* background-color: rgba(255, 99, 7, 0.66); */
-  /* height: 150px; */
-  /* width: 150px; */
-  /* border: 10px solid white; */
-  /* border-radius: 15px; */
-  }
-
 
 .searchBg {
   width: 100%;
@@ -86,200 +68,364 @@ html, body {
 }
 
 .stickyHeader {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-content: center; */
   /* margin: 0px 40px; */
   position: absolute;
   z-index: 1;
   width: 100%;
-  background-color: #5d7a98
+  background-color: #5d7a98;
+  padding: 5px;
 }
 
-.inputEmail,
-.inputPassword {
-  color:white;
-}
-
-/* .grid {
-  margin: 0 40px;
-} */
-
-
-/* body {
-  font-family: 'Lora', serif;
- } */
-
-h1 {
-  font-family: 'Baloo Bhaijaan', cursive;
-  color: rgb(245, 138, 88)
-}
-
-h2, h3, h4 {
-  font-family: 'Fredoka One', cursive;
-  color: white;
-}
-.favoritesName{
+.chewsyHeaderTitle {
   font-family: 'Baloo Bhaijaan', cursive;
   color: rgb(245, 138, 88);
-  font-size: 30px;
+  font-size: 80px;
+  justify-content: center;
+  display: flex;
+}
+.chewsySearchHeaderTitle {
+  font-family: 'Baloo Bhaijaan', cursive;
+  color: rgb(245, 138, 88);
+  font-size: 40px;
   text-align: center;
+}
+.searchFormLabel {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.chewsyHeader {
+  background-color: rgb(245, 138, 88, .2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 10px 50px 10px;
+  padding: 20px;
+}
+
+.chewsySubtitle {
+  font-family: "Baloo Bhaijaan";
+  color: white;
+  margin: 0px;
+  justify-content: center;
+  display: flex;
+}
+
+.logoutButton {
+  display: flex;
+  margin: 0px 0px 0px -12px;
+}
+
+.searchInput {
+  display: inline;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px 20px;
+}
+
+.stickyPageHeader {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: 'Baloo Bhaijaan', cursive;
   margin-bottom: 0px;
 }
 
-h5, h6 {
-  font-family: 'Julius Sans One', sans-serif;
-  font-weight: 300;
-  /* text-transform: uppercase; */
- }
-.cardHolder {
+.infoSwitch {
   display: flex;
-  margin: auto;
-  flex-wrap: wrap;
-}
-
-.imgContainer {
-  display: flex;
-  background-color: peach;
-  margin: auto;
-}
-
-.buttonContainer {
-  width: inherit;
-  justify-content: space-between;
-}
-
-.cardImage{
-  width: inherit;
-}
-
-.restaurantInfoCardContainer{
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  box-shadow: 1px 1px 20px #AAA9B2;
-  padding: 25px;
-  background: rgb(10,158,157);
-  background: -moz-linear-gradient(90deg, rgba(10,158,157,1) 0%, rgba(92,18,136,1) 69%, rgba(27,0,57,1) 100%);
-  background: -webkit-linear-gradient(90deg, rgba(10,158,157,1) 0%, rgba(92,18,136,1) 69%, rgba(27,0,57,1) 100%);
-  background: linear-gradient(90deg, rgba(10,158,157,1) 0%, rgba(92,18,136,1) 69%, rgba(27,0,57,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0a9e9d",endColorstr="#1b0039",GradientType=1);
-  border: 20px solid white;
   color: white;
 }
-.restaurantInfoImageContainer {
+
+.my-gallery-class {
+  margin: 120px 0px 0px -27px;
+  padding: 0px 35px 0px 35px;
+  justify-content: center;
+  /* align-content: center; */
+  /* right: 30px; */
+}
+
+.loginContainer{
   display: flex;
-  margin-right: 100px;
-  justify-content: left;
-  width: 300px;
-  border-radius: 2%;
-  overflow: hidden;
-  align-items: center;
-}
-
-.restaurantInfoContainer {
-  color: black;
-}
-
-.restaurantInfoImage {
-  width:inherit;
-  border-radius: 5px;
-}
-
-.mainCardHeader {
-  margin-bottom: 20px;
-}
-
-.mainCardRestaurantName {
-  margin-bottom: 0px;
-}
-
-.MainCardAddressContainer {
-  margin-bottom: 15px;
-}
-
-.additionalInfo {
-  margin-bottom: 15px;
-}
-
-.ratingAndPrice {
-  margin-bottom: 15px;
-}
-
-.bigText {
-  font-size: 200px;
-  text-align: center;
-  margin-top: -20px;
-  word-wrap: break-word;
-  letter-spacing: 5px;
-}
-
-.errorMessage {
-  color: black;
-}
-
-.friendContainer {
-  /* border: 1px solid rgb(199, 208, 212); */
-  padding: 5px;
-  box-shadow: 1px 2px 10px rgb(218, 217, 217);
-  border-radius: 5px;
-  justify-content: space-between;
-  align-items: center;
-  width: 70%;
-}
-
-.friendListContainer {
-  display: flex;
+  justify-content: center;
   flex-direction: column;
 }
+@media only screen and (min-width: 975px) {
 
-.mainFriendContainer{
+.my-gallery-class {
+  margin: 0px 0px 0px -27px;
+  padding: 0px 35px 0px 35px;
+  justify-content: center;
+  /* align-content: center; */
+  /* right: 30px; */
+}
+.stickyPageHeader {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-family: 'Baloo Bhaijaan', cursive;
+}
+
+.infoSwitch {
   display: flex;
+  color: white;
+  align-items: center;
+  margin-right: 40px;
+
+}
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
-.searchContainer{
+.searchInput {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  margin: 0px 20px;
 }
 
-.oneFriendTopButtonDiv{
-  display: flex;
-  justify-content: center;
+.chewsySearchHeaderTitle {
+  font-family: 'Baloo Bhaijaan', cursive;
+  color: rgb(245, 138, 88);
+  font-size: 80px;
+  text-align: center;
 }
 
-.favNotes {
-  border: 3px solid rgb(245, 138, 88, .2);
-  padding: 10px;
-  margin: 10px 10px 10px 10px;
-  border-radius: 5px;
+.chewsySubtitle {
+  font-family: "Baloo Bhaijaan";
+  color: white;
+  margin: 0px;
+  font-style: italic;
 }
+  .stickyPageHeader {
+    text-align: center;
+    color: white;
+    margin-left: 40px;
+  }
 
-.favoritePageRatings {
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-}
+  .my-gallery-class {
+    margin: 0px;
+    padding: 0px 35px 0px 35px;
+    justify-content: center;
+    right: 36px;
+  }
 
-.friendButtonContainer,
-.favButtonContainer {
-  display: flex;
-  justify-content: center;
-}
+  .loginContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    }
 
-.favBurger {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-}
-.favHotdog{
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-}
+  .stickyHeader {
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0px 40px; */
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: #5d7a98
+  }
 
-.registrationTakeout {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
+  .inputEmail,
+  .inputPassword {
+    color:white;
+  }
+
+  /* .grid {
+    margin: 0 40px;
+  } */
+
+
+  /* body {
+    font-family: 'Lora', serif;
+   } */
+
+  h1 {
+    font-family: 'Baloo Bhaijaan', cursive;
+    color: rgb(245, 138, 88)
+  }
+
+  h2, h3, h4 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+  }
+  .favoritesName{
+    font-family: 'Baloo Bhaijaan', cursive;
+    color: rgb(245, 138, 88);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+  h5, h6 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 300;
+    /* text-transform: uppercase; */
+   }
+  .cardHolder {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .imgContainer {
+    display: flex;
+    background-color: peach;
+    margin: auto;
+  }
+
+  .buttonContainer {
+    width: inherit;
+    justify-content: space-between;
+  }
+
+  .cardImage{
+    width: inherit;
+  }
+
+  .restaurantInfoCardContainer{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 1px 1px 20px #AAA9B2;
+    padding: 25px;
+    background: rgb(10,158,157);
+    background: -moz-linear-gradient(90deg, rgba(10,158,157,1) 0%, rgba(92,18,136,1) 69%, rgba(27,0,57,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(10,158,157,1) 0%, rgba(92,18,136,1) 69%, rgba(27,0,57,1) 100%);
+    background: linear-gradient(90deg, rgba(10,158,157,1) 0%, rgba(92,18,136,1) 69%, rgba(27,0,57,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0a9e9d",endColorstr="#1b0039",GradientType=1);
+    border: 20px solid white;
+    color: white;
+  }
+  .restaurantInfoImageContainer {
+    display: flex;
+    margin-right: 100px;
+    justify-content: left;
+    width: 300px;
+    border-radius: 2%;
+    overflow: hidden;
+    align-items: center;
+  }
+
+  .restaurantInfoContainer {
+    color: black;
+  }
+
+  .restaurantInfoImage {
+    width:inherit;
+    border-radius: 5px;
+  }
+
+  .mainCardHeader {
+    margin-bottom: 20px;
+  }
+
+  .mainCardRestaurantName {
+    margin-bottom: 0px;
+  }
+
+  .MainCardAddressContainer {
+    margin-bottom: 15px;
+  }
+
+  .additionalInfo {
+    margin-bottom: 15px;
+  }
+
+  .ratingAndPrice {
+    margin-bottom: 15px;
+  }
+
+  .bigText {
+    font-size: 200px;
+    text-align: center;
+    margin-top: -20px;
+    word-wrap: break-word;
+    letter-spacing: 5px;
+  }
+
+  .errorMessage {
+    color: black;
+  }
+
+  .friendContainer {
+    /* border: 1px solid rgb(199, 208, 212); */
+    padding: 5px;
+    box-shadow: 1px 2px 10px rgb(218, 217, 217);
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+  }
+
+  .friendListContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mainFriendContainer{
+    display: flex;
+    justify-content: center;
+  }
+
+  .searchContainer{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 14px;
+  }
+
+  .oneFriendTopButtonDiv{
+    display: flex;
+    justify-content: center;
+  }
+
+  .favNotes {
+    border: 3px solid rgb(245, 138, 88, .2);
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+  }
+
+  .favoritePageRatings {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .friendButtonContainer,
+  .favButtonContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .favBurger {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+  }
+  .favHotdog{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .registrationTakeout {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
 }

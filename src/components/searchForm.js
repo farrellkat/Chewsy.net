@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 // import apiModule from "../modules/apiModule";
-import { Input, FormGroup, Form, Label, Button } from "reactstrap"
+import { Input, FormGroup, Form, Label, Button, Row, Col } from "reactstrap"
 import staticAppData from "../staticAppData"
 
 export default class SearchForm extends Component {
     // userId = sessionStorage.getItem("credentials")
 
     state = {
-        activeUser:"",
+        activeUser: "",
         category1: "",
         category2: "",
         category3: "",
@@ -25,7 +25,7 @@ export default class SearchForm extends Component {
 
     componentDidMount() {
         const activeUser = localStorage.getItem("userId")
-        this.setState({activeUser:activeUser})
+        this.setState({ activeUser: activeUser })
     }
 
     handleFieldChange = evt => {
@@ -36,114 +36,130 @@ export default class SearchForm extends Component {
     };
 
     render() {
-       const categories = staticAppData.categories.filter(data => data.parents[0] === "restaurants")
+        const categories = staticAppData.categories.filter(data => data.parents[0] === "restaurants")
         return (
             <React.Fragment>
                 <div className="searchBg">
-                    {
-                        <Form className="container" style={{backgroundColor: "rgb(245, 138, 88, 0.3)", borderRadius: "5px", width:"80%"}}>
-                        <h1 style={{textAlign:"center", fontSize: "5em"}}>Let's eat!</h1>
-                            <p className="text-center" style={{color: "white", fontWeight: "bold", fontSize:"25px"}}>Choose your location:</p>
-                            <FormGroup className="row justify-content-center">
-                                <Input
-                                    id="cityInput"
-                                    type="text"
-                                    // defaultValue={this.props.userCity}
-                                    required
-                                    className="form-control col-md-2 mr-1"
-                                    placeholder="City or Zip Code"
-                                    onChange={this.handleFieldChange}
-                                />
-                                <Input className="custom-select col-md-1 mr-1"
-                                    type="select"
-                                    name="stateOption"
-                                    id="stateInput"
-                                    // defaultValue={this.state.stateInput}
-                                    onChange={this.handleFieldChange}>
+                    <Form className="container" style={{ backgroundColor: "rgb(245, 138, 88, 0.3)", borderRadius: "5px", width: "80%" }}>
+                        <h1 className="chewsySearchHeaderTitle">Let's eat!</h1>
+                        <p className="searchFormLabel">Choose your location:</p>
+                        <Row form style={{justifyContent:"center"}}>
+                            <Col md={4}>
+                                <FormGroup>
+                                    <Input
+                                        id="cityInput"
+                                        type="text"
+                                        // defaultValue={this.props.userCity}
+                                        required
+                                        // className="col-md-2"
+                                        placeholder="City or Zip Code"
+                                        onChange={this.handleFieldChange}
+                                    />
+                                </FormGroup>
+                                </Col>
+                                <Col md={1}>
+                                <FormGroup>
+                                    <Input className="custom-select"
+                                        type="select"
+                                        name="stateOption"
+                                        id="stateInput"
+                                        // defaultValue={this.state.stateInput}
+                                        onChange={this.handleFieldChange}>
 
-                                    <option>State</option>
-                                    {this.props.states.map(state => (
-                                        <option key={state.abbreviation} value={state.abbreviation}>
-                                            {state.abbreviation}
-                                        </option>
-                                    ))}
-                                </Input>
-                                <Input className="custom-select col-md-1"
-                                    type="select"
-                                    defaultValue=""
-                                    name="radiusOption"
-                                    id="radiiInput"
-                                    onChange={this.handleFieldChange}
-                                >
-                                    <option>Radius</option>
-                                    {this.props.radii.map(radii => (
-                                        <option key={radii.radius} id={radii.radius} value={radii.value}>
-                                            {radii.radius}
-                                        </option>
-                                    ))}
-                                </Input>
-                            </FormGroup>
-                            <p className="text-center mt-5" style={{color: "white", fontWeight: "bold", fontSize:"25px"}}>Select up to 3 cuisines:</p>
-                            <section className="px-5 mt-1 d-flex justify-content-center align-items-start">
-                                <Label className="mr-1">
-                                    <FormGroup className="input-group">
-                                        <Input className="custom-select"
-                                            type="select"
-                                            defaultValue=""
-                                            name="categoryContainer"
-                                            id="category1"
-                                            onChange={this.handleFieldChange}
-                                        >
-                                            <option>Select a Category</option>
-                                            {categories.map(c => (
-                                                <option key={c.alias} id={c.alias} value={c.alias}>
-                                                    {c.title}
-                                                </option>
-                                            ))}
-                                        </Input>
-                                    </FormGroup>
-                                </Label>
-                                <Label className="mr-1">
-                                    <FormGroup>
-                                        <Input
-                                            type="select"
-                                            defaultValue=""
-                                            name="categoryContainer"
-                                            id="category2"
-                                            onChange={this.handleFieldChange}
-                                        >
-                                            <option>Select a Category</option>
-                                            {categories.map(c => (
-                                                <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
-                                                    {c.title}
-                                                </option>
-                                            ))}
-                                        </Input>
-                                    </FormGroup>
-                                </Label>
-                                <Label>
-                                    <FormGroup>
-                                        <Input
-                                            type="select"
-                                            defaultValue=""
-                                            name="categoryContainer"
-                                            id="category3"
-                                            onChange={this.handleFieldChange}
-                                        >
-                                            <option>Select a Category</option>
-                                            {categories.map(c => (
-                                                <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
-                                                    {c.title}
-                                                </option>
-                                            ))}
-                                        </Input>
-                                    </FormGroup>
-                                </Label>
-                            </section>
-                            <section className="px-5 mt-5 d-flex justify-content-center align-items-start">
-                                <FormGroup className="input-group-append">
+                                        <option>State</option>
+                                        {this.props.states.map(state => (
+                                            <option key={state.abbreviation} value={state.abbreviation}>
+                                                {state.abbreviation}
+                                            </option>
+                                        ))}
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                            <Col md={1}>
+                                <FormGroup>
+                                    <Input className="custom-select"
+                                        type="select"
+                                        defaultValue=""
+                                        name="radiusOption"
+                                        id="radiiInput"
+                                        onChange={this.handleFieldChange}
+                                    >
+                                        <option>Radius</option>
+                                        {this.props.radii.map(radii => (
+                                            <option key={radii.radius} id={radii.radius} value={radii.value}>
+                                                {radii.radius}
+                                            </option>
+                                        ))}
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                        </Row>
+                        <p className="searchFormLabel">And up to 3 cuisines:</p>
+                        <Row form style={{justifyContent:"center"}}>
+                            <Col md={3}>
+                                <FormGroup>
+                                    <Input className="custom-select"
+                                        type="select"
+                                        defaultValue=""
+                                        name="categoryContainer"
+                                        id="category1"
+                                        onChange={this.handleFieldChange}
+                                    >
+                                        <option>Category 1</option>
+                                        {categories.map(c => (
+                                            <option key={c.alias} id={c.alias} value={c.alias}>
+                                                {c.title}
+                                            </option>
+                                        ))}
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                            <Col md={3}>
+                                <FormGroup>
+                                    <Input
+                                        className="custom-select"
+                                        type="select"
+                                        defaultValue=""
+                                        name="categoryContainer"
+                                        id="category2"
+                                        onChange={this.handleFieldChange}
+                                    >
+                                        <option>Category 2</option>
+                                        {categories.map(c => (
+                                            <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
+                                                {c.title}
+                                            </option>
+                                        ))}
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                            <Col md={3}>
+                                <FormGroup>
+                                    <Input
+                                        className="custom-select"
+                                        type="select"
+                                        defaultValue=""
+                                        name="categoryContainer"
+                                        id="category3"
+                                        onChange={this.handleFieldChange}
+                                    >
+                                        <option>Category 3</option>
+                                        {categories.map(c => (
+                                            <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
+                                                {c.title}
+                                            </option>
+                                        ))}
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                        </Row>
+                        <Col>
+                            <Row style={{justifyContent:"center"}}>
+
+                                <FormGroup>
                                     <Button
-                                        className="btn btn-info"
+                                        color="info"
+                                        style={{marginRight:"5px"}}
                                         onClick={() => {
                                             this.props.updateUserState(
                                                 this.state.category1,
@@ -158,9 +174,9 @@ export default class SearchForm extends Component {
                                         <strong>Let's eat!</strong>
                                     </Button>
                                 </FormGroup>
-                                <FormGroup className="input-group-append ml-1">
+                                <FormGroup>
                                     <Button
-                                        className="btn btn-danger"
+                                        color="danger"
                                         type="button"
                                         onClick={() => {
                                             this.setState({ category1: "", category2: "", category3: "" })
@@ -174,9 +190,9 @@ export default class SearchForm extends Component {
                                             this.props.history.push("/cardviewer")
                                         }}><i>Surprise me</i></Button>
                                 </FormGroup>
-                            </section>
-                        </Form>
-                    }
+                            </Row>
+                        </Col>
+                    </Form>
                 </div>
             </React.Fragment>
         );
