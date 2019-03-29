@@ -920,8 +920,9 @@
       "yelpRating": 4.5,
       "url": "https://www.yelp.com/biz/sweet-16th-bakery-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$",
-      "notes": "",
-      "id": 24
+      "notes": "Loved it. We get the breakfast sandwich every Saturday",
+      "id": 24,
+      "rating": 5
     },
     {
       "userId": 1,
@@ -1296,6 +1297,37 @@
       "price": "$",
       "notes": "",
       "id": 34
+    },
+    {
+      "userId": 1,
+      "restaurantId": "cAAtoYUKC_Z8AmSF95mjcg",
+      "name": "Two Boots Nashville",
+      "category": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/IsVFq4kY2BJNg_mVQ3K0sQ/o.jpg",
+      "location": {
+        "address1": "1925 Broadway",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "1925 Broadway",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 340-4343",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/two-boots-nashville-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 35
     }
   ],
   "friends": [
@@ -1340,24 +1372,29 @@
       "id": 11
     },
     {
-      "fId": 2,
-      "userId": 1,
-      "id": 13
-    },
-    {
       "fId": 3,
       "userId": 1,
       "id": 14
     },
     {
-      "fId": 5,
-      "userId": 1,
-      "id": 15
-    },
-    {
       "fId": 1,
       "userId": 8,
       "id": 16
+    },
+    {
+      "fId": 5,
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "fId": 8,
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "fId": 2,
+      "userId": 1,
+      "id": 19
     }
   ]
 }

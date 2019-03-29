@@ -157,7 +157,67 @@ html, body {
   justify-content: center;
   flex-direction: column;
 }
-@media only screen and (min-width: 975px) {
+
+.findFriendTable {
+  background-color: white;
+}
+
+
+.friendName {
+  border-radius: 15px 15px 0px 0px;
+  text-align: center;
+}
+.notFriendName {
+  text-align: center;
+  border-radius: 0px 0px 0px 0px;
+}
+.friendCity {
+  border-radius: 0px 0px 0px 0px;
+  text-align: center;
+}
+.notFriendCity {
+  text-align: center;
+  border-radius: 0px 0px 15px 15px;
+}
+.addFriendButton {
+  border-radius: 15px 15px 0px 0px;
+  width: 100%
+}
+.deleteFriendButton {
+  border-radius: 0px 0px 15px 15px;
+  width: 100%;
+}
+.friendListContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+@media only screen and (min-width: 760px) {
+  .friendName {
+    border-radius: 15px 0px 0px 0px;
+  }
+  .notFriendName {
+    border-radius: 0px 0px 0px 0px;
+  }
+  .friendCity {
+    border-radius: 0px 0px 0px 0px;
+  }
+  .notFriendCity {
+    border-radius: 0px 0px 15px 0px;
+  }
+  .addFriendButton {
+    border-radius: 0px 0px 0px 15px;
+    width: auto;
+  }
+  .deleteFriendButton {
+    border-radius: 0px 15px 0px 0px;
+    width: auto;
+  }
+  .friendListContainer {
+    display: flex;
+    flex-direction: column;
+  }
 
 .my-gallery-class {
   margin: 0px 0px 0px -27px;
