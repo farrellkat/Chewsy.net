@@ -78,7 +78,7 @@ class NavBar extends Component {
     return (
       <React.Fragment>
         <Navbar color="dark" dark>
-          <NavbarBrand className="mr-auto chewsyHeaderTitle"><h1>Chewsy</h1></NavbarBrand>
+          <NavbarBrand className="mr-auto chewsyNavTitle"><h1>Chewsy</h1></NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             {

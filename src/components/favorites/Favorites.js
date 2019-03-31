@@ -8,6 +8,8 @@ import Switch from "react-switch";
 const masonryOptions = {
     transitionDuration: '0.8s',
     fitWidth: true,
+    columnWidth: 20,
+
 };
 
 
