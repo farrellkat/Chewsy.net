@@ -83,7 +83,7 @@ export default class MainRestaurantCard extends Component {
                         <div className="mainCardHeader">
                             <h1 className="mainCardRestaurantName display-4 text-light">{this.props.businessInfo[0].name}</h1>
                             {this.props.businessInfo[0].categories.map(category =>
-                                <small className="text-muted"><i>{category.title}&nbsp;</i></small>
+                                <small className="text-white"><i>{category.title}&nbsp;</i></small>
                             )}
                         </div>
                         <div className="MainCardAddressContainer text-light">

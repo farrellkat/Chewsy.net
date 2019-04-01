@@ -1,0 +1,56 @@
+.bg {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/avocado-millenials.jpg");
+    position: absolute;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .searchBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/oranges.jpg");
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
+  .favBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/brooke-lark-500141-unsplash.jpg");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+  .friendsBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/bwDarkFriends.png");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: cover;
+  }
+  .findBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/restaurantHands.jpg");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: cover;
+  }
+  .cardHolderBg {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-position: top;
+    background-repeat: repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
