@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Row, Col, Container, Form, FormGroup } from "reactstrap"
+import { Button, Row, Col, Form } from "reactstrap"
 import UserManager from "../modules/UserManager";
 import "../App.css"
 export default class FindFriends extends Component {
