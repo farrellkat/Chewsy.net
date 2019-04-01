@@ -1359,6 +1359,72 @@
       "price": "$",
       "notes": "",
       "id": 36
+    },
+    {
+      "userId": 1,
+      "restaurantId": "foFpx3znhLJvnplex8aqww",
+      "name": "Taj Indian Restaurant",
+      "category": [
+        {
+          "alias": "indpak",
+          "title": "Indian"
+        },
+        {
+          "alias": "desserts",
+          "title": "Desserts"
+        }
+      ],
+      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/5D7eb3MLpXcEcPoqV3laQQ/o.jpg",
+      "location": {
+        "address1": "3943 Nolensville Pike",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37211",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "3943 Nolensville Pike",
+          "Nashville, TN 37211"
+        ]
+      },
+      "phone": "(615) 750-3490",
+      "yelpRating": 4.5,
+      "url": "https://www.yelp.com/biz/taj-indian-restaurant-nashville-3?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 37
+    },
+    {
+      "userId": 1,
+      "restaurantId": "O5w-GuNCARANWyDzUO3ReA",
+      "name": "Awash Ethiopian Restaurant",
+      "category": [
+        {
+          "alias": "ethiopian",
+          "title": "Ethiopian"
+        }
+      ],
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/kB3Pk74PxiRdmXTprvkMBw/o.jpg",
+      "location": {
+        "address1": "976 Murfreesboro Pike",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37217",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "976 Murfreesboro Pike",
+          "Nashville, TN 37217"
+        ]
+      },
+      "phone": "(615) 366-9911",
+      "yelpRating": 4.5,
+      "url": "https://www.yelp.com/biz/awash-ethiopian-restaurant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 38
     }
   ],
   "friends": [

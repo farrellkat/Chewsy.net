@@ -94,7 +94,7 @@ export default class OneFriendFavorites extends Component {
                             <Switch
                                 onChange={this.handleChange}
                                 checked={this.state.checked}
-                                onColor="#f58a58" />
+                                onColor="#FF5A5A" />
                         </Form>
                     </div>
                     <div className="oneFriendTopButtonDiv">
