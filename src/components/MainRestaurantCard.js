@@ -65,7 +65,7 @@ export default class MainRestaurantCard extends Component {
         return (
                 <div className="cardHolderBg">
             <React.Fragment>
-                <div style={{marginLeft: 200, marginRight: 200, marginTop: 50}}>
+                <div className="mainRestaurantCardContainer">
                 <Alert color="success" isOpen={this.state.visible} toggle={this.onDismiss}>
         Saved to your favorites!
       </Alert>
@@ -88,14 +88,14 @@ export default class MainRestaurantCard extends Component {
                         </div>
                         <div className="MainCardAddressContainer text-light">
                             <div>Address:</div>
-                            <div>
+                            <a target="_blank" rel="noopener noreferrer" href={`https://maps.google.com/?q=${this.props.businessInfo[0].location.address1} ${this.props.businessInfo[0].location.city}, ${this.props.businessInfo[0].location.state} ${this.props.businessInfo[0].location.zip_code}`}
+                            >
                                 {this.props.businessInfo[0].location.address1}
-                            </div>
-                            <div>
+                                <br/>
                                 {this.props.businessInfo[0].location.city},&nbsp;
                                 {this.props.businessInfo[0].location.state}&nbsp;
                                 {this.props.businessInfo[0].location.zip_code}
-                            </div>
+                            </a>
                         </div>
                         <div className="additionalInfo text-light">
                             <div>Phone Number: {this.props.businessInfo[0].display_phone}</div>
@@ -126,8 +126,8 @@ export default class MainRestaurantCard extends Component {
                     </div>
                     </div>
                 </section>
+                <p style={{color: "white", fontSize:"-webkit-xxx-large"}}>HOORAY!</p>
                 </div>
-                <p style={{color: "white", fontSize:"100px"}}>HOORAY!</p>
             </React.Fragment >
                 </div>
         )

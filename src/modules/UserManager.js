@@ -41,11 +41,20 @@ export default {
   getUserFavorites(id) {
     return fetch(`${settings.appDataURL}/favorites/?userId=${id}&_expand=user`).then(e => e.json())
   },
+  searchUserFavorites(id, search) {
+    return fetch(`${settings.appDataURL}/favorites/?userId=${id}&_expand=user&q=${search}`).then(e => e.json())
+  },
   getAllFavorites() {
     return fetch(`${settings.appDataURL}/favorites/?_expand=user`).then(e => e.json())
   },
+  searchAllFavorites(search) {
+    return fetch(`${settings.appDataURL}/favorites/?_expand=user&q=${search}`).then(e => e.json())
+  },
   getOneUserFavorite(id) {
     return fetch(`${settings.appDataURL}/favorites/${id}`).then(e => e.json())
+  },
+  searchOneUserFavorite(id, search) {
+    return fetch(`${settings.appDataURL}/favorites/${id}?q=${search}`).then(e => e.json())
   },
   addUserFavorite(obj) {
     return fetch(`${settings.appDataURL}/favorites`, {

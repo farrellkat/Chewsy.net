@@ -29,8 +29,8 @@ export default class LoginAuth0 extends Component {
       enterWebsite() {
         this.props.setActiveUser(parseInt(localStorage.getItem("userId")))
         this.props.setFirstName(localStorage.getItem("firstName"))
-        this.props.history.push("/search")
         localStorage.setItem("nav", true)
+        this.props.history.push("/search")
       }
 
 
@@ -54,7 +54,10 @@ export default class LoginAuth0 extends Component {
                       this.login.bind(this)
                     }
                   >
+                  <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
                     <i className="fas fa-lock" style={{fontSize:"30px"}}></i>
+                    sign in
+                  </div>
                   </Button>
                 )
             }
@@ -63,13 +66,16 @@ export default class LoginAuth0 extends Component {
                   <Button
                     style={{margin:"auto", width:"100px", height:"100px", fontSize:"20px", borderRadius:"100%"}}
                     outline color="info"
-                    id="qsLoginBtn"
+                    id="loginBtn"
                     className="btn-margin"
                     onClick={()=>
                       this.enterWebsite()
                     }
                   >
+                  <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
                     <i className="fas fa-utensils" style={{fontSize:"30px"}}></i>
+                    let's eat
+                  </div>
                   </Button>
               )
                   }

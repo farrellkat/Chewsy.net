@@ -14,9 +14,9 @@ import FindFriends from "./FindFriends";
 import Friends from "./Friends";
 import OneFriendFavorites from "./favorites/OneFriendFavorites";
 import LoginAuth0 from "./authentication/LoginAuth0";
-import Profile from "./authentication/Profile";
+// import Profile from "./authentication/Profile";
 import staticAppData from "../staticAppData"
-
+import errorPicture from "../img/errorPicture.png"
 export default class ApplicationViews extends Component {
 
     isAuthenticated() {
@@ -140,18 +140,21 @@ export default class ApplicationViews extends Component {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                    (res.businesses[0].image_url) ? (
+                    console.log(res)
+                    if (res.total === 0 || res.businesses[0].image_url === "") {
+                        this.setState({
+                            // businessInfo: res.businesses,
+                            businessImage: `${errorPicture}`
+
+                        })
+
+                    } else {
                         this.setState({
                             businessInfo: res.businesses,
                             businessImage: res.businesses[0].image_url
                         })
-                    ) : (
-                            this.setState({
-                                businessInfo: res.businesses,
-                                businessImage: "Picture Unavailable"
-                            })
-                        )
-                })
+                        }
+                    })
     }
 
     SurpriseSearch = () => {
@@ -223,12 +226,12 @@ export default class ApplicationViews extends Component {
                     }
                 }
                     />
-                <Route exact path="/profile" render={(props) => {
+                {/* <Route exact path="/profile" render={(props) => {
                     return <Profile {...props} auth={this.props.auth}
                         />
                     }
                 }
-                    />
+                    /> */}
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
                     activeUser={this.state.activeUser}
