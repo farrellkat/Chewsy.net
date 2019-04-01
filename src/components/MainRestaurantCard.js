@@ -65,7 +65,7 @@ export default class MainRestaurantCard extends Component {
         return (
                 <div className="cardHolderBg">
             <React.Fragment>
-                <div style={{marginLeft: 200, marginRight: 200, marginTop: 50}}>
+                <div className="mainRestaurantCardContainer">
                 <Alert color="success" isOpen={this.state.visible} toggle={this.onDismiss}>
         Saved to your favorites!
       </Alert>
@@ -126,8 +126,8 @@ export default class MainRestaurantCard extends Component {
                     </div>
                     </div>
                 </section>
+                <p style={{color: "white", fontSize:"-webkit-xxx-large"}}>HOORAY!</p>
                 </div>
-                <p style={{color: "white", fontSize:"100px"}}>HOORAY!</p>
             </React.Fragment >
                 </div>
         )

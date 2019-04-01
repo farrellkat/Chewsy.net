@@ -66,7 +66,7 @@ export default class LoginAuth0 extends Component {
                   <Button
                     style={{margin:"auto", width:"100px", height:"100px", fontSize:"20px", borderRadius:"100%"}}
                     outline color="info"
-                    id="qsLoginBtn"
+                    id="loginBtn"
                     className="btn-margin"
                     onClick={()=>
                       this.enterWebsite()

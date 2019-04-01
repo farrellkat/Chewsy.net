@@ -1328,6 +1328,37 @@
       "price": "$",
       "notes": "",
       "id": 35
+    },
+    {
+      "userId": 1,
+      "restaurantId": "tbHOEjIECq0788WNYVj4bQ",
+      "name": "Legumes Ethiopian Vegetarian Restaurant",
+      "category": [
+        {
+          "alias": "ethiopian",
+          "title": "Ethiopian"
+        }
+      ],
+      "image": "https://s3-media1.fl.yelpcdn.com/bphoto/6nT8s5uOiu8-X-S0bvQP5g/o.jpg",
+      "location": {
+        "address1": "900 Rosa L Parks Blvd",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "900 Rosa L Parks Blvd",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(615) 495-5083",
+      "yelpRating": 5,
+      "url": "https://www.yelp.com/biz/legumes-ethiopian-vegetarian-restaurant-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 36
     }
   ],
   "friends": [
