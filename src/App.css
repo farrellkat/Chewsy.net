@@ -250,7 +250,6 @@ html, body {
     margin: auto;
     overflow: hidden;
     width: 400px;
-    max-height: 400px;
     align-items: center;
   }
 

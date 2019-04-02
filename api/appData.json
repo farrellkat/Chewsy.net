@@ -336,7 +336,7 @@
       "yelpRating": 4,
       "url": "https://www.yelp.com/biz/vuis-kitchen-nashville-5?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$",
-      "notes": "",
+      "notes": "Heard great things about the bahn mi.",
       "id": 7,
       "rating": 4
     },
@@ -811,8 +811,9 @@
       "yelpRating": 4,
       "url": "https://www.yelp.com/biz/husk-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "price": "$$$",
-      "notes": "",
-      "id": 21
+      "notes": "Really good but overhyped.",
+      "id": 21,
+      "rating": 4
     },
     {
       "userId": 1,
@@ -1425,6 +1426,110 @@
       "price": "$",
       "notes": "",
       "id": 38
+    },
+    {
+      "userId": 1,
+      "restaurantId": "IE-5GIHlAINr0zO4lrJ_Lg",
+      "name": "I Dream of Weenie",
+      "category": [
+        {
+          "alias": "foodstands",
+          "title": "Food Stands"
+        },
+        {
+          "alias": "hotdog",
+          "title": "Hot Dogs"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/Np0EZtJwEbR397YTWMfzDg/o.jpg",
+      "location": {
+        "address1": "113 S 11th St",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37206",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "113 S 11th St",
+          "Nashville, TN 37206"
+        ]
+      },
+      "phone": "(615) 226-2622",
+      "yelpRating": 4.5,
+      "url": "https://www.yelp.com/biz/i-dream-of-weenie-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 39
+    },
+    {
+      "userId": 1,
+      "restaurantId": "OkyiiyLbPCM0HVGp3jps2Q",
+      "name": "El Jaliciense Mexican Restaurant",
+      "category": [
+        {
+          "alias": "mexican",
+          "title": "Mexican"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/Z5Zx6E4ohq3gWDvM7My_ng/o.jpg",
+      "location": {
+        "address1": "3225 Gallatin Pike",
+        "address2": null,
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37216",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "3225 Gallatin Pike",
+          "Nashville, TN 37216"
+        ]
+      },
+      "phone": "(615) 227-9866",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/el-jaliciense-mexican-restaurant-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 40
+    },
+    {
+      "userId": 1,
+      "restaurantId": "FYIL5duVgc9eLyYw6hobmw",
+      "name": "Ellington's Mid Way Bar & Grill",
+      "category": [
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        },
+        {
+          "alias": "steak",
+          "title": "Steakhouses"
+        },
+        {
+          "alias": "tradamerican",
+          "title": "American (Traditional)"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/MLrbiwCLRV80_9FKQmyIVA/o.jpg",
+      "location": {
+        "address1": "401 Union St",
+        "address2": "",
+        "address3": null,
+        "city": "Nashville",
+        "zip_code": "37219",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "401 Union St",
+          "Nashville, TN 37219"
+        ]
+      },
+      "phone": "(615) 988-7333",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/ellingtons-mid-way-bar-and-grill-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "notes": "",
+      "id": 42
     }
   ],
   "friends": [
@@ -1442,11 +1547,6 @@
       "fId": 2,
       "userId": 3,
       "id": 4
-    },
-    {
-      "fId": 4,
-      "userId": 1,
-      "id": 7
     },
     {
       "fId": 4,
@@ -1469,27 +1569,22 @@
       "id": 11
     },
     {
-      "fId": 3,
-      "userId": 1,
-      "id": 14
-    },
-    {
       "fId": 1,
       "userId": 8,
       "id": 16
     },
     {
-      "fId": 5,
+      "fId": 2,
       "userId": 1,
       "id": 17
     },
     {
-      "fId": 8,
+      "fId": 3,
       "userId": 1,
       "id": 18
     },
     {
-      "fId": 2,
+      "fId": 4,
       "userId": 1,
       "id": 19
     }
