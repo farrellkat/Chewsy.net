@@ -87,7 +87,7 @@ export default class Registration extends Component {
         };
 
         return (
-            <form className="px-5 mt-5 max-width">
+            <form className="px-5 mt-5 max-width" style={{backgroundColor:"white", padding: "20px", width: "100%", height: "100vh"}}>
                 <div className="container">
                     <h1 className="h3 font-weight-bold text-left" style={{ marginBottom: "0px" }}>Welcome to Chewsy!</h1>
                     <small style={{ marginTop: "0px", marginBottom: "20px" }}>Tell us a little about yourself</small>
