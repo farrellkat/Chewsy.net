@@ -1,4 +1,4 @@
-const port = process.env.PORT || 4000;
+// const port = process.env.PORT || 4000;
 
 export default {
     yelpAPI: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3",
