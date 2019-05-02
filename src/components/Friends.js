@@ -49,7 +49,6 @@ export default class Favorites extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.activeUser)
         this.loadFriends()
     }
 

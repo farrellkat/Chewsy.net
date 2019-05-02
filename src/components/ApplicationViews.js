@@ -140,7 +140,6 @@ export default class ApplicationViews extends Component {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                    console.log(res)
                     if (res.total === 0 || res.businesses[0].image_url === "") {
                         this.setState({
                             // businessInfo: res.businesses,
