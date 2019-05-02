@@ -78,13 +78,13 @@ export default class Registration extends Component {
             this.state.zipCode
         );
         const isEnabled = !Object.keys(errors).some(x => errors[x]);
-        const shouldMarkError = (field) => {
-            const hasError = errors[field];
-            const shouldShow = this.state.touched[field];
+        // const shouldMarkError = (field) => {
+        //     const hasError = errors[field];
+        //     const shouldShow = this.state.touched[field];
 
-            return hasError ? shouldShow : false;
+        //     return hasError ? shouldShow : false;
 
-        };
+        // };
 
         return (
             <form className="px-5 mt-5 max-width" style={{backgroundColor:"white", padding: "20px", width: "100%", height: "100vh"}}>

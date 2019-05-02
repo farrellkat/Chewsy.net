@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 // import apiModule from "../modules/apiModule";
-import { Input, FormGroup, Form, Label, Button, Row, Col } from "reactstrap"
+import { Input, FormGroup, Form, Button, Row, Col } from "reactstrap"
 import staticAppData from "../staticAppData"
 
 export default class SearchForm extends Component {
