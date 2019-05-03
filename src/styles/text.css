@@ -63,6 +63,13 @@ h2, h3, h4 {
                    -3px 3px 0px var(--chewsyOrange),
                    -4.5px 4.5px 0px var(--chewsyGreen);
 }
+.favoritesName{
+    font-family: 'Baloo Bhaijaan', cursive;
+    color: var(--chewsyRed);
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 0px;
+}
 @media only screen and (min-width: 760px) {
 .chewsyHeaderTitle {
     font-size: 180px;
@@ -90,11 +97,7 @@ h2, h3, h4 {
 }
 
 .favoritesName{
-    font-family: 'Baloo Bhaijaan', cursive;
-    color: var(--chewsyRed);
     font-size: 30px;
-    text-align: center;
-    margin-bottom: 0px;
 }
 
 h5, h6 {
