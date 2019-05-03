@@ -156,6 +156,10 @@ html, body {
   width: 50%;
   margin: auto;
 }
+.favoritePageRatings {
+  display: flex;
+  justify-content: center;
+}
 
 @media only screen and (min-width: 760px) {
 
@@ -352,8 +356,6 @@ html, body {
 
   .favoritePageRatings {
     margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
   }
 
   .friendButtonContainer,
