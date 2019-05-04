@@ -25,7 +25,7 @@ export default class Auth {
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
-    this.renewSession = this.renewSession.bind(this);
+    // this.renewSession = this.renewSession.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
 
@@ -95,17 +95,17 @@ export default class Auth {
     });
   }
 
-  renewSession() {
-    this.auth0.checkSession({}, (err, authResult) => {
-       if (authResult && authResult.accessToken && authResult.idToken) {
-         this.setSession(authResult);
-       } else if (err) {
-         this.logout();
-         console.log(err);
-        //  alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
-       }
-    });
-  }
+  // renewSession() {
+  //   this.auth0.checkSession({}, (err, authResult) => {
+  //      if (authResult && authResult.accessToken && authResult.idToken) {
+  //        this.setSession(authResult);
+  //      } else if (err) {
+  //        this.logout();
+  //        console.log(err);
+  //       //  alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+  //      }
+  //   });
+  // }
 
   logout() {
     // Remove tokens and expiry time
