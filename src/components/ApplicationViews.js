@@ -22,7 +22,7 @@ export default class ApplicationViews extends Component {
     isAuthenticated() {
         // Check whether the current time is past the
         // access token's expiry time
-        return localStorage.getItem('isLoggedIn')
+        return localStorage.getItem('userId')
         // let expiresAt = this.expiresAt;
         // return new Date().getTime() < expiresAt;
       }

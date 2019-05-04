@@ -19,13 +19,13 @@ export default class LoginAuth0 extends Component {
     this.props.auth.logout();
   }
 
-  // componentDidMount() {
-  //   const { renewSession } = this.props.auth;
+  componentDidMount() {
+    const { renewSession } = this.props.auth;
 
-  //   if (localStorage.getItem('isLoggedIn') === 'true') {
-  //     renewSession();
-  //   }
-  // }
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      renewSession();
+    }
+  }
 
   enterWebsite() {
     this.props.setActiveUser(parseInt(localStorage.getItem("userId")))
