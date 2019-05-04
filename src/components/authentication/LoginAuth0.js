@@ -64,7 +64,6 @@ export default class LoginAuth0 extends Component {
             }
             {
               isAuthenticated() && (
-                (localStorage.getItem('isLoggedIn')) ?
                 <Button
                   style={{ margin: "auto", width: "100px", height: "100px", fontSize: "20px", borderRadius: "100%" }}
                   outline color="info"
@@ -79,12 +78,6 @@ export default class LoginAuth0 extends Component {
                     let's eat
                   </div>
                 </Button>
-                : <Button
-                style={{ margin: "auto", width: "100px", height: "100px", fontSize: "20px", borderRadius: "100%" }}
-                outline color="danger"
-                id="qsLoginBtn"
-                className="btn-margin"
-              >Loading...</Button>
               )
             }
           </div>

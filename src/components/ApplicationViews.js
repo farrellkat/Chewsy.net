@@ -22,7 +22,7 @@ export default class ApplicationViews extends Component {
     isAuthenticated() {
         // Check whether the current time is past the
         // access token's expiry time
-        return localStorage.getItem('userId')
+        return localStorage.getItem('isLoggedIn')
         // let expiresAt = this.expiresAt;
         // return new Date().getTime() < expiresAt;
       }
@@ -238,8 +238,7 @@ export default class ApplicationViews extends Component {
                     states={this.state.states} />
                 }} />
                 <Route exact path="/search" render={(props) => {
-                    // if (this.isAuthenticated()) {
-                        if (this.isAuthenticated()) {
+                        // if (this.isAuthenticated()) {
                             return <SearchForm
                             {...props}
                             userCity={this.state.userCity}
@@ -253,9 +252,9 @@ export default class ApplicationViews extends Component {
                             updateUserState={this.updateUserState}
                             updateSurpriseUserState={this.updateSurpriseUserState}
                             />
-                        } else {
-                                return <Redirect to="/" />
-                                }
+                        // } else {
+                                // return <Redirect to="/" />
+                                // }
 
                             }} />
                 <Route exact path="/cardviewer" render={(props) => {
