@@ -225,12 +225,6 @@ export default class ApplicationViews extends Component {
                     }
                 }
                     />
-                {/* <Route exact path="/profile" render={(props) => {
-                    return <Profile {...props} auth={this.props.auth}
-                        />
-                    }
-                }
-                    /> */}
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
                     activeUser={this.state.activeUser}
