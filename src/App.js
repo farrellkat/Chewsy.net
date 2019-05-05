@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { isAuthenticated } = this.props.auth;
+    // const { isAuthenticated } = this.props.auth;
 
     return (
         <React.Fragment>

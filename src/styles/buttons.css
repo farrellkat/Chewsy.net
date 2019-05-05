@@ -9,6 +9,17 @@
 		opacity: 1;
 	}
 }
+@keyframes fadeOutOpacity {
+	0% {
+		opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+	100% {
+		opacity: 0;
+	}
+}
 
 /* .elementToAnimate{
   animation: yourAnimation 3s normal 2s linear;
@@ -30,6 +41,13 @@
 #loginBtn {
     opacity: 1;
     animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+     }
+#loadingBtn {
+    opacity: 0;
+    animation-name: fadeOutOpacity;
     animation-iteration-count: 1;
     animation-timing-function: ease;
     animation-duration: 4s;

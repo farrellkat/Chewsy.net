@@ -66,16 +66,33 @@ export default class LoginAuth0 extends Component {
               isAuthenticated() && (
                 <Button
                   style={{ margin: "auto", width: "100px", height: "100px", fontSize: "20px", borderRadius: "100%" }}
-                  outline color="info"
+                  color="info"
                   id="loginBtn"
                   className="btn-margin"
                   onClick={() =>
-                    this.enterWebsite()
+                    window.setTimeout(() => {
+                      this.enterWebsite();
+                   }, 1000)
                   }
                 >
                   <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                     <i className="fas fa-utensils" style={{ fontSize: "30px" }}></i>
                     let's eat
+                  </div>
+                </Button>
+              )
+            }
+            {
+              isAuthenticated() && (
+                <Button
+                  style={{ margin: "auto", width: "100px", height: "100px", fontSize: "20px", borderRadius: "100%" }}
+                  color="warning"
+                  id="loadingBtn"
+                  className="btn-margin"
+                >
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                    <i className="fas fa-utensils" style={{ fontSize: "30px" }}></i>
+                    Loading...
                   </div>
                 </Button>
               )
