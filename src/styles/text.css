@@ -65,7 +65,7 @@ h2, h3, h4 {
 .chewsySearchHeaderTitle {
     font-family: 'Baloo Bhaijaan', cursive;
     color: var(--chewsyRed);
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
     text-shadow: -1.5px 1.5px 0px var(--chewsyYellow),
                    -3px 3px 0px var(--chewsyOrange),
@@ -84,6 +84,10 @@ h2, h3, h4 {
     -webkit-animation: bounce-in-fwd 1.1s both;
     animation: bounce-in-fwd 1.1s both;
     }
+
+.chewsySearchHeaderTitle {
+    font-size: 80px;
+}
 
 .stickyPageHeader {
     text-align: center;
