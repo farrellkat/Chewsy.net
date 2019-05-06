@@ -6,8 +6,16 @@ import Masonry from "react-masonry-component"
 import Switch from "react-switch"
 
 const masonryOptions = {
-    transitionDuration: '0.8s',
+    // transitionDuration: '0.8s',
+    initLayout: true,
     fitWidth: true,
+    imagesLoaded: true,
+    columnWidth: '.grid-sizer',
+    itemSelector: '.grid-item',
+    horizontalOrder: true,
+    percentPosition: true,
+    gutter: 0,
+    containerStyle: null
 };
 
 const imagesLoadedOptions = { background: '.my-bg-image-el' }
@@ -106,7 +114,7 @@ export default class OneFriendFavorites extends Component {
                     </div>
                     {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems:"flex-start" }}> */}
                     <Masonry
-                        className={'my-gallery-class'} // default ''
+                        className={'myGalleryClass'} // default ''
                         elementType={'ul'} // default 'div'
                         options={masonryOptions} // default {}
                         disableImagesLoaded={false} // default false
@@ -120,19 +128,19 @@ export default class OneFriendFavorites extends Component {
                                     <div>
                                         {this.state.checked &&
                                             <CardBody>
-                                                <CardTitle style={{ marginBottom: 0 }}><p className="favoritesName">{favorite.name}</p></CardTitle>
-                                                <CardText style={{ textAlign: "center" }}>
+                                                <CardTitle style={{ marginBottom: "0px" }}><p className="favoritesName">{favorite.name}</p></CardTitle>
+                                                <CardText style={{ textAlign: "center", marginBottom: "0px" }}>
                                                     {favorite.category.map(category =>
-                                                        <small className="text-muted" style={{ textAlign: "center", marginBottom: 0 }}><i>{category.title}&nbsp;</i></small>
+                                                        <small className="text-muted" style={{ textAlign: "center", marginBottom: "0px" }}><i>{category.title}&nbsp;</i></small>
                                                     )}
                                                 </CardText>
-                                                <CardText className="text-muted" style={{ textAlign: "center", marginTop: 0 }}>{favorite.price}</CardText>
-                                                <CardSubtitle color="info" style={{ marginBottom: 10, textAlign: "center" }}>{favorite.user.firstName} {favorite.user.lastName} liked this!</CardSubtitle>
+                                                <CardText className="text-muted" style={{ textAlign: "center", marginTop: "0px" }}>{favorite.price}</CardText>
+                                                <CardSubtitle color="info" style={{ marginBottom: "10px", textAlign: "center" }}>{favorite.user.firstName} {favorite.user.lastName} liked this!</CardSubtitle>
                                                 <CardText style={{ marginBottom: "0px", textAlign: "center" }}><strong>Yelp rating:</strong></CardText>
                                                 <div className="favoritePageRatings">
                                                     <Ratings
                                                         rating={favorite.yelpRating}
-                                                        widgetDimensions="30px"
+                                                        widgetDimensions="15px"
                                                         widgetSpacings="5px"
                                                         widgetRatedColors="darkred"
                                                     >
@@ -147,7 +155,7 @@ export default class OneFriendFavorites extends Component {
                                                 <div className="favoritePageRatings">
                                                     <Ratings
                                                         rating={favorite.rating}
-                                                        widgetDimensions="30px"
+                                                        widgetDimensions="15px"
                                                         widgetSpacings="5px"
                                                         widgetRatedColors="goldenrod"
                                                     >
@@ -158,7 +166,7 @@ export default class OneFriendFavorites extends Component {
                                                         <Ratings.Widget />
                                                     </Ratings>
                                                 </div>
-                                                <CardText style={{ marginBottom: 0 }}><strong>Address:</strong></CardText>
+                                                <CardText style={{ marginTop: "10px", marginBottom: 0 }}><strong>Address:</strong></CardText>
                                                 <CardText><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/?q=
                                                 ${favorite.location.address1} ${favorite.location.city}, ${favorite.location.state} ${favorite.location.zip_code}`}
                                                 >{favorite.location.address1}
@@ -166,8 +174,10 @@ export default class OneFriendFavorites extends Component {
                                                     {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}
                                                 </a>
                                                 </CardText>
-                                                <CardText><strong>Phone: </strong>{favorite.phone}</CardText>
-                                                <CardText><strong>Website: </strong><a href={favorite.url} target="_blank" rel="noopener noreferrer">{favorite.name}</a></CardText>
+                                                <CardText><strong>Phone: </strong></CardText>
+                                                <CardText>{favorite.phone}</CardText>
+                                                <CardText><strong>Website: </strong></CardText>
+                                                <CardText><a href={favorite.url} target="_blank" rel="noopener noreferrer">{favorite.name}</a></CardText>
                                                 <div className="favNotes">
                                                     <CardText style={{ marginBottom: 0 }}><strong>Notes:</strong></CardText>
                                                     <CardText>{favorite.notes}</CardText>

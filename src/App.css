@@ -377,7 +377,7 @@ html, body {
   .favNotes {
     border: 3px solid rgb(245, 138, 88, .2);
     padding: 10px;
-    margin: 10px 10px 20px 10px;
+    margin: 10px 0px 20px 0px;
     border-radius: 5px;
   }
 
