@@ -115,7 +115,7 @@ export default class OneFriendFavorites extends Component {
                     >
                         {
                             this.state.favorites.map(favorite =>
-                                <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}>
+                                <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, margin: 5, padding: "5px" }}>
                                     <CardImg width="100%" src={favorite.image} />
                                     <div>
                                         {this.state.checked &&

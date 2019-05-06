@@ -104,21 +104,23 @@ html, body {
   display: inline;
   flex-direction: row;
   justify-content: center;
-  margin: 0px 20px;
+  /* margin: 0px 20px; */
 }
 
-.stickyPageHeader {
-  text-align: center;
-  color: white;
-  font-size: 30px;
-  font-family: 'Baloo Bhaijaan', cursive;
-  margin-bottom: 0px;
-}
-
-.my-gallery-class {
-  margin: 120px 0px 0px -27px;
-  padding: 0px 35px 0px 35px;
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
+  margin-top: 10px;
+}
+
+.myGalleryClass {
+  margin: 135px 0px 0px 0px;
+  padding: 0px 2px 0px 2px;
+  justify-content: center;
+  column-count: 2;
+  column-gap: 2px;
   /* align-content: center; */
   /* right: 30px; */
 }
@@ -164,6 +166,29 @@ html, body {
   justify-content: center;
 }
 
+.widget-ratings{
+  display: flex;
+}
+
+.yelpRatingsContainer,
+.userRatingsContainer{
+  margin-bottom: 1em;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 50%;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 2px;
+  padding: 2px;
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
+}
+
 @media only screen and (min-width: 760px) {
 
   .friendName {
@@ -183,20 +208,16 @@ html, body {
     flex-direction: column;
   }
 
-.my-gallery-class {
-  margin: 0px 0px 0px -27px;
-  padding: 0px 35px 0px 35px;
-  justify-content: center;
-  /* align-content: center; */
-  /* right: 30px; */
-}
-
-.searchContainer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
+  .myGalleryClass {
+    margin: 80px 0px 0px 0px;
+    padding: 0px 2px 0px 2px;
+    justify-content: center;
+    column-count: 4;
+    column-gap: 2px;
+    position: none;
+    /* align-content: center; */
+    /* right: 30px; */
+  }
 
 .searchInput {
   display: flex;
@@ -212,7 +233,7 @@ html, body {
   }
 
   .my-gallery-class {
-    margin: 0px;
+    margin: 100px 0px 0px 0px;
     padding: 0px 35px 0px 35px;
     justify-content: center;
     right: 36px;
@@ -274,6 +295,12 @@ html, body {
     display: flex;
   }
 
+  .card{
+    max-width: 350px;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+    page-break-inside: avoid; /* Firefox */
+         break-inside: avoid; /* IE 10+ */
+  }
   .restaurantInfoImageContainer {
     display: flex;
     margin-right: 100px;
@@ -340,9 +367,6 @@ html, body {
   .searchContainer{
     display: flex;
     justify-content: center;
-    position: absolute;
-    left: 30%;
-    right: 30%;
   }
 
   .oneFriendTopButtonDiv{
@@ -353,7 +377,7 @@ html, body {
   .favNotes {
     border: 3px solid rgb(245, 138, 88, .2);
     padding: 10px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 20px 10px;
     border-radius: 5px;
   }
 

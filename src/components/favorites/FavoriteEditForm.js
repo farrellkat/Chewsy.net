@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button, Input, Label } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button, Input } from 'reactstrap';
 import Ratings from 'react-ratings-declarative';
 export default class FavoriteEditForm extends Component {
   // Set initial state
@@ -61,20 +61,20 @@ export default class FavoriteEditForm extends Component {
       <React.Fragment>
         <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
           {
-            <Card key={this.state.restaurantId} id={this.state.id} style={{ maxWidth: 350, minWidth: 350, marginTop: 50 }}>
+            <Card key={this.state.restaurantId} id={this.state.id} style={{ marginTop: 50 }}>
               <div className="editImgHolder">
                 <CardImg width="100%" src={this.state.image} />
               </div>
               <div className="editInfoHolder">
                 <CardBody>
                   <CardTitle style={{ marginBottom: 10 }}><p className="favoritesName">{this.state.name}</p></CardTitle>
-                  <CardSubtitle><strong>Yelp rating: </strong>{this.state.yelpRating}</CardSubtitle>
-
-                  <Label for="exampleSelect">My Rating:</Label>
+                  <div className="yelpRatingsContainer">
+                  <CardSubtitle><strong>Yelp rating: </strong></CardSubtitle>
                   <Ratings
-                    rating={this.state.rating}
-                    widgetRatedColors="goldenrod"
-                    changeRating={this.changeRating}
+                    rating={this.state.yelpRating}
+                    widgetDimensions="30px"
+                    widgetSpacings="5px"
+                    widgetRatedColors="darkred"
                   >
                     <Ratings.Widget />
                     <Ratings.Widget />
@@ -82,6 +82,22 @@ export default class FavoriteEditForm extends Component {
                     <Ratings.Widget />
                     <Ratings.Widget />
                   </Ratings>
+                  </div>
+                  <div className="userRatingsContainer">
+                  <CardSubtitle><strong>My Rating: </strong></CardSubtitle>
+                  <Ratings
+                    rating={this.state.rating}
+                    widgetRatedColors="goldenrod"
+                    changeRating={this.changeRating}
+                    widgetDimensions="30px"
+                  >
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                    <Ratings.Widget />
+                  </Ratings>
+                  </div>
                   <CardText style={{ marginTop: 10 }}><strong>Notes:</strong></CardText>
                   <div className="form-group">
                     <Input defaultValue={this.state.notes} type="textarea" name="text" id="notes" onChange={this.handleFieldChange} />
