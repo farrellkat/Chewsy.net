@@ -98,7 +98,7 @@ export default class Registration extends Component {
                 </label>
                             <input onChange={this.handleFieldChange} className="form-control" type="text"
                                 id="firstName"
-                                placeholder="David"
+                                // placeholder="David"
                                 required="" autoFocus="" />
                         </div>
                         <div className="form-group col-md-4">
@@ -107,7 +107,7 @@ export default class Registration extends Component {
                 </label>
                             <input onChange={this.handleFieldChange} className="form-control" type="text"
                                 id="lastName"
-                                placeholder="Chang"
+                                // placeholder="Chang"
                                 required="" autoFocus="" />
                         </div>
                     </div>
@@ -118,7 +118,7 @@ export default class Registration extends Component {
                 </label>
                             <input onChange={this.handleFieldChange} className="form-control" type="text"
                                 id="city"
-                                placeholder="Nashville"
+                                // placeholder="Nashville"
                                 required="" autoFocus="" />
                         </div>
                         <div className="form-group col-md-1">
@@ -146,7 +146,7 @@ export default class Registration extends Component {
                 </label>
                             <input onChange={this.handleFieldChange} className="form-control" type="text"
                                 id="zipCode"
-                                placeholder="37206"
+                                // placeholder="37206"
                                 required="" />
                         </div>
                     </div>
