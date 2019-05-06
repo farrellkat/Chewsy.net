@@ -154,7 +154,7 @@ export default class Registration extends Component {
                         onClick={this.handleRegister}>
                         Register
                 </button>
-                    <Link className="ml-5" to="/login">Login</Link>
+                    <Link className="ml-5" to="/">Login</Link>
                 </div>
                 <img src={takeout} alt="takeout" className="registrationTakeout" />
             </form>
