@@ -63,7 +63,14 @@ export default class Favorites extends Component {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
         this.setState(stateToChange);
-    };
+    }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            this.searchAllFavorites(this.state.search)
+        }
+      }
 
     searchAllFavorites = (search) => {
         this.favArray = []
@@ -92,6 +99,7 @@ export default class Favorites extends Component {
                                                 name="search"
                                                 id="search"
                                                 onChange={this.handleFieldChange}
+                                                onKeyPress={(e) => this.handleKeyPress(e)}
                                                 style={{ marginRight: "5px" }} />
                                         </FormGroup>
                                         <FormGroup style={{marginLeft:"5px"}}>
@@ -126,7 +134,7 @@ export default class Favorites extends Component {
                     </div>
                     <Masonry
                         className={'myGalleryClass'} // default ''
-                        elementType={'ul'} // default 'div'
+                        elementType={'div'} // default 'div'
                         options={masonryOptions} // default {}
                         disableImagesLoaded={false} // default false
                         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false

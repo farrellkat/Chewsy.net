@@ -176,8 +176,9 @@ html, body {
 }
 
 .grid-sizer,
-.grid-item {
-  width: 50%;
+.grid-item
+{
+  width: 50%
 }
 
 .card {

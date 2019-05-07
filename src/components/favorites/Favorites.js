@@ -6,7 +6,7 @@ import Masonry from "react-masonry-component"
 import Switch from "react-switch";
 
 const masonryOptions = {
-    // transitionDuration: '0.8s',
+    transitionDuration: '0.8s',
     initLayout: true,
     fitWidth: true,
     imagesLoaded: true,
@@ -85,10 +85,17 @@ export default class Favorites extends Component {
         })
     }
 
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            this.searchUsersFavorites(this.props.activeUser, this.state.search)
+        }
+      }
+
     handleFieldChange = evt => {
-        const stateToChange = {};
-        stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
+            const stateToChange = {};
+            stateToChange[evt.target.id] = evt.target.value;
+            this.setState(stateToChange);
     };
 
     render() {
@@ -106,6 +113,7 @@ export default class Favorites extends Component {
                                                 name="search"
                                                 id="search"
                                                 onChange={this.handleFieldChange}
+                                                onKeyPress={(e) => this.handleKeyPress(e)}
                                                 style={{ marginRight: 5 }} />
                                         </FormGroup>
                                         <FormGroup style={{ marginLeft: "5px" }}>

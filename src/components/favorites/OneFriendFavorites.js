@@ -40,7 +40,14 @@ export default class OneFriendFavorites extends Component {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
         this.setState(stateToChange);
-    };
+    }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            this.searchOneUsersFavorites(this.props.match.params.friendId, this.state.search)
+        }
+      }
 
     searchOneUsersFavorites = (user, search) => {
         UserManager.searchUserFavorites(user, search).then((favorites) => {
@@ -76,6 +83,7 @@ export default class OneFriendFavorites extends Component {
                                                 name="search"
                                                 id="search"
                                                 onChange={this.handleFieldChange}
+                                                onKeyPress={(e) => this.handleKeyPress(e)}
                                                 style={{ marginRight: 5 }} />
                                         </FormGroup>
                                         <FormGroup style={{ marginLeft: "5px" }}>
@@ -105,17 +113,17 @@ export default class OneFriendFavorites extends Component {
                                 onColor="#FF5A5A" />
                         </Form>
                     </div>
-                    <div className="oneFriendTopButtonDiv">
+                    {/* <div className="oneFriendTopButtonDiv">
                         <Button
                             style={{ marginTop: "20px", marginBottom: "20px" }}
                             color="info"
                             onClick={() => this.props.history.push("/friends")}
                         >Back</Button>
-                    </div>
+                    </div> */}
                     {/* <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center", alignItems:"flex-start" }}> */}
                     <Masonry
                         className={'myGalleryClass'} // default ''
-                        elementType={'ul'} // default 'div'
+                        elementType={'div'} // default 'div'
                         options={masonryOptions} // default {}
                         disableImagesLoaded={false} // default false
                         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
@@ -123,8 +131,11 @@ export default class OneFriendFavorites extends Component {
                     >
                         {
                             this.state.favorites.map(favorite =>
-                                <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, margin: 5, padding: "5px" }}>
-                                    <CardImg width="100%" src={favorite.image} />
+                                <Card key={favorite.restaurantId} id={favorite.id}>
+                                    <CardImg
+                                    width="100%"
+                                    src={favorite.image}
+                                    />
                                     <div>
                                         {this.state.checked &&
                                             <CardBody>
