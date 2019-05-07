@@ -69,35 +69,50 @@ export default class FavoriteEditForm extends Component {
                 <CardBody>
                   <CardTitle style={{ marginBottom: 10 }}><p className="favoritesName">{this.state.name}</p></CardTitle>
                   <div className="yelpRatingsContainer">
-                  <CardSubtitle><strong>Yelp rating: </strong></CardSubtitle>
-                  <Ratings
-                    rating={this.state.yelpRating}
-                    widgetDimensions="30px"
-                    widgetSpacings="5px"
-                    widgetRatedColors="darkred"
-                  >
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                  </Ratings>
+                    <CardSubtitle><strong>Yelp rating: </strong></CardSubtitle>
+                    <Ratings
+                      rating={this.state.yelpRating}
+                      widgetDimensions="30px"
+                      widgetRatedColors="darkred"
+                      widgetSpacings="5px"
+                    >
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                    </Ratings>
                   </div>
                   <div className="userRatingsContainer">
-                  <CardSubtitle><strong>My Rating: </strong></CardSubtitle>
-                  <Ratings
-                    rating={this.state.rating}
-                    widgetRatedColors="goldenrod"
-                    changeRating={this.changeRating}
-                    widgetDimensions="30px"
-                  >
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                  </Ratings>
+                    <CardSubtitle><strong>My Rating: </strong></CardSubtitle>
+                    <Ratings
+                      rating={this.state.rating}
+                      widgetRatedColors="goldenrod"
+                      changeRating={this.changeRating}
+                      widgetDimensions="30px"
+                      widgetSpacings="5px"
+                    >
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                    </Ratings>
                   </div>
+                  <CardText style={{ marginTop: "10px", marginBottom: 0 }}><strong>Address:</strong></CardText>
+                  <CardText><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/?q=
+                  ${this.state.Address1} ${this.state.city}, ${this.state.state} ${this.state.zip_code}`}
+                  >{this.state.Address1}
+                    <br />
+                    {this.state.city}, {this.state.state} {this.state.zip_code}
+                  </a>
+                  </CardText>
+                  <CardText style={{ marginBottom: "0px" }}><strong>Phone: </strong></CardText>
+                  <CardText>{this.state.phone}</CardText>
+                  <CardText style={{ marginBottom: "0px" }}><strong>Website: </strong></CardText>
+                  <CardText><a href={this.state.url} target="_blank" rel="noopener noreferrer">{this.state.name}</a></CardText>
+
+
                   <CardText style={{ marginTop: 10 }}><strong>Notes:</strong></CardText>
                   <div className="form-group">
                     <Input defaultValue={this.state.notes} type="textarea" name="text" id="notes" onChange={this.handleFieldChange} />
