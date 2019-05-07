@@ -50,7 +50,8 @@ export default class FavoriteEditForm extends Component {
           id: restaurant.id,
           yelpRating: restaurant.yelpRating,
           notes: restaurant.notes,
-          rating: restaurant.rating
+          rating: restaurant.rating,
+          url: restaurant.url
         })
       })
   }
