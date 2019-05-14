@@ -14,8 +14,10 @@ Chewsy is a single-page web application that helps you find your next favorite r
     >npm install
 
 4. cd into [choose-chewsy/api] folder and run appDataURL database on json-server:
-    >cd choose-chewsy/api
-    >json-server -p 5002  -w appData.json
+    ```
+    cd choose-chewsy/api
+    json-server -p 5002  -w appData.json
+    ```
 
 5. start Chewsy app:
     > npm start
