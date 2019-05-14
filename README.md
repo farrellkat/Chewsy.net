@@ -13,7 +13,8 @@ Chewsy is a single-page web application that helps you find your next favorite r
 4. install necessary dependencies:
     >npm install
 
-4. run appDataURL database on json-server:
+4. cd into [choose-chewsy/api] folder and run appDataURL database on json-server:
+    >cd choose-chewsy/api
     >json-server -p 5002  -w appData.json
 
 5. start Chewsy app:
@@ -44,7 +45,7 @@ To install all necessary dependencies run npm install in the terminal
 
 
 
-
+# Default React app README
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
