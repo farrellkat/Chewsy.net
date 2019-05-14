@@ -57,7 +57,7 @@ export default class LoginAuth0 extends Component {
                   >
                     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                       <i className="fas fa-lock" style={{ fontSize: "30px" }}></i>
-                      sign in
+                      sign up / log in
                   </div>
                   </Button>
               )

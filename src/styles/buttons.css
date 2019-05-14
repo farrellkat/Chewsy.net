@@ -53,6 +53,7 @@
     animation-iteration-count: 1;
     animation-timing-function: ease;
     animation-duration: 4s;
+    line-height: normal;
      }
 #loadingBtn {
     opacity: 0;
