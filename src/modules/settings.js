@@ -2,7 +2,6 @@
 
 export default {
     yelpAPI: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3",
-    appDataURL: "https://cors-anywhere.herokuapp.com/https://api.chewsy.net",
-    // appDataURL: "http://localhost:5002",
-    // appDataURL: "https://heroku-chewsy-api.herokuapp.com"
+    appDataURL: "http://localhost:5002",
+    // appDataURL: "https://cors-anywhere.herokuapp.com/https://api.chewsy.net",
   }

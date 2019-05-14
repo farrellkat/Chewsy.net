@@ -1,11 +1,11 @@
-#WELCOME TO CHEWSY!
+# WELCOME TO CHEWSY!
 Chewsy is a single-page web application that helps you find your next favorite restaurant, one dish at a time.
 
 ## Getting Started
 ### To run locally
-1. Go to [src/components/authentication/auth0-variables.js] and make sure (callbackUrl: 'http://localhost:3000/callback') is active and (callbackUrl: 'https://www.chewsy.net/callback') is made inactive.
+1. Go to [src/components/authentication/auth0-variables.js] and make sure (callbackUrl: 'http://localhost:3000/callback') is active and (callbackUrl: 'https://www.chewsy.net/callback') is deactivated.
 
-2. Go to [src/modules/settings.js] and deactivate (appDataURL: "https://cors-anywhere.herokuapp.com/https://api.chewsy.net") and activate (appDataURL: "http://localhost:5002")
+2. Go to [src/modules/settings.js] and activate (appDataURL: "http://localhost:5002") and make sure (appDataURL: "https://cors-anywhere.herokuapp.com/https://api.chewsy.net") is deactivated.
 
 3. install json-server:
     >npm install -g json-server
