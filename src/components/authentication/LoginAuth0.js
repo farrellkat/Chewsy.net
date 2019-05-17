@@ -4,8 +4,12 @@ import Header from "../Header"
 import { Button } from "reactstrap"
 // import loading from './loading.svg';
 
-
+const textArray = ['Sign Up', 'Log In'];
 export default class LoginAuth0 extends Component {
+  constructor() {
+    super();
+    this.state = { textIdx: 0 };
+  }
 
   goTo(route) {
     this.props.history.replace(`/${route}`)
@@ -24,7 +28,16 @@ export default class LoginAuth0 extends Component {
 
     if (localStorage.getItem('isLoggedIn') === 'true') {
       renewSession();
-    }
+    };
+
+    this.timeout = setInterval(() => {
+      let currentIdx = this.state.textIdx;
+      this.setState({ textIdx: currentIdx + 1 });
+    }, 3500);
+  }
+
+  componentDidUnmount() {
+    clearInterval(this.timeout);
   }
 
   enterWebsite() {
@@ -38,6 +51,7 @@ export default class LoginAuth0 extends Component {
   //Build login form
   render() {
     const { isAuthenticated } = this.props.auth;
+    let textThatChanges = textArray[this.state.textIdx % textArray.length];
 
     return (
       <React.Fragment>
@@ -55,9 +69,9 @@ export default class LoginAuth0 extends Component {
                       this.login.bind(this)
                     }
                   >
-                    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                    <div className="loginText" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                       <i className="fas fa-lock" style={{ fontSize: "30px" }}></i>
-                      sign up / log in
+                      {textThatChanges}
                   </div>
                   </Button>
               )
