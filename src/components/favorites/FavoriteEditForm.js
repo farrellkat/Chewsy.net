@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
-import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button, Input, Label } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, CardGroup, CardBody, CardSubtitle, Button, Input } from 'reactstrap';
 import Ratings from 'react-ratings-declarative';
 export default class FavoriteEditForm extends Component {
   // Set initial state
@@ -50,7 +50,8 @@ export default class FavoriteEditForm extends Component {
           id: restaurant.id,
           yelpRating: restaurant.yelpRating,
           notes: restaurant.notes,
-          rating: restaurant.rating
+          rating: restaurant.rating,
+          url: restaurant.url
         })
       })
   }
@@ -61,27 +62,58 @@ export default class FavoriteEditForm extends Component {
       <React.Fragment>
         <CardGroup className="favorites" style={{ margin: 20, justifyContent: "center" }}>
           {
-            <Card key={this.state.restaurantId} id={this.state.id} style={{ maxWidth: 350, minWidth: 350, marginTop: 50 }}>
+            <Card key={this.state.restaurantId} id={this.state.id} style={{ marginTop: 50 }}>
               <div className="editImgHolder">
                 <CardImg width="100%" src={this.state.image} />
               </div>
               <div className="editInfoHolder">
                 <CardBody>
                   <CardTitle style={{ marginBottom: 10 }}><p className="favoritesName">{this.state.name}</p></CardTitle>
-                  <CardSubtitle><strong>Yelp rating: </strong>{this.state.yelpRating}</CardSubtitle>
+                  <div className="yelpRatingsContainer">
+                    <CardSubtitle><strong>Yelp rating: </strong></CardSubtitle>
+                    <Ratings
+                      rating={this.state.yelpRating}
+                      widgetDimensions="30px"
+                      widgetRatedColors="darkred"
+                      widgetSpacings="5px"
+                    >
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                    </Ratings>
+                  </div>
+                  <div className="userRatingsContainer">
+                    <CardSubtitle><strong>My Rating: </strong></CardSubtitle>
+                    <Ratings
+                      rating={this.state.rating}
+                      widgetRatedColors="goldenrod"
+                      changeRating={this.changeRating}
+                      widgetDimensions="30px"
+                      widgetSpacings="5px"
+                    >
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                      <Ratings.Widget />
+                    </Ratings>
+                  </div>
+                  <CardText style={{ marginTop: "10px", marginBottom: 0 }}><strong>Address:</strong></CardText>
+                  <CardText><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/?q=
+                  ${this.state.Address1} ${this.state.city}, ${this.state.state} ${this.state.zip_code}`}
+                  >{this.state.Address1}
+                    <br />
+                    {this.state.city}, {this.state.state} {this.state.zip_code}
+                  </a>
+                  </CardText>
+                  <CardText style={{ marginBottom: "0px" }}><strong>Phone: </strong></CardText>
+                  <CardText>{this.state.phone}</CardText>
+                  <CardText style={{ marginBottom: "0px" }}><strong>Website: </strong></CardText>
+                  <CardText><a href={this.state.url} target="_blank" rel="noopener noreferrer">{this.state.name}</a></CardText>
 
-                  <Label for="exampleSelect">My Rating:</Label>
-                  <Ratings
-                    rating={this.state.rating}
-                    widgetRatedColors="goldenrod"
-                    changeRating={this.changeRating}
-                  >
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                    <Ratings.Widget />
-                  </Ratings>
+
                   <CardText style={{ marginTop: 10 }}><strong>Notes:</strong></CardText>
                   <div className="form-group">
                     <Input defaultValue={this.state.notes} type="textarea" name="text" id="notes" onChange={this.handleFieldChange} />

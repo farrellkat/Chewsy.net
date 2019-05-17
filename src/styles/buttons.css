@@ -1,3 +1,39 @@
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeOutOpacity {
+	0% {
+		opacity: 1;
+  }
+  20%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+	100% {
+		opacity: 0;
+	}
+}
+
+/* .elementToAnimate{
+  animation: yourAnimation 3s normal 2s linear;
+} */
+
 :root {
     --chewsyYellow: #e6c400;
     --chewsyOrange: #cc8c01;
@@ -10,6 +46,22 @@
     -3px 3px 0px var(--chewsyOrange),
     -4px 4px 0px var(--chewsyGreen);
   }
+
+#loginBtn {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    line-height: normal;
+     }
+#loadingBtn {
+    opacity: 0;
+    animation-name: fadeOutOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+     }
 
   .logoutButton {
     display: flex;

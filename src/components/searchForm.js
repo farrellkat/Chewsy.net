@@ -33,7 +33,14 @@ export default class SearchForm extends Component {
         stateToChange[evt.target.id] = evt.target.value;
         if (evt.target.value === "Select a Category") stateToChange[evt.target.id] = ""
         this.setState(stateToChange);
-    };
+    }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            window.alert("Please fill out all forms and click 'Let's Go' or 'Surprise Me!'")
+        }
+      }
 
     render() {
         const categories = staticAppData.categories.filter(data => data.parents[0] === "restaurants")
@@ -53,6 +60,7 @@ export default class SearchForm extends Component {
                                         required
                                         // className="col-md-2"
                                         placeholder="City or Zip Code"
+                                        onKeyPress={(e) => this.handleKeyPress(e)}
                                         onChange={this.handleFieldChange}
                                     />
                                 </FormGroup>

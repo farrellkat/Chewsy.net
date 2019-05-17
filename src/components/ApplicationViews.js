@@ -225,12 +225,6 @@ export default class ApplicationViews extends Component {
                     }
                 }
                     />
-                {/* <Route exact path="/profile" render={(props) => {
-                    return <Profile {...props} auth={this.props.auth}
-                        />
-                    }
-                }
-                    /> */}
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
                     activeUser={this.state.activeUser}
@@ -238,8 +232,7 @@ export default class ApplicationViews extends Component {
                     states={this.state.states} />
                 }} />
                 <Route exact path="/search" render={(props) => {
-                    // if (this.isAuthenticated()) {
-                        if (this.isAuthenticated()) {
+                        // if (this.isAuthenticated()) {
                             return <SearchForm
                             {...props}
                             userCity={this.state.userCity}
@@ -253,9 +246,9 @@ export default class ApplicationViews extends Component {
                             updateUserState={this.updateUserState}
                             updateSurpriseUserState={this.updateSurpriseUserState}
                             />
-                        } else {
-                                return <Redirect to="/" />
-                                }
+                        // } else {
+                                // return <Redirect to="/" />
+                                // }
 
                             }} />
                 <Route exact path="/cardviewer" render={(props) => {

@@ -5252,19 +5252,6 @@
         ]
     },
     {
-        "alias": "eltern_cafes",
-        "title": "Parent Cafes",
-        "parents": [
-            "restaurants",
-            "food"
-        ],
-        "country_whitelist": [
-            "CH",
-            "DE",
-            "AT"
-        ]
-    },
-    {
         "alias": "embassy",
         "title": "Embassy",
         "parents": [
@@ -11291,6 +11278,19 @@
         "title": "Parasailing",
         "parents": [
             "active"
+        ]
+    },
+    {
+        "alias": "eltern_cafes",
+        "title": "Parent Cafes",
+        "parents": [
+            "restaurants",
+            "food"
+        ],
+        "country_whitelist": [
+            "CH",
+            "DE",
+            "AT"
         ]
     },
     {

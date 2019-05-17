@@ -7,9 +7,15 @@ import Switch from "react-switch";
 
 const masonryOptions = {
     transitionDuration: '0.8s',
+    initLayout: true,
     fitWidth: true,
-    columnWidth: 20,
-
+    imagesLoaded: true,
+    columnWidth: '.grid-sizer',
+    itemSelector: '.grid-item',
+    horizontalOrder: true,
+    percentPosition: true,
+    gutter: 0,
+    containerStyle: null
 };
 
 
@@ -50,7 +56,7 @@ export default class Favorites extends Component {
         } else {
             return <Ratings
                 rating={favorite.yelpRating}
-                widgetDimensions="30px"
+                widgetDimensions="15px"
                 widgetSpacings="5px"
                 widgetRatedColors="darkred"
             >
@@ -79,10 +85,17 @@ export default class Favorites extends Component {
         })
     }
 
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            this.searchUsersFavorites(this.props.activeUser, this.state.search)
+        }
+      }
+
     handleFieldChange = evt => {
-        const stateToChange = {};
-        stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
+            const stateToChange = {};
+            stateToChange[evt.target.id] = evt.target.value;
+            this.setState(stateToChange);
     };
 
     render() {
@@ -100,6 +113,7 @@ export default class Favorites extends Component {
                                                 name="search"
                                                 id="search"
                                                 onChange={this.handleFieldChange}
+                                                onKeyPress={(e) => this.handleKeyPress(e)}
                                                 style={{ marginRight: 5 }} />
                                         </FormGroup>
                                         <FormGroup style={{ marginLeft: "5px" }}>
@@ -130,8 +144,8 @@ export default class Favorites extends Component {
                         </Form>
                     </div>
                     <Masonry
-                        className={'my-gallery-class'} // default ''
-                        elementType={'ul'} // default 'div'
+                        className={'myGalleryClass'} // default ''
+                        elementType={'div'} // default 'div'
                         options={masonryOptions} // default {}
                         disableImagesLoaded={false} // default false
                         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
@@ -140,18 +154,24 @@ export default class Favorites extends Component {
                     >
                         {
                             this.state.favorites.map(favorite =>
-                                <Card key={favorite.restaurantId} id={favorite.id} style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}>
-                                    <CardImg width="100%" src={favorite.image} />
+                                <Card key={favorite.restaurantId} id={favorite.id}
+                                // style={{ maxWidth: 350, minWidth: 350, margin: 5, padding: "5px" }}
+                                >
+                                    <CardImg
+                                        width="100%"
+                                        src={favorite.image}
+                                        onClick={() => this.props.history.push(`/favorites/${favorite.id}/edit`)}
+                                    />
                                     <div>
                                         {this.state.checked &&
                                             <CardBody>
-                                                <CardTitle style={{ marginBottom: 0 }}><p className="favoritesName">{favorite.name}</p></CardTitle>
-                                                <CardText style={{ textAlign: "center" }}>
+                                                <CardTitle style={{ marginBottom: "0px" }}><p className="favoritesName">{favorite.name}</p></CardTitle>
+                                                <CardText style={{ textAlign: "center", marginBottom: "0px" }}>
                                                     {favorite.category.map(category =>
-                                                        <small className="text-muted" style={{ textAlign: "center", marginBottom: 0 }}><i>{category.title}&nbsp;</i></small>
+                                                        <small className="text-muted" style={{ textAlign: "center", marginBottom: "0px" }}><i>{category.title}&nbsp;</i></small>
                                                     )}
                                                 </CardText>
-                                                <CardText className="text-muted" style={{ textAlign: "center", marginTop: 0 }}>{favorite.price}</CardText>
+                                                <CardText className="text-muted" style={{ textAlign: "center", marginBottom: "0px" }}>{favorite.price}</CardText>
                                                 <CardText style={{ marginBottom: "0px", textAlign: "center" }}><strong>Yelp rating:</strong></CardText>
                                                 <div className="favoritePageRatings">
                                                     {this.yelpCurtain(favorite)} {/* hides the yelp review until user reviews */}
@@ -160,7 +180,7 @@ export default class Favorites extends Component {
                                                 <div className="favoritePageRatings">
                                                     <Ratings
                                                         rating={favorite.rating}
-                                                        widgetDimensions="30px"
+                                                        widgetDimensions="15px"
                                                         widgetSpacings="5px"
                                                         widgetRatedColors="goldenrod"
                                                     >
@@ -171,7 +191,7 @@ export default class Favorites extends Component {
                                                         <Ratings.Widget />
                                                     </Ratings>
                                                 </div>
-                                                <CardText style={{ marginBottom: 0 }}><strong>Address:</strong></CardText>
+                                                <CardText style={{ marginTop: "10px", marginBottom: 0 }}><strong>Address:</strong></CardText>
                                                 <CardText><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/?q=
                                                 ${favorite.location.address1} ${favorite.location.city}, ${favorite.location.state} ${favorite.location.zip_code}`}
                                                 >{favorite.location.address1}
@@ -179,10 +199,12 @@ export default class Favorites extends Component {
                                                     {favorite.location.city}, {favorite.location.state} {favorite.location.zip_code}
                                                 </a>
                                                 </CardText>
-                                                <CardText><strong>Phone: </strong>{favorite.phone}</CardText>
-                                                <CardText><strong>Website: </strong><a href={favorite.url} target="_blank" rel="noopener noreferrer">{favorite.name}</a></CardText>
+                                                <CardText style={{ marginBottom:"0px" }}><strong>Phone: </strong></CardText>
+                                                <CardText>{favorite.phone}</CardText>
+                                                <CardText style={{ marginBottom:"0px" }}><strong>Website: </strong></CardText>
+                                                <CardText><a href={favorite.url} target="_blank" rel="noopener noreferrer">{favorite.name}</a></CardText>
                                                 <div className="favNotes">
-                                                    <CardText style={{ marginBottom: 0 }}><strong>Notes:</strong></CardText>
+                                                    <CardText><strong>Notes:</strong></CardText>
                                                     <CardText>{favorite.notes}</CardText>
                                                 </div>
                                                 <div className="favButtonContainer">
