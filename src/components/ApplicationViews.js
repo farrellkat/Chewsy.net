@@ -105,6 +105,7 @@ export default class ApplicationViews extends Component {
             cityInput: cityInput,
             stateInput: stateInput,
             radiiInput: radiiInput,
+            randomNumberDiscards: [],
             businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.FoodSearch());
     };
@@ -116,6 +117,7 @@ export default class ApplicationViews extends Component {
             cityInput: cityInput,
             stateInput: stateInput,
             radiiInput: radiiInput,
+            randomNumberDiscards: [],
             businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.SurpriseSearch());
     };
