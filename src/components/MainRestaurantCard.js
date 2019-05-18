@@ -70,7 +70,11 @@ export default class MainRestaurantCard extends Component {
         Saved to your favorites!
       </Alert>
 
-                <Button style={{marginBottom:10}}color="info" onClick={()=> this.props.history.push("/cardviewer")}>Still Hungry?</Button>
+                <Button style={{marginBottom:10}}
+                        color="info"
+                        onClick={()=> {
+                        this.props.foodSearch()
+                        this.props.history.push("/cardviewer")}}>Still Hungry?</Button>
                 <section className="restaurantInfoCardContainer">
                     <div className="restaurantInfoImageContainer">
                         <img
