@@ -101,8 +101,6 @@ export default class ApplicationViews extends Component {
         const newState = {}
         const userId = parseInt(localStorage.getItem("userId"))
         newState.activeUser = userId
-        // newState.states = staticAppData.states
-        // newState.radii = staticAppData.radius
         this.setState(newState)
 
     }
