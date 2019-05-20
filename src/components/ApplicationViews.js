@@ -48,7 +48,8 @@ export default class ApplicationViews extends Component {
         businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif",
         randomNumberDiscards: [],
         userFavorites: [],
-        checked: false
+        checked: false,
+        totalMatches: ""
     }
 
     setLocation = () => UserManager.get(this.state.activeUser).then((r) =>
@@ -117,6 +118,7 @@ export default class ApplicationViews extends Component {
             stateInput: stateInput,
             radiiInput: radiiInput,
             randomNumberDiscards: [],
+            totalMatches: "",
             businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.FoodSearch());
     };
@@ -129,6 +131,7 @@ export default class ApplicationViews extends Component {
             stateInput: stateInput,
             radiiInput: radiiInput,
             randomNumberDiscards: [],
+            totalMatches: "",
             businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.SurpriseSearch());
     };
@@ -144,7 +147,6 @@ export default class ApplicationViews extends Component {
             this.state.randomNumberDiscards)
             .then(() => {
                 this.setState({
-                    // randomNumber: randomNumber,
                     businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
@@ -158,13 +160,7 @@ export default class ApplicationViews extends Component {
                     this.state.randomNumber
                 )).then((res) => {
                     if (res.error){return}
-                    // debugger
                     if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
-                        // this.setState({
-                        //     // businessInfo: res.businesses,
-                        //     businessImage: `${errorPicture}`
-
-                        // })
                         this.FoodSearch()
 
                     } else {
@@ -184,7 +180,6 @@ export default class ApplicationViews extends Component {
             this.state.randomNumberDiscards
             ).then(() => {
                 this.setState({
-                    // randomNumber: randomNumber,
                     businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
@@ -195,13 +190,7 @@ export default class ApplicationViews extends Component {
                     this.state.randomNumber
                 )).then((res) => {
                     if (res.error){return}
-                    // debugger
                     if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
-                        // this.setState({
-                        //     // businessInfo: res.businesses,
-                        //     businessImage: `${errorPicture}`
-
-                        // })
                         this.SurpriseSearch()
 
                     } else {
@@ -214,30 +203,39 @@ export default class ApplicationViews extends Component {
     }
 
     getRandomNumber = (businesses, randomNumberDiscardArray) => {
-        if (businesses.total < 1000 && businesses.total > 0) {
-            const randomNumber = Math.floor(Math.random() * businesses.total + 1)
-            if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
-                this.setState({
-                randomNumber: randomNumber
-                })
-            } else {
-                this.getRandomNumber(businesses, randomNumberDiscardArray)
+        if (this.state.totalMatches > 0) {
+            if (businesses.total < 1000 && businesses.total > 0) {
+                const randomNumber = Math.floor(Math.random() * businesses.total + 1)
+                if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
+                    this.setState({
+                    randomNumber: randomNumber,
+                    totalMatches : (this.state.totalMatches - 1)
+                    })
+                } else {
+                    this.getRandomNumber(businesses, randomNumberDiscardArray)
+                }
             }
-        }
-        else if (businesses.total > 1000) {
-            const total = 1000
-            const randomNumber = Math.floor(Math.random() * total + 1)
-            if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
-                this.setState({
-                randomNumber: randomNumber
-                })
-            } else {
-                this.getRandomNumber(businesses, randomNumberDiscardArray)
+            else if (businesses.total > 1000) {
+                const total = 1000
+                const randomNumber = Math.floor(Math.random() * total + 1)
+                if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
+                    this.setState({
+                    randomNumber: randomNumber,
+                    totalMatches : (this.state.totalMatches - 1)
+                    })
+                } else {
+                    this.getRandomNumber(businesses, randomNumberDiscardArray)
+                }
             }
-        }
-        else {
-            alert("no matches found")
+            else {
+                alert("no matches found")
+                history.push("/search")
+                return
+            }
+        } else {
+            alert("That's all folks")
             history.push("/search")
+            this.setState({ totalMatches: "" })
             return
         }
     }
@@ -246,11 +244,19 @@ export default class ApplicationViews extends Component {
         apiModule.getRestaurantSearchTotal(city, state, radius, category1, category2, category3)
             .then((b) => {
                 const businessArray = b
+                if (this.state.totalMatches === "") {
+                    if (businessArray.total > 1000) {
+                        this.setState({ totalMatches: 999})
+                    } else {
+                        this.setState({ totalMatches: businessArray.total - 1 })
+                    }
+                }
                 this.getRandomNumber(businessArray, randomNumberDiscardArray)
                 if (randomNumberDiscardArray.length) {
                         randomNumberDiscardArray.push(this.state.randomNumber)
                         this.setState({
                             randomNumberDiscards: randomNumberDiscardArray
+
                         })
                 }
                 else {
@@ -262,11 +268,19 @@ export default class ApplicationViews extends Component {
         apiModule.getTotalRestaurants(city, state, radius)
             .then((b) => {
                 const businessArray = b
+                if (this.state.totalMatches === "") {
+                    if (businessArray.total > 1000) {
+                        this.setState({ totalMatches: 1000})
+                    } else {
+                        this.setState({ totalMatches: businessArray.total - 1 })
+                    }
+                }
                 this.getRandomNumber(businessArray, randomNumberDiscardArray)
                 if (randomNumberDiscardArray.length) {
                         randomNumberDiscardArray.push(this.state.randomNumber)
                         this.setState({
                             randomNumberDiscards: randomNumberDiscardArray
+
                         })
                 }
                 else {
