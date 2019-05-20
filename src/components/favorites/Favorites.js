@@ -30,6 +30,7 @@ export default class Favorites extends Component {
 
     handleChange(checked) {
         this.setState({ checked });
+        this.props.handleSwitchChange(checked)
     }
 
     state = {
@@ -72,7 +73,8 @@ export default class Favorites extends Component {
     componentDidMount() {
         UserManager.getUserFavorites(this.props.activeUser).then((favorites) => {
             this.setState({
-                favorites: favorites
+                favorites: favorites,
+                checked: this.props.checked
             })
         })
     }

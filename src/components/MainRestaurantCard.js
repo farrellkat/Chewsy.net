@@ -70,7 +70,11 @@ export default class MainRestaurantCard extends Component {
         Saved to your favorites!
       </Alert>
 
-                <Button style={{marginBottom:10}}color="info" onClick={()=> this.props.history.push("/cardviewer")}>Still Hungry?</Button>
+                <Button style={{marginBottom:10}}
+                        color="info"
+                        onClick={()=> {
+                        this.props.foodSearch()
+                        this.props.history.push("/cardviewer")}}>Still Hungry?</Button>
                 <section className="restaurantInfoCardContainer">
                     <div className="restaurantInfoImageContainer">
                         <img
@@ -83,7 +87,7 @@ export default class MainRestaurantCard extends Component {
                         <div className="mainCardHeader">
                             <h1 className="mainCardRestaurantName display-4 text-light">{this.props.businessInfo[0].name}</h1>
                             {this.props.businessInfo[0].categories.map(category =>
-                                <small className="text-white"><i>{category.title}&nbsp;</i></small>
+                                <small className="text-white" key={category.title}><i>{category.title}&nbsp;</i></small>
                             )}
                         </div>
                         <div className="MainCardAddressContainer text-light">

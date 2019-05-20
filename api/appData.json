@@ -1530,6 +1530,72 @@
       "url": "https://www.yelp.com/biz/ellingtons-mid-way-bar-and-grill-nashville-2?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
       "notes": "",
       "id": 42
+    },
+    {
+      "userId": 1,
+      "restaurantId": "WjmczOJVjnU6zIrCvdqptA",
+      "name": "The Yellow Porch",
+      "category": [
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        }
+      ],
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/MW7RFjLNdshct2tzlTpu1w/o.jpg",
+      "location": {
+        "address1": "734 Thompson Ln",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37204",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "734 Thompson Ln",
+          "Nashville, TN 37204"
+        ]
+      },
+      "phone": "(615) 386-0260",
+      "yelpRating": 4,
+      "url": "https://www.yelp.com/biz/the-yellow-porch-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 43
+    },
+    {
+      "userId": 1,
+      "restaurantId": "UYO_d_iqHp4trXNxVOVR1w",
+      "name": "Bastion",
+      "category": [
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        },
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        }
+      ],
+      "image": "https://s3-media2.fl.yelpcdn.com/bphoto/r7lB9i04EHXdWgd5VbFyUA/o.jpg",
+      "location": {
+        "address1": "434 Houston St",
+        "address2": "",
+        "address3": "",
+        "city": "Nashville",
+        "zip_code": "37203",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "434 Houston St",
+          "Nashville, TN 37203"
+        ]
+      },
+      "phone": "(615) 490-8434",
+      "yelpRating": 4.5,
+      "url": "https://www.yelp.com/biz/bastion-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$$",
+      "notes": "",
+      "id": 44
     }
   ],
   "friends": [
