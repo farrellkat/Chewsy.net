@@ -16,9 +16,14 @@ import OneFriendFavorites from "./favorites/OneFriendFavorites";
 import LoginAuth0 from "./authentication/LoginAuth0";
 // import Profile from "./authentication/Profile";
 import staticAppData from "../staticAppData"
-import errorPicture from "../img/errorPicture.png"
+// import errorPicture from "../img/errorPicture.png"
 import history from "./History"
 export default class ApplicationViews extends Component {
+
+    constructor() {
+        super();
+        this.handleSwitchChange = this.handleSwitchChange.bind(this);
+    }
 
     isAuthenticated() {
         // Check whether the current time is past the
@@ -42,7 +47,8 @@ export default class ApplicationViews extends Component {
         businessInfo: "",
         businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif",
         randomNumberDiscards: [],
-        userFavorites: []
+        userFavorites: [],
+        checked: false
     }
 
     setLocation = () => UserManager.get(this.state.activeUser).then((r) =>
@@ -70,6 +76,10 @@ export default class ApplicationViews extends Component {
         UserManager.addUserFavorite(favoriteRestaurant)
     }
 
+    handleSwitchChange(checked) {
+        this.setState({ checked });
+    }
+
     saveFavoriteRestaurant = (userId, id, name, image, location, phone, rating) => {
         const favoriteRestaurant = {
             userId: userId,
@@ -95,6 +105,7 @@ export default class ApplicationViews extends Component {
         this.setState(newState)
 
     }
+
 
 
     updateUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
@@ -337,6 +348,8 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <Favorites
                             {...props}
+                            checked={this.state.checked}
+                            handleSwitchChange={this.handleSwitchChange}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                         >
@@ -362,6 +375,8 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <Friends
                             {...props}
+                            checked={this.state.checked}
+                            handleSwitchChange={this.handleSwitchChange}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                             friends={this.state.friends}

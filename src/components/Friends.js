@@ -35,6 +35,7 @@ export default class Favorites extends Component {
 
     handleChange(checked) {
         this.setState({ checked });
+        this.props.handleSwitchChange(checked)
     }
 
     loadFriends = () => {
@@ -57,6 +58,9 @@ export default class Favorites extends Component {
 
     componentDidMount() {
         this.loadFriends()
+        this.setState({
+        checked: this.props.checked
+        })
     }
 
     handleFieldChange = evt => {
