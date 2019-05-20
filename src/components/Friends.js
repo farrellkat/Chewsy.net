@@ -35,7 +35,7 @@ export default class Favorites extends Component {
 
     handleChange(checked) {
         this.setState({ checked });
-        this.props.handleSwitchChange(checked)
+        this.props.handleSwitchChange(checked);
     }
 
     loadFriends = () => {

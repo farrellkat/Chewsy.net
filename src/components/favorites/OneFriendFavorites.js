@@ -34,6 +34,7 @@ export default class OneFriendFavorites extends Component {
 
     handleChange(checked) {
         this.setState({ checked });
+        this.props.handleSwitchChange(checked);
     }
 
     handleFieldChange = evt => {
@@ -62,7 +63,8 @@ export default class OneFriendFavorites extends Component {
         UserManager.getUserFavorites(this.props.match.params.friendId).then((favorites) => {
             this.setState({
                 favorites: favorites,
-                friendName: favorites[0].user.firstName
+                friendName: favorites[0].user.firstName,
+                checked: this.props.checked
             })
         })
     }

@@ -395,6 +395,8 @@ export default class ApplicationViews extends Component {
                 <Route path="/favorites/:friendId(\d+)/friendfavorite" render={props => {
                     return <OneFriendFavorites
                         {...props}
+                        checked={this.state.checked}
+                        handleSwitchChange={this.handleSwitchChange}
                     />
                 }}
                 />
