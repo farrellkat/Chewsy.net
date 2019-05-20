@@ -10,7 +10,7 @@ export default class CardViewer extends Component {
         color="info"
         className="yumButton"
         onClick={() =>
-            this.props.history.push("/restaurantinfo")}><i class="far fa-laugh-beam smiley"></i>
+            this.props.history.push("/restaurantinfo")}><i className="far fa-laugh-beam smiley"></i>
     </Button>
     render() {
         return (
@@ -29,7 +29,7 @@ export default class CardViewer extends Component {
                                 <Button
                                     color="danger"
                                     className="passButton"
-                                    onClick={this.props.FoodSearch}><i class="far fa-meh smiley"></i></Button>
+                                    onClick={this.props.FoodSearch}><i className="far fa-meh smiley"></i></Button>
                                 {
                                     (this.props.businessImage !== "/static/media/errorPicture.3298e1b0.png")
                                     ? this.yumButton

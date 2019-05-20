@@ -36,7 +36,7 @@ export default class LoginAuth0 extends Component {
     }, 3500);
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     clearInterval(this.timeout);
   }
 

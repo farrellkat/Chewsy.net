@@ -16,8 +16,14 @@ import OneFriendFavorites from "./favorites/OneFriendFavorites";
 import LoginAuth0 from "./authentication/LoginAuth0";
 // import Profile from "./authentication/Profile";
 import staticAppData from "../staticAppData"
-import errorPicture from "../img/errorPicture.png"
+// import errorPicture from "../img/errorPicture.png"
+import history from "./History"
 export default class ApplicationViews extends Component {
+
+    constructor() {
+        super();
+        this.handleSwitchChange = this.handleSwitchChange.bind(this);
+    }
 
     isAuthenticated() {
         // Check whether the current time is past the
@@ -25,7 +31,7 @@ export default class ApplicationViews extends Component {
         return localStorage.getItem('isLoggedIn')
         // let expiresAt = this.expiresAt;
         // return new Date().getTime() < expiresAt;
-      }
+    }
 
     state = {
         activeUser: localStorage.getItem("userId"),
@@ -40,7 +46,10 @@ export default class ApplicationViews extends Component {
         radiiInput: "",
         businessInfo: "",
         businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif",
-        userFavorites: []
+        randomNumberDiscards: [],
+        userFavorites: [],
+        checked: false,
+        totalMatches: ""
     }
 
     setLocation = () => UserManager.get(this.state.activeUser).then((r) =>
@@ -62,10 +71,14 @@ export default class ApplicationViews extends Component {
         })
     }
 
-    clearActiveUser = () => this.setState({activeUser: ""})
+    clearActiveUser = () => this.setState({ activeUser: "" })
 
     postFavoriteRestaurant = (favoriteRestaurant) => {
         UserManager.addUserFavorite(favoriteRestaurant)
+    }
+
+    handleSwitchChange(checked) {
+        this.setState({ checked });
     }
 
     saveFavoriteRestaurant = (userId, id, name, image, location, phone, rating) => {
@@ -85,14 +98,13 @@ export default class ApplicationViews extends Component {
 
 
     componentDidMount() {
-        const newState={}
+        const newState = {}
         const userId = parseInt(localStorage.getItem("userId"))
         newState.activeUser = userId
-        // newState.states = staticAppData.states
-        // newState.radii = staticAppData.radius
         this.setState(newState)
 
     }
+
 
 
     updateUserState = (category1, category2, category3, cityInput, stateInput, radiiInput) => {
@@ -103,6 +115,8 @@ export default class ApplicationViews extends Component {
             cityInput: cityInput,
             stateInput: stateInput,
             radiiInput: radiiInput,
+            randomNumberDiscards: [],
+            totalMatches: "",
             businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.FoodSearch());
     };
@@ -114,6 +128,8 @@ export default class ApplicationViews extends Component {
             cityInput: cityInput,
             stateInput: stateInput,
             radiiInput: radiiInput,
+            randomNumberDiscards: [],
+            totalMatches: "",
             businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
         }, () => this.SurpriseSearch());
     };
@@ -125,9 +141,10 @@ export default class ApplicationViews extends Component {
             this.state.radiiInput,
             this.state.category1,
             this.state.category2,
-            this.state.category3).then(randomNumber => {
+            this.state.category3,
+            this.state.randomNumberDiscards)
+            .then(() => {
                 this.setState({
-                    randomNumber: randomNumber,
                     businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
@@ -140,30 +157,27 @@ export default class ApplicationViews extends Component {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                    if (res.total === 0 || res.businesses[0].image_url === "") {
-                        this.setState({
-                            // businessInfo: res.businesses,
-                            businessImage: `${errorPicture}`
-
-                        })
+                    if (res.error){return}
+                    if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
+                        this.FoodSearch()
 
                     } else {
                         this.setState({
                             businessInfo: res.businesses,
                             businessImage: res.businesses[0].image_url
                         })
-                        }
-                    })
+                    }
+                })
     }
 
     SurpriseSearch = () => {
         this.getAllRandomOffset(
             this.state.cityInput,
             this.state.stateInput,
-            this.state.radiiInput).then(randomNumber => {
-                console.log(randomNumber)
+            this.state.radiiInput,
+            this.state.randomNumberDiscards
+            ).then(() => {
                 this.setState({
-                    randomNumber: randomNumber,
                     businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
@@ -173,43 +187,103 @@ export default class ApplicationViews extends Component {
                     this.state.radiiInput,
                     this.state.randomNumber
                 )).then((res) => {
-                    res.businesses[0].image_url !== "undefined" ? (
+                    if (res.error){return}
+                    if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
+                        this.SurpriseSearch()
+
+                    } else {
                         this.setState({
                             businessInfo: res.businesses,
                             businessImage: res.businesses[0].image_url
                         })
-                    ) : (
-                            this.setState({
-                                businessInfo: res.businesses,
-                                businessImage: "Picture Unavailable"
-                            })
-                        )
+                    }
                 })
     }
 
-    getRandomNumber = (businesses) => {
-        if (businesses.total < 1000) {
-            return Math.floor(Math.random() * businesses.total + 1)
+    getRandomNumber = (businesses, randomNumberDiscardArray) => {
+        if (this.state.totalMatches > 0) {
+            if (businesses.total < 1000 && businesses.total > 0) {
+                const randomNumber = Math.floor(Math.random() * businesses.total + 1)
+                if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
+                    this.setState({
+                    randomNumber: randomNumber,
+                    totalMatches : (this.state.totalMatches - 1)
+                    })
+                } else {
+                    this.getRandomNumber(businesses, randomNumberDiscardArray)
+                }
+            }
+            else if (businesses.total > 1000) {
+                const total = 1000
+                const randomNumber = Math.floor(Math.random() * total + 1)
+                if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
+                    this.setState({
+                    randomNumber: randomNumber,
+                    totalMatches : (this.state.totalMatches - 1)
+                    })
+                } else {
+                    this.getRandomNumber(businesses, randomNumberDiscardArray)
+                }
+            }
+            else {
+                alert("no matches found")
+                history.push("/search")
+                return
+            }
         } else {
-            const total = 1000
-            return Math.floor(Math.random() * total + 1)
+            alert("That's all folks")
+            history.push("/search")
+            this.setState({ totalMatches: "" })
+            return
         }
     }
 
-    getRandomOffset = (city, state, radius, category1, category2, category3) =>
+    getRandomOffset = (city, state, radius, category1, category2, category3, randomNumberDiscardArray) =>
         apiModule.getRestaurantSearchTotal(city, state, radius, category1, category2, category3)
             .then((b) => {
                 const businessArray = b
-                const randomNumber = this.getRandomNumber(businessArray)
-                return randomNumber
+                if (this.state.totalMatches === "") {
+                    if (businessArray.total > 1000) {
+                        this.setState({ totalMatches: 999})
+                    } else {
+                        this.setState({ totalMatches: businessArray.total - 1 })
+                    }
+                }
+                this.getRandomNumber(businessArray, randomNumberDiscardArray)
+                if (randomNumberDiscardArray.length) {
+                        randomNumberDiscardArray.push(this.state.randomNumber)
+                        this.setState({
+                            randomNumberDiscards: randomNumberDiscardArray
+
+                        })
+                }
+                else {
+                    randomNumberDiscardArray.push(this.state.randomNumber)
+                }
             })
 
-    getAllRandomOffset = (city, state, radius) =>
+    getAllRandomOffset = (city, state, radius, randomNumberDiscardArray) =>
         apiModule.getTotalRestaurants(city, state, radius)
             .then((b) => {
                 const businessArray = b
-                const randomNumber = this.getRandomNumber(businessArray)
-                return randomNumber
+                if (this.state.totalMatches === "") {
+                    if (businessArray.total > 1000) {
+                        this.setState({ totalMatches: 1000})
+                    } else {
+                        this.setState({ totalMatches: businessArray.total - 1 })
+                    }
+                }
+                this.getRandomNumber(businessArray, randomNumberDiscardArray)
+                if (randomNumberDiscardArray.length) {
+                        randomNumberDiscardArray.push(this.state.randomNumber)
+                        this.setState({
+                            randomNumberDiscards: randomNumberDiscardArray
+
+                        })
+                }
+                else {
+                    randomNumberDiscardArray.push(this.state.randomNumber)
+                }
             })
 
     render() {
@@ -217,43 +291,43 @@ export default class ApplicationViews extends Component {
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
                     return <LoginAuth0 {...props}
-                    auth={this.props.auth}
-                    setActiveUser={this.setActiveUser}
-                    setFirstName={this.setFirstName}
-                    firstName={this.state.firstName}
-                        />
-                    }
-                }
+                        auth={this.props.auth}
+                        setActiveUser={this.setActiveUser}
+                        setFirstName={this.setFirstName}
+                        firstName={this.state.firstName}
                     />
+                }
+                }
+                />
                 <Route exact path="/registration" render={(props) => {
                     return <Registration {...props}
-                    activeUser={this.state.activeUser}
-                    setActiveUser={this.setActiveUser}
-                    states={this.state.states} />
+                        activeUser={this.state.activeUser}
+                        setActiveUser={this.setActiveUser}
+                        states={this.state.states} />
                 }} />
                 <Route exact path="/search" render={(props) => {
-                        // if (this.isAuthenticated()) {
-                            return <SearchForm
-                            {...props}
-                            userCity={this.state.userCity}
-                            userState={this.state.userState}
-                            categories={this.state.categories}
-                            states={this.state.states}
-                            radii={this.state.radii}
-                            activeUser={this.state.activeUser}
-                            getRandomOffset={this.getRandomOffset}
-                            getAllRandomOffset={this.getAllRandomOffset}
-                            updateUserState={this.updateUserState}
-                            updateSurpriseUserState={this.updateSurpriseUserState}
-                            />
-                        // } else {
-                                // return <Redirect to="/" />
-                                // }
+                    // if (this.isAuthenticated()) {
+                    return <SearchForm
+                        {...props}
+                        userCity={this.state.userCity}
+                        userState={this.state.userState}
+                        categories={this.state.categories}
+                        states={this.state.states}
+                        radii={this.state.radii}
+                        activeUser={this.state.activeUser}
+                        getRandomOffset={this.getRandomOffset}
+                        getAllRandomOffset={this.getAllRandomOffset}
+                        updateUserState={this.updateUserState}
+                        updateSurpriseUserState={this.updateSurpriseUserState}
+                    />
+                    // } else {
+                    // return <Redirect to="/" />
+                    // }
 
-                            }} />
+                }} />
                 <Route exact path="/cardviewer" render={(props) => {
                     // if (this.isAuthenticated()) {
-                        if (this.isAuthenticated()) {
+                    if (this.isAuthenticated()) {
                         return <ErrorBoundary>
                             <CardViewer
                                 {...props}
@@ -269,9 +343,10 @@ export default class ApplicationViews extends Component {
                     }
                 }} />
                 <Route exact path="/restaurantinfo" render={(props) => {
-                     if (this.isAuthenticated()) {
+                    if (this.isAuthenticated()) {
                         return <MainRestaurantCard
                             {...props}
+                            foodSearch={this.FoodSearch}
                             businessInfo={this.state.businessInfo}
                             businessId={this.businessId}
                             postFavoriteRestaurant={this.postFavoriteRestaurant}
@@ -285,6 +360,8 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <Favorites
                             {...props}
+                            checked={this.state.checked}
+                            handleSwitchChange={this.handleSwitchChange}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                         >
@@ -294,7 +371,7 @@ export default class ApplicationViews extends Component {
                     }
                 }} />
                 <Route exact path="/findfriends" render={(props) => {
-                     if (this.isAuthenticated()) {
+                    if (this.isAuthenticated()) {
                         return <FindFriends
                             {...props}
                             activeUser={this.state.activeUser}
@@ -310,6 +387,8 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <Friends
                             {...props}
+                            checked={this.state.checked}
+                            handleSwitchChange={this.handleSwitchChange}
                             activeUser={this.state.activeUser}
                             userFavorites={this.state.userFavorites}
                             friends={this.state.friends}
@@ -319,18 +398,20 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/" />
                     }
                 }} />
-                 <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {
-                        return <FavoriteEditForm
-                                    {...props}
-                                    />
-                    }}
+                <Route path="/favorites/:favoriteId(\d+)/edit" render={props => {
+                    return <FavoriteEditForm
+                        {...props}
                     />
-                 <Route path="/favorites/:friendId(\d+)/friendfavorite" render={props => {
-                        return <OneFriendFavorites
-                                    {...props}
-                                    />
-                    }}
+                }}
+                />
+                <Route path="/favorites/:friendId(\d+)/friendfavorite" render={props => {
+                    return <OneFriendFavorites
+                        {...props}
+                        checked={this.state.checked}
+                        handleSwitchChange={this.handleSwitchChange}
                     />
+                }}
+                />
             </React.Fragment>
         );
     }

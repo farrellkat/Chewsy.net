@@ -155,8 +155,11 @@
         10%{
             opacity: 1;
         }
-        90%{
+        80%{
             opacity: 1;
+            }
+        95%{
+            opacity: 0;
             }
         100%{
             opacity: 0;
