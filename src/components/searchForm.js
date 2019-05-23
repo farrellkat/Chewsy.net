@@ -100,7 +100,7 @@ export default class SearchForm extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
-                            <Col md={1}>
+                            {/* <Col md={1}>
                                 <FormGroup>
                                     <Input className="custom-select"
                                         type="select"
@@ -117,7 +117,7 @@ export default class SearchForm extends Component {
                                         ))}
                                     </Input>
                                 </FormGroup>
-                            </Col>
+                            </Col> */}
                         </Row>
                         <p className="searchFormLabel">And up to 3 cuisines:</p>
                         <Row form style={{ justifyContent: "center" }}>
