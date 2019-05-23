@@ -11,10 +11,10 @@ export default {
     getAllRadii() {
         return fetch(`${settings.appDataURL}/radius`).then(e => e.json())
     },
-    getRestaurantSearchTotal(city, state, radius, category1, category2, category3) {
-        return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
-        &limit=1&categories=${category1}${category2}${category3}
-        &radius=${radius}&term=restaurants`, {
+    getRestaurantSearchTotal(city, state, category1, category2, category3) {
+        return fetch(`${settings.yelpAPI}/businesses/search?term=restaurants&location=${city},${state}
+        &categories=${category1}${category2}${category3}
+        `, {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
@@ -27,10 +27,8 @@ export default {
             }
         ).then(e => e.json())
     },
-    getRandomRestaurant(city, state, radius, category1, category2, category3, randomNumber) {
-        return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
-        &limit=1&categories=${category1}${category2}${category3}
-        &radius=${radius}&offset=${randomNumber}&term=restaurants`, {
+    getRandomRestaurant(city, state, category1, category2, category3, randomNumber) {
+        return fetch(`${settings.yelpAPI}/businesses/search?term=restaurants&location=${city},${state}&limit=1&categories=${category1}${category2}${category3}&offset=${randomNumber}`, {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
@@ -43,9 +41,9 @@ export default {
             }
         ).then(e => e.json())
     },
-    getTotalRestaurants(city, state, radius) {
-        return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
-        &limit=1&radius=${radius}&term=restaurants`, {
+    getTotalRestaurants(city, state) {
+        return fetch(`${settings.yelpAPI}/businesses/search?term=restaurants&location=${city},${state}
+        `, {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
@@ -59,8 +57,8 @@ export default {
         ).then(e => e.json())
     },
     getAllRestaurantsInCity(city, state) {
-        return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
-        &limit=50&term=restaurants`, {
+        return fetch(`${settings.yelpAPI}/businesses/search?term=restaurants&location=${city},${state}
+        &limit=50`, {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
@@ -74,8 +72,8 @@ export default {
         ).then(e => e.json())
     },
     getAllRestaurantsInCityOffset(city, state, offset) {
-        return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
-        &limit=50&offset=${offset}&term=restaurants`, {
+        return fetch(`${settings.yelpAPI}/businesses/search?term=restaurants&location=${city},${state}
+        &limit=50&offset=${offset}`, {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
@@ -89,8 +87,8 @@ export default {
         ).then(e => e.json())
     },
     getRandomSurpriseRestaurant(city, state, radius, randomNumber) {
-        return fetch(`${settings.yelpAPI}/businesses/search?location=${city},${state}
-        &limit=1&radius=${radius}&offset=${randomNumber}&term=restaurants`, {
+        return fetch(`${settings.yelpAPI}/businesses/search?term=restaurants&location=${city},${state}
+        &limit=1&offset=${randomNumber}`, {
                 method: "GET",
                 headers: {
                     "accept": "application/json",

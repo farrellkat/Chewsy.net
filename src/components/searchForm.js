@@ -16,6 +16,19 @@ export default class SearchForm extends Component {
         stateInput: "",
         radiiInput: "",
         randomNumber: "",
+        categoryArray: []
+    }
+
+
+    buildCategoryArray = () => {
+        const result = Array.from(new Set(this.props.allRestaurants.map(c => c.alias)))
+            .map(alias => {
+                return {
+                    alias: alias,
+                    title: this.props.allRestaurants.find(c => c.alias === alias).title
+                }
+            })
+        return result
     }
 
 
@@ -25,7 +38,11 @@ export default class SearchForm extends Component {
 
     componentDidMount() {
         const activeUser = localStorage.getItem("userId")
-        this.setState({ activeUser: activeUser })
+        const buildCategories = this.buildCategoryArray()
+        this.setState({
+            activeUser: activeUser,
+            categoryArray: buildCategories
+        })
     }
 
     handleFieldChange = evt => {
@@ -40,7 +57,7 @@ export default class SearchForm extends Component {
             event.preventDefault()
             window.alert("Please fill out all forms and click 'Let's Go' or 'Surprise Me!'")
         }
-      }
+    }
 
     render() {
         const categories = staticAppData.categories.filter(data => data.parents[0] === "restaurants")
@@ -50,7 +67,7 @@ export default class SearchForm extends Component {
                     <Form className="container" style={{ backgroundColor: "rgb(245, 138, 88, 0.3)", borderRadius: "5px", width: "80%" }}>
                         <h1 className="chewsySearchHeaderTitle">Let's eat!</h1>
                         <p className="searchFormLabel">Choose your location:</p>
-                        <Row form style={{justifyContent:"center"}}>
+                        <Row form style={{ justifyContent: "center" }}>
                             <Col md={4}>
                                 <FormGroup>
                                     <Input
@@ -64,8 +81,8 @@ export default class SearchForm extends Component {
                                         onChange={this.handleFieldChange}
                                     />
                                 </FormGroup>
-                                </Col>
-                                <Col md={1}>
+                            </Col>
+                            <Col md={1}>
                                 <FormGroup>
                                     <Input className="custom-select"
                                         type="select"
@@ -103,7 +120,7 @@ export default class SearchForm extends Component {
                             </Col>
                         </Row>
                         <p className="searchFormLabel">And up to 3 cuisines:</p>
-                        <Row form style={{justifyContent:"center"}}>
+                        <Row form style={{ justifyContent: "center" }}>
                             <Col md={3}>
                                 <FormGroup>
                                     <Input className="custom-select"
@@ -114,11 +131,13 @@ export default class SearchForm extends Component {
                                         onChange={this.handleFieldChange}
                                     >
                                         <option>Category 1</option>
-                                        {categories.map(c => (
-                                            <option key={c.alias} id={c.alias} value={c.alias}>
+                                        {
+                                        this.state.categoryArray.map(c => (
+                                            <option key={c.alias} id={c.alias} value={`${c.alias}`}>
                                                 {c.title}
                                             </option>
                                         ))}
+
                                     </Input>
                                 </FormGroup>
                             </Col>
@@ -133,11 +152,13 @@ export default class SearchForm extends Component {
                                         onChange={this.handleFieldChange}
                                     >
                                         <option>Category 2</option>
-                                        {categories.map(c => (
+                                        {
+                                        this.state.categoryArray.map(c => (
                                             <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
                                                 {c.title}
                                             </option>
                                         ))}
+
                                     </Input>
                                 </FormGroup>
                             </Col>
@@ -152,30 +173,32 @@ export default class SearchForm extends Component {
                                         onChange={this.handleFieldChange}
                                     >
                                         <option>Category 3</option>
-                                        {categories.map(c => (
+                                        {
+                                        this.state.categoryArray.map(c => (
                                             <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
                                                 {c.title}
                                             </option>
                                         ))}
+
                                     </Input>
                                 </FormGroup>
                             </Col>
                         </Row>
                         <Col>
-                            <Row style={{justifyContent:"center"}}>
+                            <Row style={{ justifyContent: "center" }}>
 
                                 <FormGroup>
                                     <Button
                                         color="info"
-                                        style={{marginRight:"5px"}}
+                                        style={{ marginRight: "5px" }}
                                         onClick={() => {
                                             this.props.updateUserState(
                                                 this.state.category1,
                                                 this.state.category2,
                                                 this.state.category3,
                                                 this.state.cityInput,
-                                                this.state.stateInput,
-                                                this.state.radiiInput)
+                                                this.state.stateInput
+                                                )
                                             this.props.history.push("/cardviewer")
                                         }}
                                         type="button">
@@ -193,8 +216,8 @@ export default class SearchForm extends Component {
                                                 this.state.category2,
                                                 this.state.category3,
                                                 this.state.cityInput,
-                                                this.state.stateInput,
-                                                this.state.radiiInput)
+                                                this.state.stateInput
+                                                )
                                             this.props.history.push("/cardviewer")
                                         }}><i>Surprise me</i></Button>
                                 </FormGroup>

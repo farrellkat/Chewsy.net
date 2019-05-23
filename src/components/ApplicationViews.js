@@ -18,7 +18,7 @@ import LoginAuth0 from "./authentication/LoginAuth0";
 import staticAppData from "../staticAppData"
 // import errorPicture from "../img/errorPicture.png"
 import history from "./History"
-import { timeout } from "q";
+// import { timeout } from "q";
 export default class ApplicationViews extends Component {
 
     constructor() {
@@ -50,7 +50,8 @@ export default class ApplicationViews extends Component {
         randomNumberDiscards: [],
         userFavorites: [],
         checked: false,
-        totalMatches: ""
+        totalMatches: "",
+        allRestaurants: []
     }
 
     setLocation = () => UserManager.get(this.state.activeUser).then((r) =>
@@ -124,26 +125,22 @@ export default class ApplicationViews extends Component {
                             .then((r) => {
                                 r.businesses.forEach(b => {
                                     //build for each loop for each category
-                                  const categories = b.categories[0]
+                                    for (let i = 0; i<b.categories.length; i++){
+                                  const categories = b.categories[i]
+                                //   console.log(categories)
                                   totalRestaurantsArray.push(categories)
-                                })
+                                }
                             })
+                        })
                         offset = (offset + 51)
-                              i++;                     //  increment the counter
-                              if (i < 20) {            //  if the counter < 10, call the loop function
-                                 myLoop();             //  ..  again which will trigger another
-                              }                        //  ..  setTimeout()
-                           }, ((Math.floor(Math.random() * 1) + 1 ) * 1000))
-                        }
-
-                        myLoop();
-
-                        // for (let i = 1; i <= iterationCount; i++) {
-                        // setTimeout(
-                        //     this.gatherRestaurants(totalRestaurantsArray, u.city, u.state, offset)
-                        // , 5000)
-                        // }
-                            newState.allRestaurants = totalRestaurantsArray
+                        i++;                     //  increment the counter
+                        if (i < 20) {            //  if the counter < 10, call the loop function
+                            myLoop();             //  ..  again which will trigger another
+                        }                        //  ..  setTimeout()
+                    }, ((Math.floor(Math.random() * 1) + 1 ) * 1000))
+                }
+                myLoop();
+                        newState.allRestaurants = totalRestaurantsArray
                         newState.activeUser = userId
                         this.setState(newState)
                     })
@@ -193,7 +190,7 @@ export default class ApplicationViews extends Component {
         this.getRandomOffset(
             this.state.cityInput,
             this.state.stateInput,
-            this.state.radiiInput,
+            // this.state.radiiInput,
             this.state.category1,
             this.state.category2,
             this.state.category3,
@@ -203,14 +200,13 @@ export default class ApplicationViews extends Component {
                     businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
                 })
             }).then(() =>
-                apiModule.getRandomRestaurant(
-                    this.state.cityInput,
-                    this.state.stateInput,
-                    this.state.radiiInput,
-                    this.state.category1,
-                    this.state.category2,
-                    this.state.category3,
-                    this.state.randomNumber
+            apiModule.getRandomRestaurant(
+                this.state.cityInput,
+                this.state.stateInput,
+                this.state.category1,
+                this.state.category2,
+                this.state.category3,
+                this.state.randomNumber
                 )).then((res) => {
                     if (res.error) { return }
                     if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
@@ -229,7 +225,7 @@ export default class ApplicationViews extends Component {
         this.getAllRandomOffset(
             this.state.cityInput,
             this.state.stateInput,
-            this.state.radiiInput,
+            // this.state.radiiInput,
             this.state.randomNumberDiscards
         ).then(() => {
             this.setState({
@@ -239,7 +235,7 @@ export default class ApplicationViews extends Component {
             apiModule.getRandomSurpriseRestaurant(
                 this.state.cityInput,
                 this.state.stateInput,
-                this.state.radiiInput,
+                // this.state.radiiInput,
                 this.state.randomNumber
             )).then((res) => {
                 if (res.error) { return }
@@ -285,7 +281,8 @@ export default class ApplicationViews extends Component {
                 history.push("/search")
                 return
             }
-        } else {
+        }
+        else {
             alert("That's all folks")
             history.push("/search")
             this.setState({ totalMatches: "" })
@@ -293,8 +290,8 @@ export default class ApplicationViews extends Component {
         }
     }
 
-    getRandomOffset = (city, state, radius, category1, category2, category3, randomNumberDiscardArray) =>
-        apiModule.getRestaurantSearchTotal(city, state, radius, category1, category2, category3)
+    getRandomOffset = (city, state, category1, category2, category3, randomNumberDiscardArray) =>
+        apiModule.getRestaurantSearchTotal(city, state, category1, category2, category3)
             .then((b) => {
                 const businessArray = b
                 if (this.state.totalMatches === "") {
@@ -317,8 +314,8 @@ export default class ApplicationViews extends Component {
                 }
             })
 
-    getAllRandomOffset = (city, state, radius, randomNumberDiscardArray) =>
-        apiModule.getTotalRestaurants(city, state, radius)
+    getAllRandomOffset = (city, state, randomNumberDiscardArray) =>
+        apiModule.getTotalRestaurants(city, state)
             .then((b) => {
                 const businessArray = b
                 if (this.state.totalMatches === "") {
@@ -374,6 +371,7 @@ export default class ApplicationViews extends Component {
                         getAllRandomOffset={this.getAllRandomOffset}
                         updateUserState={this.updateUserState}
                         updateSurpriseUserState={this.updateSurpriseUserState}
+                        allRestaurants={this.state.allRestaurants}
                     />
                     // } else {
                     // return <Redirect to="/" />
