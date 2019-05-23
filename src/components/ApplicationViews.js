@@ -18,6 +18,7 @@ import LoginAuth0 from "./authentication/LoginAuth0";
 import staticAppData from "../staticAppData"
 // import errorPicture from "../img/errorPicture.png"
 import history from "./History"
+import { timeout } from "q";
 export default class ApplicationViews extends Component {
 
     constructor() {
@@ -94,14 +95,68 @@ export default class ApplicationViews extends Component {
         this.postFavoriteRestaurant(favoriteRestaurant)
     }
 
+    gatherRestaurants = (totalRestaurantsArray, city, state, offset) => {
 
+            apiModule.getAllRestaurantsInCityOffset(city, state, offset)
+                .then((r) => {
+                    totalRestaurantsArray.push(r)
+                })
+            offset = (offset + 51)
+    }
+
+    importUsersHomeRestaurants = (userId) => {
+        UserManager.getUserById(userId)
+            .then((u) => {
+                apiModule.getAllRestaurantsInCity(u.city, u.state)
+                    .then((r) => {
+                        // debugger
+                        const newState = {}
+                        // const totalRestaurants = r.total
+                        // const iterationCount = (totalRestaurants / 50)
+                        const totalRestaurantsArray = []
+                        let offset = 0
+
+                        var i = 1;                     //  set your counter to 1
+
+                        function myLoop () {           //  create a loop function
+                           setTimeout(function () {    //  call a random setTimeout when the loop is called
+                            apiModule.getAllRestaurantsInCityOffset(u.city, u.state, offset)
+                            .then((r) => {
+                                r.businesses.forEach(b => {
+                                    //build for each loop for each category
+                                  const categories = b.categories[0]
+                                  totalRestaurantsArray.push(categories)
+                                })
+                            })
+                        offset = (offset + 51)
+                              i++;                     //  increment the counter
+                              if (i < 20) {            //  if the counter < 10, call the loop function
+                                 myLoop();             //  ..  again which will trigger another
+                              }                        //  ..  setTimeout()
+                           }, ((Math.floor(Math.random() * 1) + 1 ) * 1000))
+                        }
+
+                        myLoop();
+
+                        // for (let i = 1; i <= iterationCount; i++) {
+                        // setTimeout(
+                        //     this.gatherRestaurants(totalRestaurantsArray, u.city, u.state, offset)
+                        // , 5000)
+                        // }
+                            newState.allRestaurants = totalRestaurantsArray
+                        newState.activeUser = userId
+                        this.setState(newState)
+                    })
+            })
+    }
 
 
     componentDidMount() {
-        const newState = {}
+        // const newState = {}
         const userId = parseInt(localStorage.getItem("userId"))
-        newState.activeUser = userId
-        this.setState(newState)
+        // this.setState(newState)
+        this.importUsersHomeRestaurants(userId)
+
 
     }
 
@@ -157,7 +212,7 @@ export default class ApplicationViews extends Component {
                     this.state.category3,
                     this.state.randomNumber
                 )).then((res) => {
-                    if (res.error){return}
+                    if (res.error) { return }
                     if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
                         this.FoodSearch()
 
@@ -176,28 +231,28 @@ export default class ApplicationViews extends Component {
             this.state.stateInput,
             this.state.radiiInput,
             this.state.randomNumberDiscards
-            ).then(() => {
-                this.setState({
-                    businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
-                })
-            }).then(() =>
-                apiModule.getRandomSurpriseRestaurant(
-                    this.state.cityInput,
-                    this.state.stateInput,
-                    this.state.radiiInput,
-                    this.state.randomNumber
-                )).then((res) => {
-                    if (res.error){return}
-                    if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
-                        this.SurpriseSearch()
+        ).then(() => {
+            this.setState({
+                businessImage: "https://cdn.dribbble.com/users/989157/screenshots/4822481/food-icons-loading-animation.gif"
+            })
+        }).then(() =>
+            apiModule.getRandomSurpriseRestaurant(
+                this.state.cityInput,
+                this.state.stateInput,
+                this.state.radiiInput,
+                this.state.randomNumber
+            )).then((res) => {
+                if (res.error) { return }
+                if (res.businesses.length === 0 || res.businesses[0].image_url === "") {
+                    this.SurpriseSearch()
 
-                    } else {
-                        this.setState({
-                            businessInfo: res.businesses,
-                            businessImage: res.businesses[0].image_url
-                        })
-                    }
-                })
+                } else {
+                    this.setState({
+                        businessInfo: res.businesses,
+                        businessImage: res.businesses[0].image_url
+                    })
+                }
+            })
     }
 
     getRandomNumber = (businesses, randomNumberDiscardArray) => {
@@ -206,8 +261,8 @@ export default class ApplicationViews extends Component {
                 const randomNumber = Math.floor(Math.random() * businesses.total + 1)
                 if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
                     this.setState({
-                    randomNumber: randomNumber,
-                    totalMatches : (this.state.totalMatches - 1)
+                        randomNumber: randomNumber,
+                        totalMatches: (this.state.totalMatches - 1)
                     })
                 } else {
                     this.getRandomNumber(businesses, randomNumberDiscardArray)
@@ -218,8 +273,8 @@ export default class ApplicationViews extends Component {
                 const randomNumber = Math.floor(Math.random() * total + 1)
                 if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
                     this.setState({
-                    randomNumber: randomNumber,
-                    totalMatches : (this.state.totalMatches - 1)
+                        randomNumber: randomNumber,
+                        totalMatches: (this.state.totalMatches - 1)
                     })
                 } else {
                     this.getRandomNumber(businesses, randomNumberDiscardArray)
@@ -244,18 +299,18 @@ export default class ApplicationViews extends Component {
                 const businessArray = b
                 if (this.state.totalMatches === "") {
                     if (businessArray.total > 1000) {
-                        this.setState({ totalMatches: 999})
+                        this.setState({ totalMatches: 999 })
                     } else {
                         this.setState({ totalMatches: businessArray.total - 1 })
                     }
                 }
                 this.getRandomNumber(businessArray, randomNumberDiscardArray)
                 if (randomNumberDiscardArray.length) {
-                        randomNumberDiscardArray.push(this.state.randomNumber)
-                        this.setState({
-                            randomNumberDiscards: randomNumberDiscardArray
+                    randomNumberDiscardArray.push(this.state.randomNumber)
+                    this.setState({
+                        randomNumberDiscards: randomNumberDiscardArray
 
-                        })
+                    })
                 }
                 else {
                     randomNumberDiscardArray.push(this.state.randomNumber)
@@ -268,18 +323,18 @@ export default class ApplicationViews extends Component {
                 const businessArray = b
                 if (this.state.totalMatches === "") {
                     if (businessArray.total > 1000) {
-                        this.setState({ totalMatches: 1000})
+                        this.setState({ totalMatches: 1000 })
                     } else {
                         this.setState({ totalMatches: businessArray.total - 1 })
                     }
                 }
                 this.getRandomNumber(businessArray, randomNumberDiscardArray)
                 if (randomNumberDiscardArray.length) {
-                        randomNumberDiscardArray.push(this.state.randomNumber)
-                        this.setState({
-                            randomNumberDiscards: randomNumberDiscardArray
+                    randomNumberDiscardArray.push(this.state.randomNumber)
+                    this.setState({
+                        randomNumberDiscards: randomNumberDiscardArray
 
-                        })
+                    })
                 }
                 else {
                     randomNumberDiscardArray.push(this.state.randomNumber)
