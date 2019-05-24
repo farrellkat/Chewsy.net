@@ -132,11 +132,11 @@ export default class SearchForm extends Component {
                                     >
                                         <option>Category 1</option>
                                         {
-                                        this.state.categoryArray.map(c => (
-                                            <option key={c.alias} id={c.alias} value={`${c.alias}`}>
-                                                {c.title}
-                                            </option>
-                                        ))}
+                                            this.state.categoryArray.map(c => (
+                                                <option key={c.alias} id={c.alias} value={`${c.alias}`}>
+                                                    {c.title}
+                                                </option>
+                                            ))}
 
                                     </Input>
                                 </FormGroup>
@@ -153,11 +153,11 @@ export default class SearchForm extends Component {
                                     >
                                         <option>Category 2</option>
                                         {
-                                        this.state.categoryArray.map(c => (
-                                            <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
-                                                {c.title}
-                                            </option>
-                                        ))}
+                                            this.state.categoryArray.map(c => (
+                                                <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
+                                                    {c.title}
+                                                </option>
+                                            ))}
 
                                     </Input>
                                 </FormGroup>
@@ -174,11 +174,11 @@ export default class SearchForm extends Component {
                                     >
                                         <option>Category 3</option>
                                         {
-                                        this.state.categoryArray.map(c => (
-                                            <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
-                                                {c.title}
-                                            </option>
-                                        ))}
+                                            this.state.categoryArray.map(c => (
+                                                <option key={c.alias} id={c.alias} value={`,${c.alias}`}>
+                                                    {c.title}
+                                                </option>
+                                            ))}
 
                                     </Input>
                                 </FormGroup>
@@ -198,7 +198,7 @@ export default class SearchForm extends Component {
                                                 this.state.category3,
                                                 this.state.cityInput,
                                                 this.state.stateInput
-                                                )
+                                            )
                                             this.props.history.push("/cardviewer")
                                         }}
                                         type="button">
@@ -217,7 +217,7 @@ export default class SearchForm extends Component {
                                                 this.state.category3,
                                                 this.state.cityInput,
                                                 this.state.stateInput
-                                                )
+                                            )
                                             this.props.history.push("/cardviewer")
                                         }}><i>Surprise me</i></Button>
                                 </FormGroup>

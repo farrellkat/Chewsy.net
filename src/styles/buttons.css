@@ -52,7 +52,7 @@
     animation-name: fadeInOpacity;
     animation-iteration-count: 1;
     animation-timing-function: ease;
-    animation-duration: 4s;
+    animation-duration: 8s;
     line-height: normal;
      }
 #loadingBtn {
@@ -60,7 +60,7 @@
     animation-name: fadeOutOpacity;
     animation-iteration-count: 1;
     animation-timing-function: ease;
-    animation-duration: 4s;
+    animation-duration: 8s;
      }
 
   .logoutButton {

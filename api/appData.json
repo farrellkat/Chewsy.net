@@ -1596,6 +1596,46 @@
       "price": "$$",
       "notes": "",
       "id": 44
+    },
+    {
+      "userId": 1,
+      "restaurantId": "ZN8kZhe5ZJxQ57ahg_Umfg",
+      "name": "Ate's",
+      "category": [
+        {
+          "alias": "filipino",
+          "title": "Filipino"
+        },
+        {
+          "alias": "desserts",
+          "title": "Desserts"
+        },
+        {
+          "alias": "tacos",
+          "title": "Tacos"
+        }
+      ],
+      "image": "https://s3-media3.fl.yelpcdn.com/bphoto/o2ed7y8SVXmcYWbsVqJlgA/o.jpg",
+      "location": {
+        "address1": "900 Rosa L Parks Blvd",
+        "address2": "",
+        "address3": "Nashville Farmer's Market",
+        "city": "Nashville",
+        "zip_code": "37208",
+        "country": "US",
+        "state": "TN",
+        "display_address": [
+          "900 Rosa L Parks Blvd",
+          "Nashville Farmer's Market",
+          "Nashville, TN 37208"
+        ]
+      },
+      "phone": "(206) 288-3511",
+      "yelpRating": 5,
+      "url": "https://www.yelp.com/biz/ates-nashville?adjust_creative=opEPhvC5Ghdh-_LHEkvrGQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=opEPhvC5Ghdh-_LHEkvrGQ",
+      "price": "$",
+      "notes": "",
+      "id": 45
     }
   ],
   "friends": [

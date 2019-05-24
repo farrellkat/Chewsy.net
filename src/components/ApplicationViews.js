@@ -137,7 +137,7 @@ export default class ApplicationViews extends Component {
                         if (i < 20) {            //  if the counter < 10, call the loop function
                             myLoop();             //  ..  again which will trigger another
                         }                        //  ..  setTimeout()
-                    }, ((Math.floor(Math.random() * 1) + 1 ) * 1000))
+                    }, ((Math.floor(Math.random() * 1) + 1 ) * 300))
                 }
                 myLoop();
                         newState.allRestaurants = totalRestaurantsArray
@@ -254,7 +254,8 @@ export default class ApplicationViews extends Component {
     getRandomNumber = (businesses, randomNumberDiscardArray) => {
         if (this.state.totalMatches > 0) {
             if (businesses.total < 1000 && businesses.total > 0) {
-                const randomNumber = Math.floor(Math.random() * businesses.total + 1)
+                const randomNumber = Math.floor(Math.random() * businesses.total)
+                console.log(randomNumber)
                 if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
                     this.setState({
                         randomNumber: randomNumber,
@@ -266,7 +267,8 @@ export default class ApplicationViews extends Component {
             }
             else if (businesses.total > 1000) {
                 const total = 1000
-                const randomNumber = Math.floor(Math.random() * total + 1)
+                const randomNumber = Math.floor(Math.random() * total)
+                console.log(randomNumber)
                 if (randomNumberDiscardArray.indexOf(randomNumber) === -1) {
                     this.setState({
                         randomNumber: randomNumber,
@@ -274,6 +276,7 @@ export default class ApplicationViews extends Component {
                     })
                 } else {
                     this.getRandomNumber(businesses, randomNumberDiscardArray)
+                    console.log(randomNumber)
                 }
             }
             else {
@@ -298,7 +301,7 @@ export default class ApplicationViews extends Component {
                     if (businessArray.total > 1000) {
                         this.setState({ totalMatches: 999 })
                     } else {
-                        this.setState({ totalMatches: businessArray.total - 1 })
+                        this.setState({ totalMatches: businessArray.total })
                     }
                 }
                 this.getRandomNumber(businessArray, randomNumberDiscardArray)
@@ -322,7 +325,7 @@ export default class ApplicationViews extends Component {
                     if (businessArray.total > 1000) {
                         this.setState({ totalMatches: 1000 })
                     } else {
-                        this.setState({ totalMatches: businessArray.total - 1 })
+                        this.setState({ totalMatches: businessArray.total })
                     }
                 }
                 this.getRandomNumber(businessArray, randomNumberDiscardArray)
