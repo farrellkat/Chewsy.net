@@ -27,7 +27,11 @@ export default class SearchForm extends Component {
                     alias: alias,
                     title: this.props.allRestaurants.find(c => c.alias === alias).title
                 }
-            })
+            }).sort(function(a,b) {
+                var textA = a.title.toUpperCase();
+                var textB = b.title.toUpperCase();
+                return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+            });
         return result
     }
 
